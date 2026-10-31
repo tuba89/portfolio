@@ -286,7 +286,7 @@ export default function AiAssistant() {
                   <span>{labels.headerTitle}</span>
                 </h3>
                 <p className="text-[10px] text-(--text-muted) flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                  <Sparkles className="w-2.5 h-2.5 text-(--accent-peach) shrink-0" />
                   <span>{labels.headerSubtitle}</span>
                 </p>
               </div>
