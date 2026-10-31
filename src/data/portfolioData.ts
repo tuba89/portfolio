@@ -2,7 +2,7 @@ export interface Project {
   id: string;
   title: string;
   subtitle: string;
-  category: "Production" | "AI & Agents" | "Kaggle & ML" | "Web & Cloud";
+  category: "Production" | "Mobile & Full-Stack" | "AI & Agents" | "Kaggle & ML" | "Web3 & Cloud";
   description: string;
   longDescription: string;
   role: string;
@@ -13,7 +13,6 @@ export interface Project {
   badge?: string;
   featured: boolean;
   metrics?: { label: string; value: string }[];
-  accentColor?: string;
 }
 
 export interface Experience {
@@ -51,16 +50,15 @@ export interface Certification {
 export const PERSONAL_INFO = {
   name: "Assia Benkedia",
   title: "AI & Full-Stack Developer",
-  specialization: "Agentic AI · Fintech · Web3 Architecture",
+  specialization: "Mobile & Web Engineering · Autonomous AI Agents · Fintech & EVM",
   location: "Oran, Algeria (Open to Global Remote & Relocation)",
   email: "iiiassia.beniii@gmail.com",
   phone: "+213 783 60 05 83",
   github: "https://github.com/tuba89",
   githubUsername: "tuba89",
   linkedin: "https://linkedin.com/in/assia-benkedia-20708195",
-  kaggle: "https://www.kaggle.com",
   summary:
-    "High-achieving Computer Science graduate (High Honors, 3.97 GPA) and Full-Stack Developer engineering production platforms across Fintech, Agentic AI, and Web3. Currently developing key features at DizzitUp serving 54 African countries. Kaggle Silver Medalist in the Deep Past Challenge (33rd / 2,674 teams) and Google Gen AI Intensive Honourable Mention recipient. 12+ years of legal-notarial rigor paired with high-velocity software engineering.",
+    "High-achieving Computer Science graduate (High Honors, 3.97 GPA) and Full-Stack & Mobile Developer specializing in autonomous AI agents, production fintech, EVM smart contracts, and scalable cloud deployments. Currently engineering production features at DizzitUp serving 54 African countries. Proven track record including a Kaggle Silver Medal (33rd / 2,674 teams) and a Google Gen AI Intensive Honourable Mention. Combines deep full-stack mastery (React Native Expo, Next.js, Node.js, Prisma, Coolify, VPS server administration) with 12+ years of rigorous legal and operational discipline.",
   stats: [
     { label: "Kaggle Global Rank", value: "33rd / 2,674", note: "Silver Medal (Top 1.2%)" },
     { label: "University Honors", value: "GPA 3.97 / 4.00", note: "High Honors Graduate" },
@@ -76,14 +74,14 @@ export const FEATURED_PROJECTS: Project[] = [
     subtitle: "Pan-African Fintech & Marketplace Platform",
     category: "Production",
     description:
-      "A comprehensive multi-country marketplace and fintech ecosystem serving 54 African countries with utility payments, digital gift cards, crypto settlement, and mobile money.",
+      "A comprehensive multi-country marketplace and fintech ecosystem serving 54 African countries with utility vouchers, digital gift cards, crypto settlement, and mobile money.",
     longDescription:
-      "Contributing actively to DizzitUp's core engineering, building responsive multilingual frontends, scalable Node.js/Express APIs, Supabase PostgreSQL data schemas with Row-Level Security, universal search indexing, and crypto-fiat on/off-ramp mechanisms.",
+      "Contributing actively to DizzitUp core engineering, building responsive multilingual frontends, scalable Node.js/Express APIs, Supabase PostgreSQL data schemas with Row-Level Security, universal search indexing, and crypto-fiat on/off-ramp mechanisms.",
     role: "Full-Stack Developer (Core Contributor)",
     impact: [
       "Engineered cross-service Universal Search system indexing thousands of products, gift cards, and utility services across multiple African corridors.",
       "Built internal Admin Back-Office dashboards for fee structure configurations, live transaction ledgers, and operational oversight.",
-      "Supported mobile money, Reloadly telecom integrations, and DZYwallet crypto/stablecoin transaction flows.",
+      "Supported mobile money, telecom integrations, and DZYwallet crypto/stablecoin transaction flows.",
       "Implemented comprehensive multilingual RTL support (French, English, Arabic, Portuguese, Amharic).",
     ],
     tags: ["Next.js", "React", "Node.js", "Express", "Supabase", "PostgreSQL", "Prisma", "Web3", "TailwindCSS"],
@@ -97,28 +95,30 @@ export const FEATURED_PROJECTS: Project[] = [
     ],
   },
   {
-    id: "nibras-legal-hub",
-    title: "Nibras Legal Hub (نبراس العدلية)",
-    subtitle: "Smart Saudi Legal Intelligence & Workflow Platform",
-    category: "Production",
+    id: "cross-platform-mobile-marketplace",
+    title: "Cross-Platform Mobile & Web Marketplace Suite",
+    subtitle: "React Native (Expo), Payment Gateways & Self-Hosted Infrastructure",
+    category: "Mobile & Full-Stack",
     description:
-      "Bilingual (Arabic / English) legal tech platform designed for Saudi law firms, corporate legal counsels, and citizens, featuring OCR dossier analysis and legal RAG.",
+      "End-to-end mobile and web marketplace architecture featuring native iOS and Android apps, automated payment links, digital invoicing, card and mobile money checkouts, and custom VPS deployment.",
     longDescription:
-      "Engineered for مؤسسة بوابات التشفير للحلول البرمجية to streamline legal drafting, case document ingestion, and compliance. Resolves complex Arabic OCR text extraction, reversed text normalization, and provides automated legal summarization alongside Saudi payment gateways (mada, Visa, Apple Pay).",
-    role: "Lead Full-Stack & AI Engineer",
+      "Architected the complete lifecycle from UI/UX design to mobile build delivery and production cloud infrastructure. Developed native mobile interfaces using React Native and Expo with Android Emulator testing. Implemented multi-provider payment checkout including payment links, dynamic PDF invoices, card processing, and mobile money. Configured enterprise authentication with social logins (Apple, Google, Facebook/Meta) and custom Supabase SMTP transactional mailers. Deployed with Prisma ORM in production on self-hosted Coolify PaaS and managed Linux VPS servers.",
+    role: "Full-Stack & Mobile Lead Architect",
     impact: [
-      "Architected bilingual Next.js interface with native Right-to-Left (RTL) Arabic typography and dark/light legal aesthetics.",
-      "Built document processing pipeline with page and file-size constraints, OCR extraction, and legal dossier summarization.",
-      "Integrated secure client portals and upcoming Saudi payment checkouts (mada, Visa, Apple Pay).",
-      "Applied 12+ years of hands-on legal drafting experience to engineer realistic legal workflows.",
+      "Built cross-platform iOS and Android mobile applications using React Native and Expo with native performance and responsive layouts.",
+      "Created end-to-end payment pipelines: payment links, automated invoice generation, card processing, and regional mobile money.",
+      "Configured multi-provider social authentication (Sign in with Apple, Google OAuth, Meta/Facebook) and custom Supabase SMTP email delivery.",
+      "Integrated transactional communications: SMS delivery and custom email notification pipelines.",
+      "Configured enterprise analytics and tracking: Google Tag Manager, Google Analytics, Google Ads conversion tracking, Meta Pixel, and WhatsApp Business API.",
+      "Managed production infrastructure: Linux server administration via SSH, Hostinger VPS orchestration, and Prisma ORM in production on Coolify.",
     ],
-    tags: ["TypeScript", "Next.js", "Python", "Arabic OCR", "Legal RAG", "TailwindCSS", "PostgreSQL"],
-    badge: "Saudi Legal Tech Client Release",
+    tags: ["React Native", "Expo", "iOS & Android", "TypeScript", "Prisma", "Coolify", "Linux VPS", "Payment Links", "Social Auth"],
+    badge: "Mobile iOS & Android + Cloud Infrastructure",
     featured: true,
     metrics: [
-      { label: "Languages", value: "Bilingual AR / EN" },
-      { label: "Domain", value: "Saudi Legal Jurisprudence" },
-      { label: "Payments", value: "mada, Visa, Apple Pay" },
+      { label: "Platforms", value: "iOS, Android (Expo) & Web" },
+      { label: "Payments", value: "Cards, Pay Links, Invoices, Mobile Money" },
+      { label: "DevOps", value: "Coolify PaaS, Hostinger VPS, Linux SSH" },
     ],
   },
   {
@@ -170,6 +170,30 @@ export const FEATURED_PROJECTS: Project[] = [
       { label: "Global Standing", value: "Top 1.2% (Silver Medal)" },
       { label: "Participants", value: "2,674 International Teams" },
       { label: "Model Architecture", value: "Fine-Tuned T5 Sequence-to-Sequence" },
+    ],
+  },
+  {
+    id: "evm-smart-contracts",
+    title: "EVM Smart Contracts & Decentralized Settlement",
+    subtitle: "Solidity Protocols, Token Contracts & Multi-Chain Escrow",
+    category: "Web3 & Cloud",
+    description:
+      "Designed and deployed smart contracts on Ethereum Virtual Machine (EVM) compatible networks for token management, automated escrow settlement, and decentralized verification.",
+    longDescription:
+      "Engineered reliable on-chain logic adhering to standard contract interfaces (ERC-20, escrow vault mechanisms) with security best practices, gas optimization, and comprehensive test suites. Connected contract interactions to Next.js frontends via web3 libraries with wallet signature authentication.",
+    role: "Web3 & Smart Contract Developer",
+    impact: [
+      "Authored clean, gas-efficient Solidity smart contracts for EVM-compatible blockchains.",
+      "Implemented multi-party escrow logic ensuring programmatic fund releases upon verified off-chain milestones.",
+      "Integrated front-end dApp interfaces with wallet connectivity and event subscription handlers.",
+    ],
+    tags: ["Solidity", "EVM Chains", "Web3", "Smart Contracts", "Escrow", "TypeScript", "Next.js"],
+    badge: "EVM Smart Contracts & Settlement",
+    featured: true,
+    metrics: [
+      { label: "Ecosystem", value: "EVM Chains (Ethereum, Polygon, BNB)" },
+      { label: "Standards", value: "Token & Escrow Contracts" },
+      { label: "Integration", value: "Frontend dApp Connectivity" },
     ],
   },
   {
@@ -230,7 +254,7 @@ export const OTHER_PROJECTS: Project[] = [
     id: "next-weather-app",
     title: "Next.js Modern Weather App",
     subtitle: "Real-Time Animated Weather Intelligence",
-    category: "Web & Cloud",
+    category: "Mobile & Full-Stack",
     description: "Production-ready weather application built with Next.js 15, TailwindCSS, shadcn/ui, Framer Motion, and Zod validation.",
     longDescription: "High-performance reactive frontend featuring dynamic atmospheric micro-animations, forecast graphs, geolocation caching, and strict type validation.",
     role: "Frontend Engineer",
@@ -256,8 +280,8 @@ export const OTHER_PROJECTS: Project[] = [
     id: "bloodlink",
     title: "BloodLink",
     subtitle: "Emergency Blood Donor Network",
-    category: "Web & Cloud",
-    description: "A life-saving community web platform connecting blood donors with urgent regional requests across Algeria.",
+    category: "Mobile & Full-Stack",
+    description: "A community web platform connecting blood donors with urgent regional requests across Algeria.",
     longDescription: "Fast, community-driven emergency coordination tool connecting volunteer donors with hospital requests.",
     role: "Full-Stack Python Developer",
     impact: ["Fast geographic matching", "Community healthcare impact"],
@@ -271,7 +295,7 @@ export const EXPERIENCES: Experience[] = [
   {
     company: "DizzitUp",
     role: "Full-Stack Developer",
-    period: "Jan 2026 – Present",
+    period: "Jan 2026 - Present",
     location: "Oran, Algeria (Remote)",
     type: "Part-time / Core Contributor",
     description:
@@ -280,7 +304,7 @@ export const EXPERIENCES: Experience[] = [
       "Develop responsive Next.js frontend interfaces and resilient Node.js / Express backend services.",
       "Design Supabase PostgreSQL schemas, implement Row-Level Security (RLS) policies, and optimize Prisma queries.",
       "Architected the Universal Search system connecting merchants, utility vouchers, mobile top-ups, and gift cards.",
-      "Contributed to DZYwallet crypto/stablecoin transaction flows, Reloadly integrations, and ledger reconciliations.",
+      "Contributed to DZYwallet crypto/stablecoin transaction flows, payment settlement, and ledger reconciliations.",
       "Lead cross-border localization including French, English, Arabic RTL, Amharic, and Portuguese.",
     ],
     skills: ["Next.js", "React", "Node.js", "Express", "Supabase", "PostgreSQL", "Prisma", "Fintech", "Web3"],
@@ -288,9 +312,9 @@ export const EXPERIENCES: Experience[] = [
   {
     company: "DizzitUp (via Virtual Internships)",
     role: "Software Engineering Intern",
-    period: "Sep 2025 – Jan 2026",
+    period: "Sep 2025 - Jan 2026",
     location: "Remote",
-    type: "262 Hours Completed · Hired as Developer",
+    type: "262 Hours Completed - Hired as Developer",
     description:
       "Selected for competitive Virtual Internships placement at DizzitUp. Completed 262 hours of hands-on production engineering with outstanding evaluations, leading directly to a permanent developer role.",
     highlights: [
@@ -303,7 +327,7 @@ export const EXPERIENCES: Experience[] = [
   {
     company: "Office Public Notarial",
     role: "Legal & Notarial Assistant & Office IT Administrator",
-    period: "Sep 2013 – Jul 2026",
+    period: "Sep 2013 - Jul 2026",
     location: "Oran, Algeria",
     type: "Full-time (12+ Years)",
     description:
@@ -312,7 +336,7 @@ export const EXPERIENCES: Experience[] = [
       "Drafted and audited hundreds of high-stakes legal deeds, commercial contracts, and notarized declarations.",
       "Managed complete office computer infrastructure, local network configuration, data backups, and security.",
       "Coordinated quarterly accounting, tax documentation, and regulatory submissions.",
-      "Domain knowledge directly informs legal tech and compliance applications (such as Nibras Legal Hub).",
+      "Applied domain expertise to streamline data integrity, audit trails, and compliance workflows.",
     ],
     skills: ["Legal Contract Drafting", "Regulatory Compliance", "IT Infrastructure", "Accounting", "Data Integrity"],
   },
@@ -322,36 +346,36 @@ export const EDUCATION_LIST: Education[] = [
   {
     institution: "University of the People",
     degree: "Associate of Science in Computer Science (High Honors)",
-    period: "Sep 2022 – Conferred Jan 14, 2026",
+    period: "Sep 2022 - Conferred Jan 14, 2026",
     location: "Pasadena, CA, USA (WASC Senior College & University Commission Accredited)",
-    grade: "GPA 3.97 / 4.00 · High Honors",
+    grade: "GPA 3.97 / 4.00 - High Honors",
     description:
       "Comprehensive computer science curriculum accredited by the WASC Senior College and University Commission. Graduated with near-perfect GPA and High Honors distinction.",
     highlights: [
       "Core Coursework: Programming Fundamentals, Programming 1 & 2 (Java & Python), Databases (SQL), Computer Systems, Operating Systems, Web Programming, Software Engineering, Networking, Statistics, Applied Economics.",
       "Earned A / A+ across all computing and mathematics modules.",
-      "Conferred on January 14, 2026 with President Shai Reshef's commendation.",
+      "Conferred on January 14, 2026 with President commendation.",
     ],
     credentialUrl: "/certificates/Assia_Benkedia_Graduation_Document.pdf",
   },
   {
     institution: "University of Oran",
     degree: "Licence (Bac+3) in Economics, Banking & Insurance",
-    period: "Sep 2009 – Jun 2011",
+    period: "Sep 2009 - Jun 2011",
     location: "Oran, Algeria",
     grade: "Bac + 3",
     description:
       "Specialized in banking operations, financial markets, risk modeling, and insurance regulations. Provides foundational quantitative backing for fintech and algorithmic trading systems.",
     highlights: [
       "Study of monetary economics, banking mechanisms, risk hedging, and financial accounting.",
-      "Foundation for current fintech architecture work at DizzitUp.",
+      "Foundation for fintech architecture and payment processing systems.",
     ],
   },
 ];
 
 export const CERTIFICATIONS: Certification[] = [
   {
-    name: "Kaggle Silver Medalist — Deep Past Challenge",
+    name: "Kaggle Silver Medalist - Deep Past Challenge",
     issuer: "Kaggle (Awarded by Will Cukierski, Head of Competitions)",
     date: "March 24, 2026",
     credentialId: "Rank 33 / 2,674 Teams",
@@ -359,7 +383,7 @@ export const CERTIFICATIONS: Certification[] = [
     category: "AI & ML",
   },
   {
-    name: "Google Gen AI Intensive Capstone — Honourable Mention (OncoAssist)",
+    name: "Google Gen AI Intensive Capstone - Honourable Mention (OncoAssist)",
     issuer: "Kaggle x Google Generative AI Intensive",
     date: "April 2025",
     credentialId: "Top Capstone among 280,000+ Participants",
@@ -441,6 +465,19 @@ export const CERTIFICATIONS: Certification[] = [
 
 export const SKILL_CATEGORIES = [
   {
+    name: "Mobile & Frontend Engineering",
+    skills: [
+      "React Native & Expo (iOS / Android)",
+      "Android Emulator & Native Debugging",
+      "Mobile UI/UX Design & Prototyping",
+      "Next.js 15 & React 19",
+      "TypeScript & Modern JavaScript",
+      "Tailwind CSS & Framer Motion",
+      "Multilingual RTL Architecture (Arabic)",
+      "Social Auth (Apple, Google, Meta)",
+    ],
+  },
+  {
     name: "AI & Machine Learning",
     skills: [
       "Agentic AI Development",
@@ -451,43 +488,34 @@ export const SKILL_CATEGORIES = [
       "T5 Transformers Fine-Tuning",
       "ChromaDB & BigQuery AI",
       "PyTorch & Hugging Face",
-      "Computer Vision & Deep Learning",
     ],
   },
   {
-    name: "Full-Stack & Cloud",
+    name: "Fintech, Web3 & Payments",
     skills: [
-      "Next.js 15 & React 19",
-      "TypeScript & JavaScript (ES6+)",
-      "Node.js & Express",
-      "Tailwind CSS & Framer Motion",
-      "Supabase & PostgreSQL",
-      "Prisma ORM & SQLite",
-      "Python Flask & REST APIs",
-      "Docker & Linux / Unix",
-      "Git & GitHub Actions CI/CD",
+      "Card Payment Checkouts",
+      "Automated Payment Links & Invoicing",
+      "Regional Mobile Money Pipelines",
+      "Crypto Settlement & DZYwallet Flows",
+      "Solidity & EVM Smart Contracts",
+      "Decentralized Escrow Protocols",
+      "12+ Years Notarial Document Rigor",
+      "Compliance & Financial Audit Trails",
     ],
   },
   {
-    name: "Fintech, Web3 & Legal Tech",
+    name: "Backend, DevOps & Cloud",
     skills: [
-      "African Mobile Money APIs",
-      "Reloadly Services Integration",
-      "DZYwallet & Crypto Settlement",
-      "Saudi Payments (mada, Visa, Apple Pay)",
-      "Arabic OCR & Document Extraction",
-      "Legal Dossier Summarization",
-      "12+ Years Notarial Administration",
-      "High-Stakes Document Auditing",
-    ],
-  },
-  {
-    name: "Languages",
-    skills: [
-      "Arabic (Native / Fluent)",
-      "French (Fluent / DELF B2)",
-      "English (Professional Working Proficiency)",
+      "Node.js, Express & Python Flask",
+      "Supabase PostgreSQL & Row-Level Security",
+      "Custom Supabase SMTP Mailers",
+      "Prisma ORM in Production",
+      "Coolify Self-Hosted PaaS",
+      "Linux Server Administration (SSH)",
+      "Hostinger VPS Management",
+      "Google Tag Manager, Analytics & Ads",
+      "Meta Pixel & WhatsApp Business API",
+      "Transactional Email & SMS Delivery",
     ],
   },
 ];
-

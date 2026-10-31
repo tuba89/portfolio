@@ -1,7 +1,7 @@
 "use client";
 
 import { PERSONAL_INFO } from "@/data/portfolioData";
-import { ArrowRight, Trophy, GraduationCap, Globe, Award, Sparkles, Download, Mail } from "lucide-react";
+import { ArrowRight, Trophy, GraduationCap, Globe, Award, Download, Mail, Smartphone, ShieldCheck } from "lucide-react";
 
 export default function HeroSection() {
   return (
@@ -13,8 +13,8 @@ export default function HeroSection() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Availability Badge */}
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold editorial-badge mb-6 border border-[var(--border-subtle)]">
-          <Sparkles className="w-3.5 h-3.5 text-[var(--accent-peach)]" />
-          <span>Full-Stack Developer & AI Systems Engineer · Open to Global Opportunities</span>
+          <ShieldCheck className="w-3.5 h-3.5 text-[var(--accent-peach)]" />
+          <span>Full-Stack & Mobile Developer · AI Systems & Fintech Engineer</span>
         </div>
 
         {/* Main Headline */}
@@ -23,19 +23,19 @@ export default function HeroSection() {
           <span className="text-[var(--accent-peach)] relative inline-block">
             Autonomous AI Agents
           </span>
-          , Resilient Fintech, and Mission-Critical Web Platforms.
+          , Cross-Platform Mobile Apps, and Production Fintech.
         </h1>
 
         {/* Subtitle / Bio */}
         <p className="mt-6 text-lg sm:text-xl text-[var(--text-secondary)] max-w-3xl leading-relaxed">
-          Hi, I&apos;m <strong className="text-[var(--text-primary)]">Assia Benkedia</strong>. I build high-throughput full-stack systems and agentic LLM pipelines. Currently contributing to <strong className="text-[var(--text-primary)]">DizzitUp</strong> across 54 African countries. Kaggle Silver Medalist (33rd / 2,674) and University of the People CS Graduate with High Honors (3.97 GPA).
+          Hi, I&apos;m <strong className="text-[var(--text-primary)]">Assia Benkedia</strong>. I build high-throughput web and mobile applications (React Native Expo, Next.js, Node.js, Prisma, Coolify) and agentic AI systems. Currently contributing to <strong className="text-[var(--text-primary)]">DizzitUp</strong> across 54 African countries. Kaggle Silver Medalist (33rd / 2,674) and University of the People CS Graduate with High Honors (3.97 GPA).
         </p>
 
         {/* Proven Highlights Pill Bar */}
         <div className="mt-8 flex flex-wrap gap-2.5 sm:gap-3 text-xs sm:text-sm">
           <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] text-[var(--text-primary)] font-medium">
             <Trophy className="w-4 h-4 text-amber-500" />
-            <span>Kaggle Silver Medalist (Top 1.2% · Deep Past)</span>
+            <span>Kaggle Silver Medalist (Top 1.2% - Deep Past)</span>
           </div>
           <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] text-[var(--text-primary)] font-medium">
             <GraduationCap className="w-4 h-4 text-[var(--accent-peach)]" />
@@ -46,8 +46,8 @@ export default function HeroSection() {
             <span>Fintech & Marketplace Engineering (54 Countries)</span>
           </div>
           <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] text-[var(--text-primary)] font-medium">
-            <Award className="w-4 h-4 text-blue-500" />
-            <span>Google Gen AI Intensive Honourable Mention</span>
+            <Smartphone className="w-4 h-4 text-sky-500" />
+            <span>Mobile Engineering (React Native Expo iOS / Android)</span>
           </div>
         </div>
 
@@ -92,4 +92,3 @@ export default function HeroSection() {
     </section>
   );
 }
-

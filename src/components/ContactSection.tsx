@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { PERSONAL_INFO } from "@/data/portfolioData";
-import { Mail, Phone, MapPin, Copy, Check, ArrowUpRight } from "lucide-react";
+import { Mail, Phone, MapPin, Copy, Check, ArrowUpRight, MessageSquare, Clock } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "./Icons";
 
 export default function ContactSection() {
@@ -21,14 +21,14 @@ export default function ContactSection() {
           {/* Left Column */}
           <div className="lg:col-span-7">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold editorial-badge mb-3">
-              <Mail className="w-3.5 h-3.5 text-[var(--accent-peach)]" />
+              <MessageSquare className="w-3.5 h-3.5 text-[var(--accent-peach)]" />
               <span>Let&apos;s Build Together</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[var(--text-primary)]">
-              Interested in collaborating on AI agents, fintech, or full-stack platforms?
+              Interested in collaborating on mobile applications, AI agents, or fintech platforms?
             </h2>
             <p className="mt-4 text-base text-[var(--text-secondary)] leading-relaxed max-w-xl">
-              I am open to high-impact software engineering roles, autonomous AI agent architecture, consulting, and forward-looking fintech projects.
+              I am open to high-impact software engineering roles, mobile architecture, autonomous AI agent systems, consulting, and fintech projects.
             </p>
 
             <div className="mt-8 space-y-4">
@@ -88,7 +88,7 @@ export default function ContactSection() {
           <div className="lg:col-span-5">
             <div className="editorial-card p-6 sm:p-8 space-y-6">
               <h3 className="text-lg font-bold text-[var(--text-primary)] border-b border-[var(--border-subtle)] pb-3">
-                Contact Details
+                Direct Contact Details
               </h3>
 
               <div className="space-y-4 text-sm">
@@ -129,8 +129,9 @@ export default function ContactSection() {
                 </div>
               </div>
 
-              <div className="p-4 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-page)] text-xs text-[var(--text-secondary)] leading-relaxed">
-                🚀 <strong>Response time:</strong> Usually within 24 hours. Fluent in English, French, and Arabic.
+              <div className="p-4 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-page)] text-xs text-[var(--text-secondary)] leading-relaxed flex items-center gap-2.5">
+                <Clock className="w-4 h-4 text-[var(--accent-peach)] shrink-0" />
+                <span><strong>Response time:</strong> Usually within 24 hours. Fluent in English, French, and Arabic.</span>
               </div>
             </div>
           </div>

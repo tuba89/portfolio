@@ -17,7 +17,7 @@ export default function Footer() {
             {PERSONAL_INFO.name}
           </div>
           <div className="mt-1 text-xs text-[var(--text-muted)]">
-            AI & Full-Stack Developer · Oran, Algeria · © 2026 All rights reserved.
+            AI & Full-Stack Developer - Oran, Algeria - © 2026 All rights reserved.
           </div>
         </div>
 

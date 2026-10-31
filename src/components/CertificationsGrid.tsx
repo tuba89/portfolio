@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { CERTIFICATIONS } from "@/data/portfolioData";
-import { Award, ExternalLink, FileText, CheckCircle2, ShieldCheck } from "lucide-react";
+import { ExternalLink, FileText, ShieldCheck } from "lucide-react";
 
 export default function CertificationsGrid() {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
@@ -110,4 +110,3 @@ export default function CertificationsGrid() {
     </section>
   );
 }
-

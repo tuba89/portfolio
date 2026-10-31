@@ -16,7 +16,7 @@ export default function SkillsSection() {
             Core Technical Expertise
           </h2>
           <p className="mt-2 text-base text-[var(--text-secondary)]">
-            A specialized blend of cutting-edge agentic artificial intelligence, scalable full-stack development, and real-world legal compliance.
+            A specialized blend of cross-platform mobile engineering, autonomous artificial intelligence, production fintech, and server administration.
           </p>
         </div>
 
@@ -47,4 +47,3 @@ export default function SkillsSection() {
     </section>
   );
 }
-

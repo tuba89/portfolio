@@ -1,7 +1,7 @@
 "use client";
 
 import { EDUCATION_LIST } from "@/data/portfolioData";
-import { GraduationCap, Award, Calendar, MapPin, ExternalLink, FileText, CheckCircle2 } from "lucide-react";
+import { GraduationCap, Award, Calendar, MapPin, FileText, CheckCircle2 } from "lucide-react";
 
 export default function EducationSection() {
   return (
@@ -68,7 +68,7 @@ export default function EducationSection() {
                     className="btn-secondary !py-1.5 !px-3 text-xs"
                   >
                     <Award className="w-3 h-3 text-amber-500" />
-                    <span>View Diploma Image</span>
+                    <span>View Diploma Document</span>
                   </a>
                   <a
                     href="/certificates/Assia_Benkedia_Graduation_Document.pdf"
@@ -88,4 +88,3 @@ export default function EducationSection() {
     </section>
   );
 }
-

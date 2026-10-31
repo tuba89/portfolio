@@ -1,7 +1,7 @@
 "use client";
 
 import { EXPERIENCES } from "@/data/portfolioData";
-import { Briefcase, Calendar, MapPin, CheckCircle2, FileCheck } from "lucide-react";
+import { Briefcase, Calendar, MapPin, CheckCircle2 } from "lucide-react";
 
 export default function ExperienceTimeline() {
   return (
@@ -16,7 +16,7 @@ export default function ExperienceTimeline() {
             Engineering & Domain Experience
           </h2>
           <p className="mt-2 text-base text-[var(--text-secondary)]">
-            A track record combining modern software engineering with 12+ years of legal and operational rigor.
+            A proven track record combining modern software engineering with 12+ years of legal and operational rigor.
           </p>
         </div>
 
@@ -85,4 +85,3 @@ export default function ExperienceTimeline() {
     </section>
   );
 }
-

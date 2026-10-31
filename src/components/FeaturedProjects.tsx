@@ -1,7 +1,7 @@
 "use client";
 
 import { FEATURED_PROJECTS } from "@/data/portfolioData";
-import { ExternalLink, Sparkles, CheckCircle2, Layers, Cpu } from "lucide-react";
+import { ExternalLink, CheckCircle2, Layers, Cpu, Compass } from "lucide-react";
 import { GithubIcon } from "./Icons";
 
 export default function FeaturedProjects() {
@@ -19,7 +19,7 @@ export default function FeaturedProjects() {
               Featured Case Studies
             </h2>
             <p className="mt-2 text-base text-[var(--text-secondary)] max-w-2xl">
-              Production systems, autonomous agentic architectures, and competitive machine learning models delivered with verifiable impact.
+              Production platforms, mobile ecosystems, autonomous agent architectures, and competitive machine learning models delivered with verifiable impact.
             </p>
           </div>
           <a
@@ -47,7 +47,7 @@ export default function FeaturedProjects() {
                 <div>
                   <div className="flex flex-wrap items-center gap-2.5 mb-2.5">
                     <span className="text-xs font-mono font-bold text-[var(--accent-peach)] uppercase tracking-wider">
-                      Case Study {String(idx + 1).padStart(2, "0")} · {project.category}
+                      Case Study {String(idx + 1).padStart(2, "0")} - {project.category}
                     </span>
                     {project.badge && (
                       <span className="px-3 py-0.5 rounded-full text-xs font-semibold editorial-badge">
@@ -103,8 +103,8 @@ export default function FeaturedProjects() {
 
                   <div className="pt-2">
                     <h4 className="text-xs font-bold uppercase tracking-wider text-[var(--accent-peach)] mb-3 flex items-center gap-1.5">
-                      <Sparkles className="w-3.5 h-3.5" />
-                      <span>Key Architectural Contributions & Impact</span>
+                      <Compass className="w-3.5 h-3.5" />
+                      <span>Architectural Delivery & Results</span>
                     </h4>
                     <ul className="space-y-2">
                       {project.impact.map((point, pIdx) => (

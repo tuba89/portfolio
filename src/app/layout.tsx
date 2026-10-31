@@ -4,20 +4,24 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Assia Benkedia | AI & Full-Stack Developer",
   description:
-    "Official Portfolio of Assia Benkedia — AI & Full-Stack Developer, Kaggle Silver Medalist (Deep Past Challenge, 33rd/2,674), and UoPeople High Honors CS Graduate. Building production systems across Fintech, AI Agents, and Web3.",
+    "Official Portfolio of Assia Benkedia - AI & Full-Stack Developer, Kaggle Silver Medalist (Deep Past Challenge, 33rd/2,674), and UoPeople High Honors CS Graduate. Building cross-platform mobile apps and production systems across Fintech, AI Agents, and Web3.",
   keywords: [
     "Assia Benkedia",
     "Full-Stack Developer",
+    "React Native",
+    "Expo",
+    "Mobile Developer",
     "AI Engineer",
     "Agentic AI",
     "Kaggle Silver Medalist",
     "DizzitUp",
-    "Nibras Legal Hub",
     "LIVORA",
     "Next.js",
     "TypeScript",
     "Fintech",
-    "Web3",
+    "EVM Smart Contracts",
+    "Prisma",
+    "Coolify",
   ],
   authors: [{ name: "Assia Benkedia" }],
   openGraph: {

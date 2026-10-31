@@ -1,7 +1,6 @@
 "use client";
 
-import Image from "next/image";
-import { Trophy, Award, ExternalLink, Sparkles, CheckCircle2, ShieldCheck } from "lucide-react";
+import { Trophy, Award, ExternalLink, CheckCircle2, ShieldCheck } from "lucide-react";
 
 export default function KaggleAndHonors() {
   return (
@@ -130,4 +129,3 @@ export default function KaggleAndHonors() {
     </section>
   );
 }
-
