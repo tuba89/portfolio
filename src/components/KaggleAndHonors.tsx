@@ -1,10 +1,15 @@
 "use client";
 
-import { Trophy, Award, ExternalLink, CheckCircle2 } from "lucide-react";
+import { useState } from "react";
+import Image from "next/image";
+import { Trophy, Award, ExternalLink, CheckCircle2, Eye } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import { KaggleLogo, GoogleLogo } from "./BrandLogos";
+import CertificateLightbox, { LightboxDoc } from "./CertificateLightbox";
 
 export default function KaggleAndHonors() {
   const { t } = useLanguage();
+  const [activeDoc, setActiveDoc] = useState<LightboxDoc | null>(null);
 
   return (
     <section id="achievements" className="py-20 border-b border-[var(--border-subtle)] bg-[var(--bg-surface)]/40">
@@ -33,9 +38,14 @@ export default function KaggleAndHonors() {
                   <Trophy className="w-3 h-3" />
                   <span>{t.honors.kaggleCard.tag}</span>
                 </span>
-                <span className="text-xs font-mono text-[var(--text-muted)]">
-                  {t.honors.kaggleCard.date}
-                </span>
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-mono text-[var(--text-muted)]">
+                    {t.honors.kaggleCard.date}
+                  </span>
+                  <div className="grayscale group-hover:grayscale-0 transition-all duration-200">
+                    <KaggleLogo size={18} />
+                  </div>
+                </div>
               </div>
 
               <h3 className="text-lg sm:text-xl font-semibold text-[var(--text-primary)] mb-1">
@@ -48,13 +58,31 @@ export default function KaggleAndHonors() {
                 {t.honors.kaggleCard.desc}
               </p>
 
-              {/* Certificate Image Thumbnail */}
-              <div className="relative rounded-lg overflow-hidden border border-[var(--border-subtle)] bg-[var(--bg-page)] p-1.5 mb-5 group-hover:border-[var(--accent-peach)] transition-colors">
-                <img
-                  src="/certificates/Assia_Benkedia_Deep_Past_Challenge.png"
+              {/* Certificate Image Thumbnail with Lightbox */}
+              <div
+                onClick={() =>
+                  setActiveDoc({
+                    name: t.honors.kaggleCard.title,
+                    issuer: "Kaggle (Awarded by Will Cukierski, Head of Competitions)",
+                    date: t.honors.kaggleCard.date,
+                    assetPath: "/certificates/Assia_Benkedia_Deep_Past_Challenge.png",
+                    thumbnail: "/images/certificates/deep-past-challenge.webp",
+                    credentialId: "Rank 33 / 2,674 Teams (Top 1.2%)",
+                  })
+                }
+                className="relative w-full aspect-[16/10] rounded-xl overflow-hidden border border-[var(--border-subtle)] bg-[var(--bg-page)] p-1.5 mb-5 group-hover:border-[var(--accent-peach)] transition-colors cursor-pointer group/thumb"
+              >
+                <Image
+                  src="/images/certificates/deep-past-challenge.webp"
                   alt="Kaggle Silver Medal Certificate - Assia Benkedia"
-                  className="w-full h-auto rounded object-contain"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 450px"
+                  className="object-contain p-1 group-hover/thumb:scale-105 transition-transform duration-200"
                 />
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/thumb:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-medium backdrop-blur-[2px] gap-1.5">
+                  <Eye className="w-4 h-4" />
+                  <span>{t.honors.kaggleCard.viewCert}</span>
+                </div>
               </div>
             </div>
 
@@ -62,15 +90,22 @@ export default function KaggleAndHonors() {
               <span className="text-[11px] text-[var(--text-muted)]">
                 {t.honors.kaggleCard.verifiedText}
               </span>
-              <a
-                href="/certificates/Assia_Benkedia_Deep_Past_Challenge.png"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-secondary !py-1 !px-2.5 text-xs font-medium"
+              <button
+                onClick={() =>
+                  setActiveDoc({
+                    name: t.honors.kaggleCard.title,
+                    issuer: "Kaggle (Awarded by Will Cukierski, Head of Competitions)",
+                    date: t.honors.kaggleCard.date,
+                    assetPath: "/certificates/Assia_Benkedia_Deep_Past_Challenge.png",
+                    thumbnail: "/images/certificates/deep-past-challenge.webp",
+                    credentialId: "Rank 33 / 2,674 Teams (Top 1.2%)",
+                  })
+                }
+                className="btn-secondary !py-1 !px-2.5 text-xs font-medium cursor-pointer"
               >
                 <span>{t.honors.kaggleCard.viewCert}</span>
                 <ExternalLink className="w-3 h-3" />
-              </a>
+              </button>
             </div>
           </div>
 
@@ -84,9 +119,14 @@ export default function KaggleAndHonors() {
                   <Award className="w-3 h-3" />
                   <span>{t.honors.googleCard.tag}</span>
                 </span>
-                <span className="text-xs font-mono text-[var(--text-muted)]">
-                  {t.honors.googleCard.date}
-                </span>
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-mono text-[var(--text-muted)]">
+                    {t.honors.googleCard.date}
+                  </span>
+                  <div className="grayscale group-hover:grayscale-0 transition-all duration-200">
+                    <GoogleLogo size={18} />
+                  </div>
+                </div>
               </div>
 
               <h3 className="text-lg sm:text-xl font-semibold text-[var(--text-primary)] mb-1">
@@ -98,6 +138,17 @@ export default function KaggleAndHonors() {
               <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed mb-5 font-normal">
                 {t.honors.googleCard.desc}
               </p>
+
+              {/* Real Project Interface Thumbnail */}
+              <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden border border-[var(--border-subtle)] bg-[var(--bg-page)] mb-5 group-hover:border-[var(--accent-peach)] transition-colors">
+                <Image
+                  src="/images/projects/medibridge-desktop.webp"
+                  alt="OncoAssist & MediBridge-AI Kaggle Notebook"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 450px"
+                  className="object-cover object-top"
+                />
+              </div>
 
               {/* Key Highlights list */}
               <div className="p-3.5 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-page)]/60 mb-5 space-y-2">
@@ -127,6 +178,9 @@ export default function KaggleAndHonors() {
           </div>
         </div>
       </div>
+
+      {/* Lightbox Modal */}
+      <CertificateLightbox doc={activeDoc} onClose={() => setActiveDoc(null)} />
     </section>
   );
 }

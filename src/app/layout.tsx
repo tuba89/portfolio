@@ -47,10 +47,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/og-image.jpg",
-        width: 1024,
-        height: 1024,
-        alt: "Assia Benkedia - AI & Full-Stack Developer Monogram",
+        url: "/og-image.webp",
+        width: 1200,
+        height: 630,
+        alt: "Assia Benkedia - Full-Stack, Mobile & AI Engineer Portfolio",
       },
     ],
   },
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Assia Benkedia | AI & Full-Stack Developer",
     description: "Kaggle Silver Medalist, CS High Honors, Full-Stack & Mobile Developer.",
-    images: ["/og-image.jpg"],
+    images: ["/og-image.webp"],
   },
 };
 

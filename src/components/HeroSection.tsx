@@ -1,21 +1,63 @@
 "use client";
 
-import { ArrowRight, Download, Mail, Trophy, GraduationCap, Globe, Smartphone } from "lucide-react";
+import { useState } from "react";
+import Image from "next/image";
+import { ArrowRight, Download, Mail, Trophy, GraduationCap, Globe, Smartphone, User } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function HeroSection() {
   const { t, isRtl } = useLanguage();
+  const [imgError, setImgError] = useState(false);
 
   return (
-    <section className="relative pt-12 pb-16 sm:pt-20 sm:pb-24 md:pt-28 md:pb-32 border-b border-[var(--border-subtle)] overflow-hidden">
+    <section className="relative pt-12 pb-16 sm:pt-16 sm:pb-24 md:pt-20 md:pb-28 border-b border-[var(--border-subtle)] overflow-hidden">
       {/* Delicate background aura */}
       <div className="absolute top-1/4 right-1/3 w-80 h-80 bg-[var(--accent-peach-light)] rounded-full blur-[100px] -z-10 pointer-events-none opacity-60" />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8">
-        {/* Subtle pill */}
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] sm:text-xs font-medium editorial-badge mb-6 sm:mb-8 border border-[var(--border-subtle)] max-w-full">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse shrink-0" />
-          <span className="truncate">{t.hero.statusBadge}</span>
+        {/* Top Profile / Status Row */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 mb-8">
+          {/* Subtle availability pill */}
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-[11px] sm:text-xs font-medium editorial-badge border border-[var(--border-subtle)] max-w-full self-start">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
+            <span className="truncate">{t.hero.statusBadge}</span>
+          </div>
+
+          {/* Profile Photo Slot with Graceful Fallback */}
+          <div className="flex items-center gap-3.5 self-start sm:self-auto">
+            <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-2xl p-0.5 bg-gradient-to-tr from-[var(--accent-peach)] via-amber-400 to-sky-400 shadow-md shrink-0">
+              <div className="relative w-full h-full rounded-[0.9rem] overflow-hidden bg-[var(--bg-surface-elevated)] flex items-center justify-center">
+                {!imgError ? (
+                  <Image
+                    src="/images/profile.webp"
+                    alt={t.personal.name}
+                    fill
+                    sizes="64px"
+                    priority
+                    className="object-cover"
+                    onError={() => setImgError(true)}
+                  />
+                ) : (
+                  /* Graceful AB Initials Fallback */
+                  <div className="w-full h-full bg-gradient-to-br from-[#1A262F] to-[#10171C] flex items-center justify-center text-white font-bold text-base sm:text-lg tracking-wider">
+                    <span className="text-[var(--accent-peach)]">A</span>
+                    <span className="text-amber-400">B</span>
+                  </div>
+                )}
+              </div>
+              {/* Online pulse dot */}
+              <div className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-emerald-500 border-2 border-[var(--bg-page)]" />
+            </div>
+
+            <div className="flex flex-col justify-center">
+              <span className="font-bold text-sm sm:text-base text-[var(--text-primary)]">
+                {t.personal.name}
+              </span>
+              <span className="text-xs text-[var(--text-muted)] font-normal">
+                {t.personal.roleSubtitle}
+              </span>
+            </div>
+          </div>
         </div>
 
         {/* Headline with breathing room and refined weight */}

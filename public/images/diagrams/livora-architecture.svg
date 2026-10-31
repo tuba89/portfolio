@@ -1,0 +1,176 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" width="100%" height="100%" fill="none">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#10171C" />
+      <stop offset="100%" stopColor="#17222A" />
+    </linearGradient>
+    <linearGradient id="peachGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#FFB703" />
+      <stop offset="100%" stopColor="#DD6E42" />
+    </linearGradient>
+    <linearGradient id="slateGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#4F6D7A" />
+      <stop offset="100%" stopColor="#2A3B44" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="1000" height="560" rx="16" fill="url(#bgGrad)" stroke="#364E5C" stroke-width="1.5" />
+  
+  <!-- Subtle grid pattern -->
+  <g opacity="0.08" stroke="#FFFFFF" stroke-width="1">
+    <line x1="50" y1="0" x2="50" y2="560" />
+    <line x1="200" y1="0" x2="200" y2="560" />
+    <line x1="400" y1="0" x2="400" y2="560" />
+    <line x1="600" y1="0" x2="600" y2="560" />
+    <line x1="800" y1="0" x2="800" y2="560" />
+    <line x1="950" y1="0" x2="950" y2="560" />
+    <line x1="0" y1="100" x2="1000" y2="100" />
+    <line x1="0" y1="280" x2="1000" y2="280" />
+    <line x1="0" y1="460" x2="1000" y2="460" />
+  </g>
+
+  <!-- Header / Badge -->
+  <rect x="40" y="32" width="220" height="28" rx="14" fill="#273742" stroke="#DD6E42" stroke-width="1" />
+  <circle cx="56" cy="46" r="4" fill="#FFB703" />
+  <text x="70" y="50" fill="#E8DAB2" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" letter-spacing="0.05em">LIVORA · AGENT ARCHITECTURE</text>
+  <text x="40" y="90" fill="#F2F5F7" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="700">Autonomous Multi-Agent Orchestration Flow</text>
+  <text x="40" y="112" fill="#8198A4" font-family="system-ui, -apple-system, sans-serif" font-size="12">Model Context Protocol (FastMCP) · Dynamic Memory · Voice Interaction</text>
+
+  <!-- Node 1: User Ingestion (Left) -->
+  <g transform="translate(40, 160)">
+    <rect width="180" height="220" rx="12" fill="#1A262F" stroke="#364E5C" stroke-width="1.5" />
+    <rect x="16" y="16" width="40" height="40" rx="8" fill="#243540" />
+    <!-- Microphone & Text Icon -->
+    <path d="M36 28 C36 24 33 22 30 22 C27 22 24 24 24 28 L24 34 C24 38 27 40 30 40 C33 40 36 38 36 34 Z" stroke="#FFB703" stroke-width="2" fill="none" />
+    <path d="M20 33 C20 40 25 44 30 44 C35 44 40 40 40 33" stroke="#FFB703" stroke-width="2" stroke-linecap="round" fill="none" />
+    <line x1="30" y1="44" x2="30" y2="48" stroke="#FFB703" stroke-width="2" />
+    
+    <text x="16" y="82" fill="#F2F5F7" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700">User Ingestion</text>
+    <text x="16" y="104" fill="#DD6E42" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600">INPUT CHANNELS</text>
+    <text x="16" y="130" fill="#C0D6DF" font-family="system-ui, -apple-system, sans-serif" font-size="11">· Real-Time Voice Audio</text>
+    <text x="16" y="152" fill="#C0D6DF" font-family="system-ui, -apple-system, sans-serif" font-size="11">· Web &amp; Mobile Prompts</text>
+    <text x="16" y="174" fill="#C0D6DF" font-family="system-ui, -apple-system, sans-serif" font-size="11">· Recurring Routine Triggers</text>
+    <rect x="16" y="190" width="148" height="18" rx="4" fill="#273742" />
+    <text x="24" y="203" fill="#E8DAB2" font-family="system-ui, -apple-system, sans-serif" font-size="9" font-weight="600">Web Speech API + FastMCP</text>
+  </g>
+
+  <!-- Flow Connector 1 -> 2 -->
+  <path d="M220 270 L280 270" stroke="#DD6E42" stroke-width="2" stroke-dasharray="4 4" />
+  <polygon points="280,266 288,270 280,274" fill="#DD6E42" />
+
+  <!-- Node 2: Central Orchestrator & FastMCP Router (Center Left) -->
+  <g transform="translate(290, 140)">
+    <rect width="210" height="260" rx="12" fill="#1C2B36" stroke="#DD6E42" stroke-width="2" filter="url(#glow)" opacity="0.1" />
+    <rect width="210" height="260" rx="12" fill="#1C2B36" stroke="#DD6E42" stroke-width="1.5" />
+    
+    <rect x="16" y="16" width="40" height="40" rx="8" fill="#2A3B44" />
+    <!-- Cpu / Router icon -->
+    <rect x="25" y="25" width="22" height="22" rx="4" stroke="#DD6E42" stroke-width="2" fill="none" />
+    <circle cx="36" cy="36" r="3" fill="#FFB703" />
+    
+    <text x="16" y="80" fill="#F2F5F7" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700">FastMCP Orchestrator</text>
+    <text x="16" y="100" fill="#FFB703" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600">PROTOCOL GATEWAY</text>
+    
+    <text x="16" y="126" fill="#C0D6DF" font-family="system-ui, -apple-system, sans-serif" font-size="11">· Prompt Intent Parsing</text>
+    <text x="16" y="146" fill="#C0D6DF" font-family="system-ui, -apple-system, sans-serif" font-size="11">· Model Context Protocol (MCP)</text>
+    <text x="16" y="166" fill="#C0D6DF" font-family="system-ui, -apple-system, sans-serif" font-size="11">· Sub-Agent Task Dispatcher</text>
+    <text x="16" y="186" fill="#C0D6DF" font-family="system-ui, -apple-system, sans-serif" font-size="11">· Context Window Pruning</text>
+
+    <!-- Memory link -->
+    <rect x="16" y="206" width="178" height="38" rx="6" fill="#243540" stroke="#364E5C" stroke-width="1" />
+    <text x="26" y="222" fill="#E8DAB2" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="600">Persistent Context Memory</text>
+    <text x="26" y="236" fill="#8198A4" font-family="system-ui, -apple-system, sans-serif" font-size="9">Family routines, preferences, schedules</text>
+  </g>
+
+  <!-- Connectors from Router to 4 Sub-Agents -->
+  <path d="M500 210 L560 170" stroke="#FFB703" stroke-width="1.5" />
+  <path d="M500 240 L560 230" stroke="#FFB703" stroke-width="1.5" />
+  <path d="M500 270 L560 290" stroke="#FFB703" stroke-width="1.5" />
+  <path d="M500 300 L560 350" stroke="#FFB703" stroke-width="1.5" />
+
+  <!-- Node 3: Specialized Sub-Agents Cluster (Center Right) -->
+  <g transform="translate(560, 140)">
+    <!-- Sub-Agent 1 -->
+    <g transform="translate(0, 0)">
+      <rect width="190" height="52" rx="8" fill="#1E2B34" stroke="#364E5C" stroke-width="1" />
+      <circle cx="24" cy="26" r="6" fill="#FFB703" />
+      <text x="38" y="24" fill="#F2F5F7" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700">Calendar Concierge</text>
+      <text x="38" y="38" fill="#8198A4" font-family="system-ui, -apple-system, sans-serif" font-size="9.5">Family sync &amp; conflict solver</text>
+    </g>
+
+    <!-- Sub-Agent 2 -->
+    <g transform="translate(0, 62)">
+      <rect width="190" height="52" rx="8" fill="#1E2B34" stroke="#364E5C" stroke-width="1" />
+      <circle cx="24" cy="26" r="6" fill="#DD6E42" />
+      <text x="38" y="24" fill="#F2F5F7" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700">Task Delegator</text>
+      <text x="38" y="38" fill="#8198A4" font-family="system-ui, -apple-system, sans-serif" font-size="9.5">Actionable priority breakdown</text>
+    </g>
+
+    <!-- Sub-Agent 3 -->
+    <g transform="translate(0, 124)">
+      <rect width="190" height="52" rx="8" fill="#1E2B34" stroke="#364E5C" stroke-width="1" />
+      <circle cx="24" cy="26" r="6" fill="#4F6D7A" />
+      <text x="38" y="24" fill="#F2F5F7" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700">Household Inventory</text>
+      <text x="38" y="38" fill="#8198A4" font-family="system-ui, -apple-system, sans-serif" font-size="9.5">Pantry, supplies &amp; reminders</text>
+    </g>
+
+    <!-- Sub-Agent 4 -->
+    <g transform="translate(0, 186)">
+      <rect width="190" height="52" rx="8" fill="#1E2B34" stroke="#364E5C" stroke-width="1" />
+      <circle cx="24" cy="26" r="6" fill="#34D399" />
+      <text x="38" y="24" fill="#F2F5F7" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700">Voice Synthesis Agent</text>
+      <text x="38" y="38" fill="#8198A4" font-family="system-ui, -apple-system, sans-serif" font-size="9.5">Spoken briefings &amp; TTS updates</text>
+    </g>
+  </g>
+
+  <!-- Connectors to Execution -->
+  <path d="M750 166 L800 240" stroke="#364E5C" stroke-width="1.5" />
+  <path d="M750 228 L800 255" stroke="#364E5C" stroke-width="1.5" />
+  <path d="M750 290 L800 270" stroke="#364E5C" stroke-width="1.5" />
+  <path d="M750 352 L800 285" stroke="#364E5C" stroke-width="1.5" />
+
+  <!-- Node 4: Execution & Response (Right) -->
+  <g transform="translate(800, 160)">
+    <rect width="160" height="220" rx="12" fill="#1A262F" stroke="#364E5C" stroke-width="1.5" />
+    <rect x="16" y="16" width="40" height="40" rx="8" fill="#243540" />
+    <!-- Check & Bell icon -->
+    <path d="M26 36 L32 42 L42 26" stroke="#34D399" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+    
+    <text x="16" y="82" fill="#F2F5F7" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700">Executed Actions</text>
+    <text x="16" y="104" fill="#34D399" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600">DELIVERABLES</text>
+    <text x="16" y="130" fill="#C0D6DF" font-family="system-ui, -apple-system, sans-serif" font-size="11">· Google Calendar Sync</text>
+    <text x="16" y="152" fill="#C0D6DF" font-family="system-ui, -apple-system, sans-serif" font-size="11">· Audio Voice Briefing</text>
+    <text x="16" y="174" fill="#C0D6DF" font-family="system-ui, -apple-system, sans-serif" font-size="11">· Automated Notifications</text>
+    <rect x="16" y="190" width="128" height="18" rx="4" fill="#273742" />
+    <text x="24" y="203" fill="#E8DAB2" font-family="system-ui, -apple-system, sans-serif" font-size="9" font-weight="600">Zero Cognitive Load</text>
+  </g>
+
+  <!-- Bottom Architecture Metrics Footer -->
+  <g transform="translate(40, 440)">
+    <rect width="920" height="75" rx="10" fill="#141E25" stroke="#243540" stroke-width="1" />
+    <g transform="translate(30, 20)">
+      <text x="0" y="16" fill="#8198A4" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="600" letter-spacing="0.05em">ORCHESTRATION PATTERN</text>
+      <text x="0" y="38" fill="#F2F5F7" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700">Multi-Agent State Router</text>
+    </g>
+    <line x1="250" y1="15" x2="250" y2="60" stroke="#243540" stroke-width="1" />
+    <g transform="translate(280, 20)">
+      <text x="0" y="16" fill="#8198A4" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="600" letter-spacing="0.05em">INTEGRATION PROTOCOL</text>
+      <text x="0" y="38" fill="#FFB703" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700">FastMCP (Anthropic Standard)</text>
+    </g>
+    <line x1="520" y1="15" x2="520" y2="60" stroke="#243540" stroke-width="1" />
+    <g transform="translate(550, 20)">
+      <text x="0" y="16" fill="#8198A4" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="600" letter-spacing="0.05em">CONTEXT RETENTION</text>
+      <text x="0" y="38" fill="#F2F5F7" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700">Dynamic Multi-Session Memory</text>
+    </g>
+    <line x1="750" y1="15" x2="750" y2="60" stroke="#243540" stroke-width="1" />
+    <g transform="translate(775, 20)">
+      <text x="0" y="16" fill="#8198A4" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="600" letter-spacing="0.05em">SOURCE</text>
+      <text x="0" y="38" fill="#DD6E42" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700">GitHub (Public MIT)</text>
+    </g>
+  </g>
+</svg>

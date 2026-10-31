@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" width="100%" height="100%" fill="none">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#10171C" />
+      <stop offset="100%" stopColor="#17222A" />
+    </linearGradient>
+    <linearGradient id="amberGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#FFB703" />
+      <stop offset="100%" stopColor="#DD6E42" />
+    </linearGradient>
+    <linearGradient id="silverGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#E2E8F0" />
+      <stop offset="100%" stopColor="#94A3B8" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="1000" height="560" rx="16" fill="url(#bgGrad)" stroke="#364E5C" stroke-width="1.5" />
+  
+  <!-- Subtle technical grid -->
+  <g opacity="0.08" stroke="#FFFFFF" stroke-width="1">
+    <line x1="120" y1="0" x2="120" y2="560" />
+    <line x1="320" y1="0" x2="320" y2="560" />
+    <line x1="520" y1="0" x2="520" y2="560" />
+    <line x1="720" y1="0" x2="720" y2="560" />
+    <line x1="920" y1="0" x2="920" y2="560" />
+    <line x1="0" y1="120" x2="1000" y2="120" />
+    <line x1="0" y1="280" x2="1000" y2="280" />
+    <line x1="0" y1="440" x2="1000" y2="440" />
+  </g>
+
+  <!-- Header / Badge -->
+  <rect x="40" y="32" width="280" height="28" rx="14" fill="#273742" stroke="#FFB703" stroke-width="1" />
+  <circle cx="56" cy="46" r="4" fill="#FFB703" />
+  <text x="70" y="50" fill="#E8DAB2" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" letter-spacing="0.05em">KAGGLE SILVER MEDAL · DEEP PAST</text>
+  <text x="40" y="90" fill="#F2F5F7" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="700">Cuneiform Akkadian to English Neural Translation Pipeline</text>
+  <text x="40" y="112" fill="#8198A4" font-family="system-ui, -apple-system, sans-serif" font-size="12">Ranked 33rd out of 2,674 international teams (Top 1.2% globally) · Fine-Tuned T5 Sequence-to-Sequence Architecture</text>
+
+  <!-- Node 1: Raw Cuneiform & Lacunae Preprocessing (Left) -->
+  <g transform="translate(40, 145)">
+    <rect width="210" height="250" rx="12" fill="#1A262F" stroke="#364E5C" stroke-width="1.5" />
+    <rect x="16" y="16" width="40" height="40" rx="8" fill="#243540" />
+    <!-- Ancient Tablet Glyph icon -->
+    <rect x="24" y="24" width="24" height="24" rx="4" stroke="#FFB703" stroke-width="2" fill="none" />
+    <line x1="28" y1="31" x2="44" y2="31" stroke="#FFB703" stroke-width="2" stroke-linecap="round" />
+    <line x1="28" y1="37" x2="40" y2="37" stroke="#FFB703" stroke-width="2" stroke-linecap="round" />
+    <line x1="28" y1="43" x2="36" y2="43" stroke="#FFB703" stroke-width="2" stroke-linecap="round" />
+    
+    <text x="16" y="80" fill="#F2F5F7" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700">Ancient Input Data</text>
+    <text x="16" y="100" fill="#FFB703" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600">LOW-RESOURCE TEXT</text>
+    <text x="16" y="126" fill="#C0D6DF" font-family="system-ui, -apple-system, sans-serif" font-size="11">· Broken Cuneiform Tablets</text>
+    <text x="16" y="146" fill="#C0D6DF" font-family="system-ui, -apple-system, sans-serif" font-size="11">· Lacunae &amp; Missing Signs [...]</text>
+    <text x="16" y="166" fill="#C0D6DF" font-family="system-ui, -apple-system, sans-serif" font-size="11">· Morphological Ambiguity</text>
+    <text x="16" y="186" fill="#C0D6DF" font-family="system-ui, -apple-system, sans-serif" font-size="11">· Archaic Akkadian Dialects</text>
+    
+    <rect x="16" y="210" width="178" height="24" rx="4" fill="#273742" />
+    <text x="24" y="226" fill="#E8DAB2" font-family="system-ui, -apple-system, sans-serif" font-size="9.5" font-weight="600">Synthetic Sign Augmentation</text>
+  </g>
+
+  <!-- Flow Connector 1 -> 2 -->
+  <path d="M250 270 L305 270" stroke="#FFB703" stroke-width="2" stroke-dasharray="4 4" />
+  <polygon points="305,266 313,270 305,274" fill="#FFB703" />
+
+  <!-- Node 2: Fine-Tuned T5 Architecture (Center) -->
+  <g transform="translate(315, 130)">
+    <rect width="370" height="280" rx="12" fill="#1C2B36" stroke="#DD6E42" stroke-width="1.5" />
+    
+    <rect x="16" y="16" width="40" height="40" rx="8" fill="#2A3B44" />
+    <!-- Neural Network / Layers icon -->
+    <circle cx="28" cy="28" r="3" fill="#DD6E42" />
+    <circle cx="44" cy="28" r="3" fill="#DD6E42" />
+    <circle cx="36" cy="44" r="3" fill="#FFB703" />
+    <line x1="28" y1="28" x2="36" y2="44" stroke="#DD6E42" stroke-width="1.5" />
+    <line x1="44" y1="28" x2="36" y2="44" stroke="#DD6E42" stroke-width="1.5" />
+
+    <text x="68" y="36" fill="#F2F5F7" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700">T5 Transformer Sequence-to-Sequence</text>
+    <text x="68" y="52" fill="#DD6E42" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600">DEEP LEARNING MODEL ARCHITECTURE</text>
+
+    <!-- Sub-Block 1: Encoder -->
+    <g transform="translate(16, 72)">
+      <rect width="338" height="54" rx="8" fill="#17222A" stroke="#364E5C" stroke-width="1" />
+      <circle cx="24" cy="27" r="6" fill="#FFB703" />
+      <text x="38" y="24" fill="#F2F5F7" font-family="system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="700">Bidirectional Transformer Encoder</text>
+      <text x="38" y="40" fill="#8198A4" font-family="system-ui, -apple-system, sans-serif" font-size="9.5">Multi-Head Self-Attention over context and fragmented signs</text>
+    </g>
+
+    <!-- Sub-Block 2: Cross Attention & Positional Embeddings -->
+    <g transform="translate(16, 134)">
+      <rect width="338" height="58" rx="8" fill="#17222A" stroke="#DD6E42" stroke-width="1" />
+      <circle cx="24" cy="29" r="6" fill="#DD6E42" />
+      <text x="38" y="24" fill="#F2F5F7" font-family="system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="700">Cross-Attention &amp; Relative Bias</text>
+      <text x="38" y="40" fill="#8198A4" font-family="system-ui, -apple-system, sans-serif" font-size="9.5">Relative position representations handling variable-length lacunae</text>
+      <text x="38" y="52" fill="#FFB703" font-family="system-ui, -apple-system, sans-serif" font-size="9">PyTorch · Hugging Face · Mixed Precision (FP16)</text>
+    </g>
+
+    <!-- Sub-Block 3: Autoregressive Decoder -->
+    <g transform="translate(16, 200)">
+      <rect width="338" height="54" rx="8" fill="#17222A" stroke="#364E5C" stroke-width="1" />
+      <circle cx="24" cy="27" r="6" fill="#34D399" />
+      <text x="38" y="24" fill="#F2F5F7" font-family="system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="700">Autoregressive Language Decoder</text>
+      <text x="38" y="40" fill="#8198A4" font-family="system-ui, -apple-system, sans-serif" font-size="9.5">Beam search decoding optimized for English fluency &amp; fidelity</text>
+    </g>
+  </g>
+
+  <!-- Flow Connector 2 -> 3 -->
+  <path d="M685 270 L740 270" stroke="#34D399" stroke-width="2" stroke-dasharray="4 4" />
+  <polygon points="740,266 748,270 740,274" fill="#34D399" />
+
+  <!-- Node 3: Output & Kaggle Validation (Right) -->
+  <g transform="translate(745, 145)">
+    <rect width="215" height="250" rx="12" fill="#1A262F" stroke="#364E5C" stroke-width="1.5" />
+    <rect x="16" y="16" width="40" height="40" rx="8" fill="#243540" />
+    <!-- Trophy icon -->
+    <path d="M26 24 L46 24 L46 32 C46 38 41 42 36 42 C31 42 26 38 26 32 Z" stroke="#FFB703" stroke-width="2" fill="none" />
+    <path d="M26 28 L22 28 C20 28 19 30 19 32 C19 35 22 36 26 36" stroke="#FFB703" stroke-width="1.5" fill="none" />
+    <path d="M46 28 L50 28 C52 28 53 30 53 32 C53 35 50 36 46 36" stroke="#FFB703" stroke-width="1.5" fill="none" />
+    <line x1="36" y1="42" x2="36" y2="47" stroke="#FFB703" stroke-width="2" />
+    <line x1="28" y1="47" x2="44" y2="47" stroke="#FFB703" stroke-width="2" />
+    
+    <text x="16" y="80" fill="#F2F5F7" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700">English Translation</text>
+    <text x="16" y="100" fill="#34D399" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600">BENCHMARK RESULTS</text>
+    <text x="16" y="126" fill="#C0D6DF" font-family="system-ui, -apple-system, sans-serif" font-size="11">· Fluent Modern English</text>
+    <text x="16" y="146" fill="#C0D6DF" font-family="system-ui, -apple-system, sans-serif" font-size="11">· Outperformed Baselines</text>
+    <text x="16" y="166" fill="#C0D6DF" font-family="system-ui, -apple-system, sans-serif" font-size="11">· BLEU &amp; chrF Optimized</text>
+    <text x="16" y="186" fill="#C0D6DF" font-family="system-ui, -apple-system, sans-serif" font-size="11">· Kaggle Silver Medal</text>
+    
+    <rect x="16" y="210" width="183" height="24" rx="4" fill="#273742" />
+    <text x="24" y="226" fill="#FFB703" font-family="system-ui, -apple-system, sans-serif" font-size="9.5" font-weight="700">Rank 33 / 2,674 Teams (Top 1.2%)</text>
+  </g>
+
+  <!-- Bottom Architecture Metrics Footer -->
+  <g transform="translate(40, 440)">
+    <rect width="920" height="75" rx="10" fill="#141E25" stroke="#243540" stroke-width="1" />
+    <g transform="translate(30, 20)">
+      <text x="0" y="16" fill="#8198A4" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="600" letter-spacing="0.05em">COMPETITION PARTICIPANTS</text>
+      <text x="0" y="38" fill="#F2F5F7" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700">2,674 Global Teams</text>
+    </g>
+    <line x1="280" y1="15" x2="280" y2="60" stroke="#243540" stroke-width="1" />
+    <g transform="translate(310, 20)">
+      <text x="0" y="16" fill="#8198A4" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="600" letter-spacing="0.05em">AWARD CONFERRED</text>
+      <text x="0" y="38" fill="#FFB703" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700">Official Silver Medal (Will Cukierski)</text>
+    </g>
+    <line x1="600" y1="15" x2="600" y2="60" stroke="#243540" stroke-width="1" />
+    <g transform="translate(630, 20)">
+      <text x="0" y="16" fill="#8198A4" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="600" letter-spacing="0.05em">PRIMARY METRIC</text>
+      <text x="0" y="38" fill="#F2F5F7" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700">chrF &amp; BLEU Scoring</text>
+    </g>
+    <line x1="820" y1="15" x2="820" y2="60" stroke="#243540" stroke-width="1" />
+    <g transform="translate(845, 20)">
+      <text x="0" y="16" fill="#8198A4" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="600" letter-spacing="0.05em">VERIFICATION</text>
+      <text x="0" y="38" fill="#34D399" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700">Kaggle Verified Record</text>
+    </g>
+  </g>
+</svg>
