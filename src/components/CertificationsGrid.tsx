@@ -5,14 +5,6 @@ import Image from "next/image";
 import { ExternalLink, FileText, ShieldCheck, Eye } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { CERTIFICATE_ASSETS } from "@/data/portfolioAssets";
-import {
-  KaggleLogo,
-  GoogleLogo,
-  CiscoLogo,
-  DeloitteLogo,
-  CodecademyLogo,
-  DizzitUpLogo,
-} from "./BrandLogos";
 import CertificateLightbox, { LightboxDoc } from "./CertificateLightbox";
 import { IssuerChip } from "./TechBadge";
 
@@ -32,25 +24,6 @@ export default function CertificationsGrid() {
     selectedCategory === "All"
       ? t.credentials.items
       : t.credentials.items.filter((c) => c.category === selectedCategory);
-
-  const renderIssuerLogo = (logo?: string) => {
-    switch (logo) {
-      case "kaggle":
-        return <KaggleLogo size={18} />;
-      case "google":
-        return <GoogleLogo size={18} />;
-      case "cisco":
-        return <CiscoLogo size={18} />;
-      case "deloitte":
-        return <DeloitteLogo size={14} />;
-      case "codecademy":
-        return <CodecademyLogo size={18} />;
-      case "dizzitup":
-        return <DizzitUpLogo size={18} />;
-      default:
-        return null;
-    }
-  };
 
   return (
     <section id="certifications" className="py-20 border-b border-(--border-subtle)">
@@ -121,7 +94,7 @@ export default function CertificationsGrid() {
                         className="object-contain p-2 group-hover:scale-105 transition-transform duration-200"
                         loading="lazy"
                       />
-                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-medium backdrop-blur-[2px] gap-1.5">
+                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-medium backdrop-blur-xs gap-1.5">
                         <Eye className="w-4 h-4" />
                         <span>View Document</span>
                       </div>

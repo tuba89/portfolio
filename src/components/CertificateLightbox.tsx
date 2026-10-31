@@ -3,7 +3,6 @@
 import { useEffect } from "react";
 import Image from "next/image";
 import { X, ExternalLink, Download, FileText, ShieldCheck } from "lucide-react";
-import { useLanguage } from "@/context/LanguageContext";
 
 export interface LightboxDoc {
   name: string;
@@ -21,8 +20,6 @@ interface CertificateLightboxProps {
 }
 
 export default function CertificateLightbox({ doc, onClose }: CertificateLightboxProps) {
-  const { isRtl } = useLanguage();
-
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -87,7 +84,7 @@ export default function CertificateLightbox({ doc, onClose }: CertificateLightbo
           {isPdf ? (
             <div className="flex flex-col items-center justify-center text-center p-6 space-y-4 max-w-lg">
               {doc.thumbnail ? (
-                <div className="relative w-full max-w-md aspect-[4/3] rounded-xl overflow-hidden shadow-lg border border-(--border-strong) bg-white">
+                <div className="relative w-full max-w-md aspect-4/3 rounded-xl overflow-hidden shadow-lg border border-(--border-strong) bg-white">
                   <Image
                     src={doc.thumbnail}
                     alt={doc.name}
@@ -113,7 +110,7 @@ export default function CertificateLightbox({ doc, onClose }: CertificateLightbo
                   href={doc.assetPath}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-primary !py-2 !px-4 text-xs font-semibold"
+                  className="btn-primary py-2! px-4! text-xs font-semibold"
                 >
                   <ExternalLink className="w-3.5 h-3.5" />
                   <span>Open Full PDF in New Tab</span>
@@ -121,7 +118,7 @@ export default function CertificateLightbox({ doc, onClose }: CertificateLightbo
                 <a
                   href={doc.assetPath}
                   download
-                  className="btn-secondary !py-2 !px-4 text-xs font-semibold"
+                  className="btn-secondary py-2! px-4! text-xs font-semibold"
                 >
                   <Download className="w-3.5 h-3.5" />
                   <span>Download Original Document</span>
@@ -129,10 +126,12 @@ export default function CertificateLightbox({ doc, onClose }: CertificateLightbo
               </div>
             </div>
           ) : doc.assetPath ? (
-            <div className="relative w-full h-[60vh] max-h-[600px] flex items-center justify-center">
-              <img
+            <div className="relative w-full h-[60vh] max-h-150 flex items-center justify-center">
+              <Image
                 src={doc.assetPath}
                 alt={doc.name}
+                fill
+                sizes="(max-width: 896px) 100vw, 896px"
                 className="max-w-full max-h-full object-contain rounded-lg shadow-md border border-(--border-subtle)"
               />
             </div>
@@ -147,7 +146,7 @@ export default function CertificateLightbox({ doc, onClose }: CertificateLightbo
                   href={doc.verifyUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-primary !py-2 !px-4 text-xs font-semibold inline-flex"
+                  className="btn-primary py-2! px-4! text-xs font-semibold inline-flex"
                 >
                   <ExternalLink className="w-3.5 h-3.5" />
                   <span>Verify Record Online</span>
@@ -159,7 +158,7 @@ export default function CertificateLightbox({ doc, onClose }: CertificateLightbo
 
         {/* Footer Actions */}
         <div className="p-3.5 sm:p-4 border-t border-(--border-subtle) bg-(--bg-surface) flex items-center justify-between text-xs">
-          <span className="text-[11px] text-(--text-muted) truncate max-w-[240px] sm:max-w-md">
+          <span className="text-[11px] text-(--text-muted) truncate max-w-60 sm:max-w-md">
             {doc.credentialId && `Verification ID: ${doc.credentialId}`}
           </span>
           <div className="flex items-center gap-2">

@@ -51,7 +51,7 @@ export default function FeaturedProjects() {
                 className="editorial-card p-3.5 sm:p-7 md:p-8 relative overflow-hidden"
               >
                 {/* Subtle top accent line */}
-                <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-(--accent-peach) via-amber-500/50 to-sky-500/50 opacity-70" />
+                <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-(--accent-peach) via-amber-500/50 to-sky-500/50 opacity-70" />
 
                 {/* Card Header */}
                 <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3.5 pb-4 sm:pb-5 border-b border-(--border-subtle)">
@@ -66,7 +66,7 @@ export default function FeaturedProjects() {
                         </span>
                       )}
                     </div>
-                    <h3 className="text-lg sm:text-2xl font-semibold text-(--text-primary) tracking-tight">
+                    <h3 className="text-lg sm:2xl font-semibold text-(--text-primary) tracking-tight">
                       <bdi>{project.title}</bdi>
                     </h3>
                     <p className="text-xs sm:text-sm font-medium text-(--text-secondary) mt-0.5">
@@ -81,7 +81,7 @@ export default function FeaturedProjects() {
                         href={project.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="btn-secondary !py-1.5 !px-3 text-xs"
+                        className="btn-secondary py-1.5! px-3! text-xs"
                       >
                         <ColoredGithubIcon size={16} />
                         <span>{t.projects.codeBtn}</span>
@@ -92,7 +92,7 @@ export default function FeaturedProjects() {
                         href={project.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="btn-primary !py-1.5 !px-3 text-xs"
+                        className="btn-primary py-1.5! px-3! text-xs"
                       >
                         <span>{t.projects.liveBtn}</span>
                         <ExternalLink className="w-3 h-3" />
@@ -110,7 +110,7 @@ export default function FeaturedProjects() {
                     </div>
                   ) : assets?.coverImage ? (
                     /* Real Desktop Production Screenshot */
-                    <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] rounded-2xl overflow-hidden border border-(--border-subtle) shadow-md bg-(--bg-page) group">
+                    <div className="relative w-full aspect-16/10 sm:aspect-video rounded-2xl overflow-hidden border border-(--border-subtle) shadow-md bg-(--bg-page) group">
                       {/* Browser mock top chrome bar */}
                       <div className="h-6 sm:h-7 px-3 bg-(--bg-surface-elevated) border-b border-(--border-subtle) flex items-center justify-between">
                         <div className="flex items-center gap-1.5">
@@ -118,7 +118,7 @@ export default function FeaturedProjects() {
                           <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
                           <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
                         </div>
-                        <span className="text-[10px] font-mono text-(--text-muted) truncate max-w-[200px] sm:max-w-xs">
+                        <span className="text-[10px] font-mono text-(--text-muted) truncate max-w-50 sm:max-w-xs">
                           {project.liveUrl ? project.liveUrl.replace("https://", "") : project.id}
                         </span>
                         {assets.diagramSvg ? (
@@ -148,11 +148,13 @@ export default function FeaturedProjects() {
                     </div>
                   ) : assets?.diagramSvg ? (
                     /* High-Fidelity SVG Architecture Diagram */
-                    <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden border border-(--border-subtle) shadow-md group">
-                      <img
+                    <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-(--border-subtle) shadow-md group">
+                      <Image
                         src={assets.diagramSvg}
                         alt={altText}
-                        className="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.01]"
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 900px"
+                        className="object-cover object-top transition-transform duration-300 group-hover:scale-[1.01]"
                       />
                       <a
                         href={assets.diagramSvg}
@@ -205,7 +207,7 @@ export default function FeaturedProjects() {
                           {project.metrics.map((metric, mIdx) => (
                             <div key={mIdx} className="border-b lg:border-b border-(--border-subtle) pb-1.5 last:border-b-0 min-w-0">
                               <div className="text-[10px] sm:text-[11px] text-(--text-muted) truncate">{metric.label}</div>
-                              <div className="text-xs font-medium text-(--text-primary) mt-0.5 break-words">
+                              <div className="text-xs font-medium text-(--text-primary) mt-0.5 wrap-break-word">
                                 {metric.value}
                               </div>
                             </div>

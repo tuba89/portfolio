@@ -4,7 +4,6 @@ import { useState } from "react";
 import Image from "next/image";
 import { Trophy, Award, ExternalLink, CheckCircle2, Eye } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
-import { KaggleLogo, GoogleLogo } from "./BrandLogos";
 import CertificateLightbox, { LightboxDoc } from "./CertificateLightbox";
 import { IssuerChip } from "./TechBadge";
 
@@ -69,7 +68,7 @@ export default function KaggleAndHonors() {
                     credentialId: "Rank 33 / 2,674 Teams (Top 1.2%)",
                   })
                 }
-                className="relative w-full aspect-[16/10] rounded-xl overflow-hidden border border-(--border-subtle) bg-(--bg-page) p-1.5 mb-5 group-hover:border-(--accent-peach) transition-colors cursor-pointer group/thumb"
+                className="relative w-full aspect-16/10 rounded-xl overflow-hidden border border-(--border-subtle) bg-(--bg-page) p-1.5 mb-5 group-hover:border-(--accent-peach) transition-colors cursor-pointer group/thumb"
               >
                 <Image
                   src="/images/certificates/deep-past-challenge.webp"
@@ -78,7 +77,7 @@ export default function KaggleAndHonors() {
                   sizes="(max-width: 768px) 100vw, 450px"
                   className="object-contain p-1 group-hover/thumb:scale-105 transition-transform duration-200"
                 />
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/thumb:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-medium backdrop-blur-[2px] gap-1.5">
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/thumb:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-medium backdrop-blur-xs gap-1.5">
                   <Eye className="w-4 h-4" />
                   <span>{t.honors.kaggleCard.viewCert}</span>
                 </div>
@@ -100,7 +99,7 @@ export default function KaggleAndHonors() {
                     credentialId: "Rank 33 / 2,674 Teams (Top 1.2%)",
                   })
                 }
-                className="btn-secondary !py-1 !px-2.5 text-xs font-medium cursor-pointer"
+                className="btn-secondary py-1! px-2.5! text-xs font-medium cursor-pointer"
               >
                 <span>{t.honors.kaggleCard.viewCert}</span>
                 <ExternalLink className="w-3 h-3" />
@@ -137,7 +136,7 @@ export default function KaggleAndHonors() {
               </p>
 
               {/* Real OncoAssist Interface Thumbnail */}
-              <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden border border-(--border-subtle) bg-(--bg-page) mb-5 group-hover:border-(--accent-peach) transition-colors">
+              <div className="relative w-full aspect-16/10 rounded-xl overflow-hidden border border-(--border-subtle) bg-(--bg-page) mb-5 group-hover:border-(--accent-peach) transition-colors">
                 <Image
                   src="/assets/oncoAssist.png"
                   alt="OncoAssist: AI-Powered Cancer Recovery Advisor"
@@ -166,7 +165,7 @@ export default function KaggleAndHonors() {
                 href="https://github.com/tuba89/medibridge-ai"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-secondary !py-1 !px-2.5 text-xs font-medium"
+                className="btn-secondary py-1! px-2.5! text-xs font-medium"
               >
                 <span>{t.honors.googleCard.viewCode}</span>
                 <ExternalLink className="w-3 h-3" />

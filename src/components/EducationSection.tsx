@@ -92,15 +92,16 @@ export default function EducationSection() {
                           thumbnail: asset.thumbnail,
                         })
                       }
-                      className="relative w-full aspect-[16/9] rounded-xl overflow-hidden mb-4 border border-(--border-subtle) bg-white/5 cursor-pointer group shadow-sm"
+                      className="relative w-full aspect-video rounded-xl overflow-hidden mb-4 border border-(--border-subtle) bg-white/5 cursor-pointer group shadow-sm"
                     >
                       <Image
                         src={asset.thumbnail}
                         alt={edu.degree}
                         fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
                         className="object-contain p-2 group-hover:scale-105 transition-transform duration-200"
                       />
-                      <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-medium backdrop-blur-[2px]">
+                      <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-medium backdrop-blur-xs">
                         <span>Click to view document</span>
                       </div>
                     </div>
@@ -132,7 +133,7 @@ export default function EducationSection() {
                           thumbnail: "/images/certificates/graduation-diploma.webp",
                         })
                       }
-                      className="btn-secondary !py-1 !px-2.5 text-xs font-medium cursor-pointer"
+                      className="btn-secondary py-1! px-2.5! text-xs font-medium cursor-pointer"
                     >
                       <Award className="w-3 h-3 text-amber-500" />
                       <span>{t.education.diplomaBtn}</span>
@@ -147,7 +148,7 @@ export default function EducationSection() {
                           thumbnail: "/images/certificates/uopeople-degree.webp",
                         })
                       }
-                      className="btn-secondary !py-1 !px-2.5 text-xs font-medium cursor-pointer"
+                      className="btn-secondary py-1! px-2.5! text-xs font-medium cursor-pointer"
                     >
                       <FileText className="w-3 h-3 text-(--accent-peach)" />
                       <span>{t.education.transcriptBtn}</span>

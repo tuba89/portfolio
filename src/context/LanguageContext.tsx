@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useContext, useEffect, useSyncExternalStore } from "react";
 import { Language, Translations, TRANSLATIONS } from "@/data/translations";
 
 interface LanguageContextType {
@@ -17,20 +17,23 @@ const LanguageContext = createContext<LanguageContextType>({
   isRtl: false,
 });
 
-export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [lang, setLangState] = useState<Language>("en");
-  const [mounted, setMounted] = useState(false);
+const subscribeLang = (callback: () => void) => {
+  window.addEventListener("storage", callback);
+  return () => window.removeEventListener("storage", callback);
+};
 
-  useEffect(() => {
-    setMounted(true);
-    const saved = localStorage.getItem("preferred_lang") as Language;
-    if (saved && (saved === "en" || saved === "fr" || saved === "ar")) {
-      setLangState(saved);
-      applyLanguage(saved);
-    } else {
-      applyLanguage("en");
-    }
-  }, []);
+const getLangSnapshot = (): Language => {
+  const saved = localStorage.getItem("preferred_lang") as Language;
+  if (saved === "en" || saved === "fr" || saved === "ar") {
+    return saved;
+  }
+  return "en";
+};
+
+const getServerLangSnapshot = (): Language => "en";
+
+export function LanguageProvider({ children }: { children: React.ReactNode }) {
+  const lang = useSyncExternalStore(subscribeLang, getLangSnapshot, getServerLangSnapshot);
 
   const applyLanguage = (newLang: Language) => {
     const metaDescription = document.querySelector('meta[name="description"]');
@@ -68,10 +71,14 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
+  useEffect(() => {
+    applyLanguage(lang);
+  }, [lang]);
+
   const setLang = (newLang: Language) => {
-    setLangState(newLang);
     localStorage.setItem("preferred_lang", newLang);
     applyLanguage(newLang);
+    window.dispatchEvent(new Event("storage"));
   };
 
   const t = TRANSLATIONS[lang];

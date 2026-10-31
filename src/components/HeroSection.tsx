@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { ArrowRight, Download, Mail, Trophy, GraduationCap, Globe, Smartphone, User } from "lucide-react";
+import { ArrowRight, Download, Mail, Trophy, GraduationCap, Globe, Smartphone } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import TechBadge from "./TechBadge";
 
@@ -23,12 +23,12 @@ export default function HeroSection() {
           {/* Subtle availability pill */}
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-[11px] sm:text-xs font-medium editorial-badge border border-(--border-subtle) max-w-full self-start">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
-            <span className="break-words text-start">{t.hero.statusBadge}</span>
+            <span className="wrap-break-word text-start">{t.hero.statusBadge}</span>
           </div>
 
           {/* Profile Photo Slot with Graceful Fallback */}
           <div className="flex items-center gap-3 self-start sm:self-auto min-w-0">
-            <div className="relative w-12 h-12 sm:w-16 sm:h-16 rounded-2xl p-0.5 bg-gradient-to-tr from-(--accent-peach) via-amber-400 to-sky-400 shadow-md shrink-0">
+            <div className="relative w-12 h-12 sm:w-16 sm:h-16 rounded-2xl p-0.5 bg-linear-to-tr from-(--accent-peach) via-amber-400 to-sky-400 shadow-md shrink-0">
               <div className="relative w-full h-full rounded-[0.9rem] overflow-hidden bg-(--bg-surface-elevated) flex items-center justify-center">
                 {!imgError ? (
                   <Image
@@ -42,7 +42,7 @@ export default function HeroSection() {
                   />
                 ) : (
                   /* Graceful AB Initials Fallback */
-                  <div className="w-full h-full bg-gradient-to-br from-[#1A262F] to-[#10171C] flex items-center justify-center text-white font-bold text-sm sm:text-lg tracking-wider">
+                  <div className="w-full h-full bg-linear-to-br from-[#1A262F] to-[#10171C] flex items-center justify-center text-white font-bold text-sm sm:text-lg tracking-wider">
                     <span className="text-(--accent-peach)">A</span>
                     <span className="text-amber-400">B</span>
                   </div>
@@ -64,14 +64,14 @@ export default function HeroSection() {
         </div>
 
         {/* Headline with breathing room and refined mobile-first size */}
-        <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-[-0.02em] text-(--text-primary) leading-[1.25] max-w-3xl break-words">
+        <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-[-0.02em] text-(--text-primary) leading-tight max-w-3xl wrap-break-word">
           {t.hero.headlineStart}
           <span className="text-(--accent-peach) font-bold">{t.hero.headlineAccent}</span>
           {t.hero.headlineEnd}
         </h1>
 
         {/* Refined, airy intro paragraph */}
-        <p className="mt-4 sm:mt-6 text-xs sm:text-base md:text-lg text-(--text-secondary) max-w-2xl font-normal leading-relaxed break-words">
+        <p className="mt-4 sm:mt-6 text-xs sm:text-base md:text-lg text-(--text-secondary) max-w-2xl font-normal leading-relaxed wrap-break-word">
           {t.hero.bio}
         </p>
 
@@ -79,28 +79,28 @@ export default function HeroSection() {
         <div className="mt-6 sm:mt-8 flex flex-wrap items-center gap-2 sm:gap-3 text-xs text-(--text-secondary)">
           <div className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-(--border-subtle) bg-(--bg-surface)/70 max-w-full">
             <Trophy className="w-3.5 h-3.5 text-amber-500 shrink-0" />
-            <span className="break-words">{t.hero.kaggleBadge}</span>
+            <span className="wrap-break-word">{t.hero.kaggleBadge}</span>
           </div>
 
           <div className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-(--border-subtle) bg-(--bg-surface)/70 max-w-full">
             <GraduationCap className="w-3.5 h-3.5 text-(--accent-peach) shrink-0" />
-            <span className="break-words">{t.hero.uopeopleBadge}</span>
+            <span className="wrap-break-word">{t.hero.uopeopleBadge}</span>
           </div>
 
           <div className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-(--border-subtle) bg-(--bg-surface)/70 max-w-full">
             <Globe className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
-            <span className="break-words">{t.hero.fintechBadge}</span>
+            <span className="wrap-break-word">{t.hero.fintechBadge}</span>
           </div>
 
           <div className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-(--border-subtle) bg-(--bg-surface)/70 max-w-full">
             <Smartphone className="w-3.5 h-3.5 text-sky-500 shrink-0" />
-            <span className="break-words">{t.hero.mobileBadge}</span>
+            <span className="wrap-break-word">{t.hero.mobileBadge}</span>
           </div>
         </div>
 
         {/* CTA Buttons - Full-width stacked on mobile */}
         <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-4">
-          <a href="#featured-projects" className="btn-primary !px-5 !py-2.5 text-xs sm:text-sm font-medium w-full sm:w-auto justify-center">
+          <a href="#featured-projects" className="btn-primary px-5! py-2.5! text-xs sm:text-sm font-medium w-full sm:w-auto justify-center">
             <span>{t.hero.exploreBtn}</span>
             <ArrowRight className={`w-4 h-4 ${isRtl ? "rotate-180" : ""}`} />
           </a>
@@ -108,12 +108,12 @@ export default function HeroSection() {
             href="/certificates/Assia_Benkedia_Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-secondary !px-4 !py-2.5 text-xs sm:text-sm font-medium w-full sm:w-auto justify-center"
+            className="btn-secondary px-4! py-2.5! text-xs sm:text-sm font-medium w-full sm:w-auto justify-center"
           >
             <Download className="w-3.5 h-3.5" />
             <span>{t.hero.downloadCvBtn}</span>
           </a>
-          <a href="#contact" className="btn-secondary !px-4 !py-2.5 text-xs sm:text-sm font-medium w-full sm:w-auto justify-center">
+          <a href="#contact" className="btn-secondary px-4! py-2.5! text-xs sm:text-sm font-medium w-full sm:w-auto justify-center">
             <Mail className="w-3.5 h-3.5" />
             <span>{t.hero.contactBtn}</span>
           </a>

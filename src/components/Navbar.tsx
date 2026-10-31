@@ -12,7 +12,7 @@ import { useLanguage } from "@/context/LanguageContext";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { t, isRtl } = useLanguage();
+  const { t } = useLanguage();
 
   const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen);
   const closeMobileMenu = () => setMobileMenuOpen(false);
@@ -204,7 +204,7 @@ export default function Navbar() {
                 href="/certificates/Assia_Benkedia_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary !py-2.5 text-xs font-semibold justify-center"
+                className="btn-primary py-2.5! text-xs font-semibold justify-center"
               >
                 <FileText className="w-4 h-4" />
                 <span>{t.nav.downloadPdf}</span>

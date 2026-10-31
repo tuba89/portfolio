@@ -35,7 +35,7 @@ export default function OtherProjects() {
               >
                 <div>
                   {/* Visual Cover (Real Screenshot or Branded Gradient Cover) */}
-                  <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden mb-4 border border-(--border-subtle) bg-(--bg-page)">
+                  <div className="relative w-full aspect-16/10 rounded-xl overflow-hidden mb-4 border border-(--border-subtle) bg-(--bg-page)">
                     {assets?.coverImage ? (
                       <Image
                         src={assets.coverImage}
@@ -47,7 +47,7 @@ export default function OtherProjects() {
                       />
                     ) : (
                       /* Branded Gradient Fallback Cover with Project Icon */
-                      <div className="w-full h-full p-4 flex flex-col justify-between bg-gradient-to-br from-(--bg-surface) via-(--bg-surface-elevated) to-(--accent-peach-light)">
+                      <div className="w-full h-full p-4 flex flex-col justify-between bg-linear-to-br from-(--bg-surface) via-(--bg-surface-elevated) to-(--accent-peach-light)">
                         <div className="flex items-center justify-between">
                           <span className="text-[10px] font-mono text-(--text-muted) font-semibold uppercase">
                             {proj.category}
