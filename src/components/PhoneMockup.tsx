@@ -75,7 +75,7 @@ export default function PhoneMockup({ className = "" }: { className?: string }) 
         </div>
 
         {/* Screen Display Glass */}
-        <div className="relative w-full h-full rounded-[2rem] sm:rounded-[2.3rem] overflow-hidden bg-black border border-white/5">
+        <div className="relative w-full h-full rounded-4xl sm:rounded-[2.3rem] overflow-hidden bg-black border border-white/5">
           <Image
             key={current.id}
             src={current.src}
