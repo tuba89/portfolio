@@ -1,0 +1,132 @@
+"use client";
+
+import Image from "next/image";
+import { Trophy, Award, ExternalLink, Sparkles, CheckCircle2, ShieldCheck } from "lucide-react";
+
+export default function KaggleAndHonors() {
+  return (
+    <section id="achievements" className="py-20 border-b border-[var(--border-subtle)] bg-[var(--bg-surface)]/40">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="text-center max-w-2xl mx-auto mb-14">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold editorial-badge mb-3">
+            <Trophy className="w-3.5 h-3.5 text-amber-500" />
+            <span>Verified Credentials & Honors</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[var(--text-primary)]">
+            Competitive & Academic Honors
+          </h2>
+          <p className="mt-2 text-base text-[var(--text-secondary)]">
+            Recognized internationally across competitive machine learning benchmarks and accredited academic programs.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Card 1: Kaggle Deep Past Silver Medal */}
+          <div className="editorial-card p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 rounded-full blur-2xl pointer-events-none" />
+
+            <div>
+              <div className="flex items-center justify-between mb-4">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-500/15 text-amber-600 dark:text-amber-400 border border-amber-500/30">
+                  <Trophy className="w-3.5 h-3.5" />
+                  <span>Kaggle Silver Medal (Top 1.2%)</span>
+                </span>
+                <span className="text-xs font-mono text-[var(--text-muted)]">March 2026</span>
+              </div>
+
+              <h3 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] mb-2">
+                Deep Past Challenge: Akkadian to English
+              </h3>
+              <p className="text-sm font-semibold text-[var(--accent-peach)] mb-3">
+                Placed 33rd out of 2,674 international teams
+              </p>
+              <p className="text-sm text-[var(--text-secondary)] leading-relaxed mb-6">
+                Awarded official Competition Silver Medal by Will Cukierski, Head of Kaggle Competitions. Fine-tuned T5 Transformer sequence-to-sequence architectures to decipher and translate damaged ancient cuneiform texts.
+              </p>
+
+              {/* Certificate Image Thumbnail */}
+              <div className="relative rounded-xl overflow-hidden border border-[var(--border-subtle)] bg-[var(--bg-page)] p-2 mb-6 group-hover:border-[var(--accent-peach)] transition-colors">
+                <img
+                  src="/certificates/Assia_Benkedia_Deep_Past_Challenge.png"
+                  alt="Kaggle Silver Medal Certificate - Assia Benkedia"
+                  className="w-full h-auto rounded-lg object-contain"
+                />
+              </div>
+            </div>
+
+            <div className="pt-4 border-t border-[var(--border-subtle)] flex items-center justify-between">
+              <span className="text-xs font-medium text-[var(--text-muted)]">
+                Verified on Kaggle Platform
+              </span>
+              <a
+                href="/certificates/Assia_Benkedia_Deep_Past_Challenge.png"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-secondary !py-1.5 !px-3 text-xs"
+              >
+                <span>View Full Certificate</span>
+                <ExternalLink className="w-3 h-3" />
+              </a>
+            </div>
+          </div>
+
+          {/* Card 2: Google Gen AI Intensive Capstone Honourable Mention */}
+          <div className="editorial-card p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl pointer-events-none" />
+
+            <div>
+              <div className="flex items-center justify-between mb-4">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-blue-500/15 text-blue-600 dark:text-blue-400 border border-blue-500/30">
+                  <Award className="w-3.5 h-3.5" />
+                  <span>Google Gen AI Intensive Capstone</span>
+                </span>
+                <span className="text-xs font-mono text-[var(--text-muted)]">April 2025</span>
+              </div>
+
+              <h3 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] mb-2">
+                Honourable Mention: OncoAssist
+              </h3>
+              <p className="text-sm font-semibold text-[var(--accent-peach)] mb-3">
+                Selected among top capstones out of 280,000+ global participants
+              </p>
+              <p className="text-sm text-[var(--text-secondary)] leading-relaxed mb-6">
+                Built an AI cancer recovery advisor utilizing Gemini Pro, BigQuery AI vector embeddings, ChromaDB, and evidence retrieval from ClinicalTrials.gov with multilingual RTL Arabic support.
+              </p>
+
+              {/* Key Highlights list */}
+              <div className="p-4 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-page)]/60 mb-6 space-y-2">
+                <div className="flex items-center gap-2 text-xs font-medium text-[var(--text-primary)]">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
+                  <span>280,000+ Global Participants in Kaggle x Google Cohort</span>
+                </div>
+                <div className="flex items-center gap-2 text-xs font-medium text-[var(--text-primary)]">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
+                  <span>Source-cited, medically-grounded RAG architecture</span>
+                </div>
+                <div className="flex items-center gap-2 text-xs font-medium text-[var(--text-primary)]">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
+                  <span>Multilingual evaluation with French & Arabic RTL</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="pt-4 border-t border-[var(--border-subtle)] flex items-center justify-between">
+              <span className="text-xs font-medium text-[var(--text-muted)]">
+                Kaggle x Google AI Initiative
+              </span>
+              <a
+                href="https://github.com/tuba89/medibridge-ai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-secondary !py-1.5 !px-3 text-xs"
+              >
+                <span>View Project Code</span>
+                <ExternalLink className="w-3 h-3" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
