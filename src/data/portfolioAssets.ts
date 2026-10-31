@@ -81,17 +81,19 @@ export const OTHER_PROJECT_ASSETS: Record<string, { coverImage?: string; alt: Re
     },
   },
   "guardian-ai": {
+    coverImage: "/images/projects/guardian-ai.webp",
     alt: {
-      en: "GuardianAI computer vision security alerting architecture",
-      fr: "Architecture de surveillance et d'alerte sécurité GuardianAI",
-      ar: "معمارية نظام الحماية ورصد الحوادث الذكي GuardianAI",
+      en: "GuardianAI computer vision security alerting interface",
+      fr: "Interface de surveillance et d'alerte sécurité GuardianAI",
+      ar: "واجهة نظام الحماية ورصد الحوادث الذكي GuardianAI",
     },
   },
   bloodlink: {
+    coverImage: "/images/projects/bloodlink.webp",
     alt: {
-      en: "BloodLink emergency blood donor platform architecture",
-      fr: "Plateforme de coordination des donneurs de sang BloodLink",
-      ar: "منصة شبكة التبرع بالدم في حالات الطوارئ BloodLink",
+      en: "BloodLink emergency blood donor platform interface",
+      fr: "Interface de la plateforme de coordination des donneurs de sang BloodLink",
+      ar: "واجهة منصة شبكة التبرع بالدم في حالات الطوارئ BloodLink",
     },
   },
 };

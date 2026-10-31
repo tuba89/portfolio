@@ -62,6 +62,24 @@ async function processAll() {
       height: 400,
       fit: 'cover',
     },
+    // 9. Weather
+    {
+      input: path.join(assetsDir, 'Weather.png'),
+      output: path.join(projDir, 'weather-desktop.webp'),
+      width: 1200,
+    },
+    // 10. GuardianAI
+    {
+      input: path.join(assetsDir, 'GardianAI.png'),
+      output: path.join(projDir, 'guardian-ai.webp'),
+      width: 1200,
+    },
+    // 11. BloodLink
+    {
+      input: path.join(assetsDir, 'BloodLink.png'),
+      output: path.join(projDir, 'bloodlink.webp'),
+      width: 1200,
+    },
   ];
 
   console.log('>>> Processing user assets from public/assets/...');
