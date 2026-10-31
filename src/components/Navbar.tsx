@@ -3,13 +3,16 @@
 import { useState } from "react";
 import Link from "next/link";
 import ThemeToggle from "./ThemeToggle";
+import LanguageSwitcher from "./LanguageSwitcher";
 import Logo from "./Logo";
 import { FileText, Menu, X } from "lucide-react";
-import { GithubIcon, LinkedinIcon } from "./Icons";
+import { ColoredGithubIcon, ColoredLinkedinIcon, ColoredKaggleIcon } from "./Icons";
 import { PERSONAL_INFO } from "@/data/portfolioData";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { t } = useLanguage();
 
   const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen);
   const closeMobileMenu = () => setMobileMenuOpen(false);
@@ -17,7 +20,7 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 glass-header">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 h-16 flex items-center justify-between">
-        {/* Brand with new custom vector logo */}
+        {/* Brand with custom vector logo */}
         <Link href="/" onClick={closeMobileMenu} className="group flex items-center gap-2.5">
           <Logo size={34} className="shadow-sm group-hover:scale-105 transition-transform" />
           <div className="flex flex-col">
@@ -33,26 +36,26 @@ export default function Navbar() {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-6 text-xs font-medium text-[var(--text-secondary)]">
           <a href="#featured-projects" className="hover:text-[var(--accent-peach)] transition-colors">
-            Projects
+            {t.nav.projects}
           </a>
           <a href="#achievements" className="hover:text-[var(--accent-peach)] transition-colors">
-            Honors
+            {t.nav.honors}
           </a>
           <a href="#experience" className="hover:text-[var(--accent-peach)] transition-colors">
-            Experience
+            {t.nav.experience}
           </a>
           <a href="#education" className="hover:text-[var(--accent-peach)] transition-colors">
-            Education
+            {t.nav.education}
           </a>
           <a href="#certifications" className="hover:text-[var(--accent-peach)] transition-colors">
-            Credentials
+            {t.nav.credentials}
           </a>
           <a href="#contact" className="hover:text-[var(--accent-peach)] transition-colors">
-            Contact
+            {t.nav.contact}
           </a>
         </nav>
 
-        {/* Actions Desktop & Mobile */}
+        {/* Actions with Colored Brand Icons, Language Switcher, and Theme Toggle */}
         <div className="flex items-center gap-2 sm:gap-2.5">
           <a
             href="/certificates/Assia_Benkedia_Resume.pdf"
@@ -61,29 +64,49 @@ export default function Navbar() {
             className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium border border-[var(--border-strong)] text-[var(--text-primary)] hover:border-[var(--accent-peach)] hover:text-[var(--accent-peach)] transition-all"
           >
             <FileText className="w-3 h-3 text-[var(--accent-peach)]" />
-            <span>Resume</span>
+            <span>{t.nav.resume}</span>
           </a>
 
+          {/* Kaggle Colored */}
+          <a
+            href={PERSONAL_INFO.kaggle}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-1 rounded-lg border border-[var(--border-subtle)] hover:border-[var(--accent-peach)] hover:scale-105 transition-all"
+            aria-label="Kaggle Profile"
+            title="Kaggle: @assiaben"
+          >
+            <ColoredKaggleIcon size={20} />
+          </a>
+
+          {/* GitHub Colored */}
           <a
             href={PERSONAL_INFO.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="p-1.5 sm:p-2 rounded-lg border border-[var(--border-strong)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--accent-peach)] transition-all"
+            className="p-1 rounded-lg border border-[var(--border-subtle)] hover:border-[var(--accent-peach)] hover:scale-105 transition-all"
             aria-label="GitHub Profile"
+            title="GitHub: @tuba89"
           >
-            <GithubIcon className="w-3.5 h-3.5" />
+            <ColoredGithubIcon size={20} />
           </a>
 
+          {/* LinkedIn Colored */}
           <a
             href={PERSONAL_INFO.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="p-1.5 sm:p-2 rounded-lg border border-[var(--border-strong)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--accent-peach)] transition-all"
+            className="p-1 rounded-lg border border-[var(--border-subtle)] hover:border-[var(--accent-peach)] hover:scale-105 transition-all"
             aria-label="LinkedIn Profile"
+            title="LinkedIn: Assia Benkedia"
           >
-            <LinkedinIcon className="w-3.5 h-3.5" />
+            <ColoredLinkedinIcon size={20} />
           </a>
 
+          {/* Language Switcher */}
+          <LanguageSwitcher />
+
+          {/* Theme Toggle */}
           <ThemeToggle />
 
           {/* Mobile Menu Hamburger Button */}
@@ -97,6 +120,9 @@ export default function Navbar() {
         </div>
       </div>
 
+      {/* Modern 3D Gradient Divider underneath the Header */}
+      <div className="gradient-divider-bottom" />
+
       {/* Mobile Drawer Navigation */}
       {mobileMenuOpen && (
         <div className="md:hidden border-b border-[var(--border-subtle)] bg-[var(--bg-surface)] px-4 py-4 space-y-3 animate-in fade-in slide-in-from-top-2 duration-150 shadow-lg">
@@ -106,42 +132,42 @@ export default function Navbar() {
               onClick={closeMobileMenu}
               className="px-3 py-2 rounded-lg hover:bg-[var(--bg-page)] hover:text-[var(--accent-peach)] transition-colors"
             >
-              Projects
+              {t.nav.projects}
             </a>
             <a
               href="#achievements"
               onClick={closeMobileMenu}
               className="px-3 py-2 rounded-lg hover:bg-[var(--bg-page)] hover:text-[var(--accent-peach)] transition-colors"
             >
-              Honors & Benchmarks
+              {t.nav.honors}
             </a>
             <a
               href="#experience"
               onClick={closeMobileMenu}
               className="px-3 py-2 rounded-lg hover:bg-[var(--bg-page)] hover:text-[var(--accent-peach)] transition-colors"
             >
-              Experience
+              {t.nav.experience}
             </a>
             <a
               href="#education"
               onClick={closeMobileMenu}
               className="px-3 py-2 rounded-lg hover:bg-[var(--bg-page)] hover:text-[var(--accent-peach)] transition-colors"
             >
-              Education
+              {t.nav.education}
             </a>
             <a
               href="#certifications"
               onClick={closeMobileMenu}
               className="px-3 py-2 rounded-lg hover:bg-[var(--bg-page)] hover:text-[var(--accent-peach)] transition-colors"
             >
-              Credentials & Licenses
+              {t.nav.credentials}
             </a>
             <a
               href="#contact"
               onClick={closeMobileMenu}
               className="px-3 py-2 rounded-lg hover:bg-[var(--bg-page)] hover:text-[var(--accent-peach)] transition-colors"
             >
-              Contact
+              {t.nav.contact}
             </a>
             <a
               href="/certificates/Assia_Benkedia_Resume.pdf"
@@ -151,7 +177,7 @@ export default function Navbar() {
               className="px-3 py-2 rounded-lg text-[var(--accent-peach)] font-semibold flex items-center gap-2 border border-[var(--border-subtle)] mt-1"
             >
               <FileText className="w-4 h-4" />
-              <span>Download CV (PDF)</span>
+              <span>{t.nav.downloadPdf}</span>
             </a>
           </nav>
         </div>

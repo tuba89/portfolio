@@ -1,21 +1,24 @@
 "use client";
 
 import { Trophy, Award, ExternalLink, CheckCircle2 } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function KaggleAndHonors() {
+  const { t } = useLanguage();
+
   return (
     <section id="achievements" className="py-20 border-b border-[var(--border-subtle)] bg-[var(--bg-surface)]/40">
       <div className="max-w-5xl mx-auto px-6 sm:px-8">
         <div className="text-center max-w-xl mx-auto mb-14">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium editorial-badge mb-3">
             <Trophy className="w-3.5 h-3.5 text-amber-500" />
-            <span>Honors & Benchmark Validations</span>
+            <span>{t.honors.badge}</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-[var(--text-primary)]">
-            Competitive & Academic Honors
+            {t.honors.title}
           </h2>
           <p className="mt-2 text-sm text-[var(--text-secondary)]">
-            Recognized internationally across competitive machine learning benchmarks and accredited academic programs.
+            {t.honors.subtitle}
           </p>
         </div>
 
@@ -28,19 +31,19 @@ export default function KaggleAndHonors() {
               <div className="flex items-center justify-between mb-3">
                 <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-500/15 text-amber-600 dark:text-amber-400 border border-amber-500/30">
                   <Trophy className="w-3 h-3" />
-                  <span>Kaggle Silver Medal (Top 1.2%)</span>
+                  <span>{t.honors.kaggleCard.tag}</span>
                 </span>
                 <span className="text-xs font-mono text-[var(--text-muted)]">March 2026</span>
               </div>
 
               <h3 className="text-lg sm:text-xl font-semibold text-[var(--text-primary)] mb-1">
-                Deep Past Challenge: Akkadian to English
+                {t.honors.kaggleCard.title}
               </h3>
               <p className="text-xs font-medium text-[var(--accent-peach)] mb-3">
-                Placed 33rd out of 2,674 international teams
+                {t.honors.kaggleCard.sub}
               </p>
               <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed mb-5 font-normal">
-                Awarded official Competition Silver Medal by Will Cukierski, Head of Kaggle Competitions. Fine-tuned T5 Transformer sequence-to-sequence architectures to decipher and translate damaged ancient cuneiform texts.
+                {t.honors.kaggleCard.desc}
               </p>
 
               {/* Certificate Image Thumbnail */}
@@ -63,7 +66,7 @@ export default function KaggleAndHonors() {
                 rel="noopener noreferrer"
                 className="btn-secondary !py-1 !px-2.5 text-xs font-medium"
               >
-                <span>Full Certificate</span>
+                <span>{t.honors.kaggleCard.viewCert}</span>
                 <ExternalLink className="w-3 h-3" />
               </a>
             </div>
@@ -77,19 +80,19 @@ export default function KaggleAndHonors() {
               <div className="flex items-center justify-between mb-3">
                 <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blue-500/15 text-blue-600 dark:text-blue-400 border border-blue-500/30">
                   <Award className="w-3 h-3" />
-                  <span>Google Gen AI Intensive Capstone</span>
+                  <span>{t.honors.googleCard.tag}</span>
                 </span>
                 <span className="text-xs font-mono text-[var(--text-muted)]">April 2025</span>
               </div>
 
               <h3 className="text-lg sm:text-xl font-semibold text-[var(--text-primary)] mb-1">
-                Honourable Mention: OncoAssist
+                {t.honors.googleCard.title}
               </h3>
               <p className="text-xs font-medium text-[var(--accent-peach)] mb-3">
-                Selected among top capstones out of 280,000+ global participants
+                {t.honors.googleCard.sub}
               </p>
               <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed mb-5 font-normal">
-                Built an AI cancer recovery advisor utilizing Gemini Pro, BigQuery AI vector embeddings, ChromaDB, and evidence retrieval from ClinicalTrials.gov with multilingual RTL Arabic support.
+                {t.honors.googleCard.desc}
               </p>
 
               {/* Key Highlights list */}
@@ -119,7 +122,7 @@ export default function KaggleAndHonors() {
                 rel="noopener noreferrer"
                 className="btn-secondary !py-1 !px-2.5 text-xs font-medium"
               >
-                <span>Project Code</span>
+                <span>{t.honors.googleCard.viewCode}</span>
                 <ExternalLink className="w-3 h-3" />
               </a>
             </div>

@@ -2,19 +2,22 @@
 
 import { OTHER_PROJECTS } from "@/data/portfolioData";
 import { FolderGit2 } from "lucide-react";
-import { GithubIcon } from "./Icons";
+import { ColoredGithubIcon } from "./Icons";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function OtherProjects() {
+  const { t } = useLanguage();
+
   return (
     <section className="py-16 border-b border-[var(--border-subtle)]">
       <div className="max-w-5xl mx-auto px-6 sm:px-8">
         <div className="mb-10">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium editorial-badge mb-2">
             <FolderGit2 className="w-3.5 h-3.5 text-[var(--accent-peach)]" />
-            <span>Open Source & Utilities</span>
+            <span>{t.otherProjects.badge}</span>
           </div>
           <h2 className="text-2xl font-semibold tracking-tight text-[var(--text-primary)]">
-            Additional Selected Projects
+            {t.otherProjects.title}
           </h2>
         </div>
 
@@ -34,10 +37,10 @@ export default function OtherProjects() {
                       href={proj.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-1 rounded border border-[var(--border-subtle)] text-[var(--text-secondary)] hover:text-[var(--accent-peach)] hover:border-[var(--accent-peach)] transition-colors"
+                      className="p-1 rounded border border-[var(--border-subtle)] text-[var(--text-secondary)] hover:border-[var(--accent-peach)] hover:scale-105 transition-all"
                       aria-label="View on GitHub"
                     >
-                      <GithubIcon className="w-3.5 h-3.5" />
+                      <ColoredGithubIcon size={16} />
                     </a>
                   )}
                 </div>

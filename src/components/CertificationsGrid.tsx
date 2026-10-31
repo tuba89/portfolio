@@ -3,11 +3,18 @@
 import { useState } from "react";
 import { CERTIFICATIONS } from "@/data/portfolioData";
 import { ExternalLink, FileText, ShieldCheck } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function CertificationsGrid() {
+  const { t } = useLanguage();
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
 
-  const categories = ["All", "AI & ML", "Software & Cloud", "Networking & IT"];
+  const categories = [
+    { key: "All", label: t.credentials.all },
+    { key: "AI & ML", label: t.credentials.aiMl },
+    { key: "Software & Cloud", label: t.credentials.softwareCloud },
+    { key: "Networking & IT", label: t.credentials.networkingIt },
+  ];
 
   const filtered =
     selectedCategory === "All"
@@ -20,13 +27,13 @@ export default function CertificationsGrid() {
         <div className="text-center max-w-xl mx-auto mb-10">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium editorial-badge mb-3">
             <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />
-            <span>Professional Licenses & Validations</span>
+            <span>{t.credentials.badge}</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-[var(--text-primary)]">
-            Verified Certifications
+            {t.credentials.title}
           </h2>
           <p className="mt-2 text-sm text-[var(--text-secondary)]">
-            Industry credentials across enterprise data analytics, Cisco network engineering, and frontend systems.
+            {t.credentials.subtitle}
           </p>
         </div>
 
@@ -34,15 +41,15 @@ export default function CertificationsGrid() {
         <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
           {categories.map((cat) => (
             <button
-              key={cat}
-              onClick={() => setSelectedCategory(cat)}
+              key={cat.key}
+              onClick={() => setSelectedCategory(cat.key)}
               className={`px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all cursor-pointer ${
-                selectedCategory === cat
+                selectedCategory === cat.key
                   ? "bg-[var(--accent-peach)] text-white shadow-sm"
                   : "bg-[var(--bg-surface)] text-[var(--text-secondary)] border border-[var(--border-subtle)] hover:border-[var(--accent-peach)]"
               }`}
             >
-              {cat}
+              {cat.label}
             </button>
           ))}
         </div>
@@ -87,7 +94,7 @@ export default function CertificationsGrid() {
                     className="inline-flex items-center gap-1.5 text-xs text-[var(--accent-peach)] hover:underline font-medium"
                   >
                     <FileText className="w-3.5 h-3.5" />
-                    <span>View Document</span>
+                    <span>{t.credentials.viewDoc}</span>
                   </a>
                 ) : cert.verifyUrl ? (
                   <a
@@ -97,7 +104,7 @@ export default function CertificationsGrid() {
                     className="inline-flex items-center gap-1.5 text-xs text-[var(--accent-peach)] hover:underline font-medium"
                   >
                     <ExternalLink className="w-3.5 h-3.5" />
-                    <span>Verify Record</span>
+                    <span>{t.credentials.verify}</span>
                   </a>
                 ) : (
                   <span className="text-[11px] text-[var(--text-muted)]">Verified Record</span>

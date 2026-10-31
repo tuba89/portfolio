@@ -2,21 +2,24 @@
 
 import { SKILL_CATEGORIES } from "@/data/portfolioData";
 import { Wrench, CheckCircle2 } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function SkillsSection() {
+  const { t } = useLanguage();
+
   return (
     <section id="skills" className="py-20 border-b border-[var(--border-subtle)] bg-[var(--bg-surface)]/20">
       <div className="max-w-5xl mx-auto px-6 sm:px-8">
         <div className="text-center max-w-xl mx-auto mb-14">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium editorial-badge mb-3">
             <Wrench className="w-3.5 h-3.5 text-[var(--accent-peach)]" />
-            <span>Technical Capabilities</span>
+            <span>{t.skills.badge}</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-[var(--text-primary)]">
-            Core Technical Expertise
+            {t.skills.title}
           </h2>
           <p className="mt-2 text-sm text-[var(--text-secondary)]">
-            A specialized blend of cross-platform mobile engineering, autonomous artificial intelligence, production fintech, and server administration.
+            {t.skills.subtitle}
           </p>
         </div>
 

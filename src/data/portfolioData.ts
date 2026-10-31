@@ -57,6 +57,7 @@ export const PERSONAL_INFO = {
   github: "https://github.com/tuba89",
   githubUsername: "tuba89",
   linkedin: "https://linkedin.com/in/assia-benkedia-20708195",
+  kaggle: "https://www.kaggle.com/assiaben",
   summary:
     "High-achieving Computer Science graduate (High Honors, 3.97 GPA) and Full-Stack & Mobile Developer specializing in autonomous AI agents, production fintech, EVM smart contracts, and scalable cloud deployments. Currently engineering production features at DizzitUp serving 54 African countries. Proven track record including a Kaggle Silver Medal (33rd / 2,674 teams) and a Google Gen AI Intensive Honourable Mention. Combines deep full-stack mastery (React Native Expo, Next.js, Node.js, Prisma, Coolify, VPS server administration) with 12+ years of rigorous legal and operational discipline.",
   stats: [

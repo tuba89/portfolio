@@ -2,21 +2,24 @@
 
 import { EDUCATION_LIST } from "@/data/portfolioData";
 import { GraduationCap, Award, Calendar, MapPin, FileText, CheckCircle2 } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function EducationSection() {
+  const { t } = useLanguage();
+
   return (
     <section id="education" className="py-20 border-b border-[var(--border-subtle)] bg-[var(--bg-surface)]/30">
       <div className="max-w-5xl mx-auto px-6 sm:px-8">
         <div className="text-center max-w-xl mx-auto mb-14">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium editorial-badge mb-3">
             <GraduationCap className="w-3.5 h-3.5 text-[var(--accent-peach)]" />
-            <span>Academic Background</span>
+            <span>{t.education.badge}</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-[var(--text-primary)]">
-            Accredited Education & Honors
+            {t.education.title}
           </h2>
           <p className="mt-2 text-sm text-[var(--text-secondary)]">
-            Rigorous foundation in computer science, software engineering, and financial economics.
+            {t.education.subtitle}
           </p>
         </div>
 
@@ -68,7 +71,7 @@ export default function EducationSection() {
                     className="btn-secondary !py-1 !px-2.5 text-xs font-medium"
                   >
                     <Award className="w-3 h-3 text-amber-500" />
-                    <span>Diploma Document</span>
+                    <span>{t.education.diplomaBtn}</span>
                   </a>
                   <a
                     href="/certificates/Assia_Benkedia_Graduation_Document.pdf"
@@ -77,7 +80,7 @@ export default function EducationSection() {
                     className="btn-secondary !py-1 !px-2.5 text-xs font-medium"
                   >
                     <FileText className="w-3 h-3 text-[var(--accent-peach)]" />
-                    <span>Official Transcript</span>
+                    <span>{t.education.transcriptBtn}</span>
                   </a>
                 </div>
               )}

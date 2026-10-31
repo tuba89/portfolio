@@ -3,9 +3,11 @@
 import { useState } from "react";
 import { PERSONAL_INFO } from "@/data/portfolioData";
 import { Mail, Phone, MapPin, Copy, Check, ArrowUpRight, MessageSquare, Clock } from "lucide-react";
-import { GithubIcon, LinkedinIcon } from "./Icons";
+import { ColoredGithubIcon, ColoredLinkedinIcon, ColoredKaggleIcon } from "./Icons";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function ContactSection() {
+  const { t } = useLanguage();
   const [copied, setCopied] = useState(false);
 
   const copyEmail = () => {
@@ -22,13 +24,13 @@ export default function ContactSection() {
           <div className="lg:col-span-7">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium editorial-badge mb-3">
               <MessageSquare className="w-3.5 h-3.5 text-[var(--accent-peach)]" />
-              <span>Let&apos;s Build Together</span>
+              <span>{t.contact.badge}</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-[var(--text-primary)]">
-              Interested in collaborating on mobile apps, AI agents, or fintech platforms?
+              {t.contact.title}
             </h2>
             <p className="mt-3 text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed max-w-lg font-normal">
-              I am open to high-impact software engineering roles, mobile architecture, autonomous AI systems, consulting, and fintech projects.
+              {t.contact.desc}
             </p>
 
             <div className="mt-6 sm:mt-7 space-y-4">
@@ -39,7 +41,7 @@ export default function ContactSection() {
                   className="btn-primary !py-2 !px-4 text-xs font-medium"
                 >
                   <Mail className="w-3.5 h-3.5" />
-                  <span>Send an Email</span>
+                  <span>{t.contact.sendEmail}</span>
                 </a>
                 <button
                   onClick={copyEmail}
@@ -61,12 +63,22 @@ export default function ContactSection() {
               {/* Direct links */}
               <div className="pt-2 flex flex-wrap items-center gap-4 text-xs font-medium text-[var(--text-secondary)]">
                 <a
+                  href={PERSONAL_INFO.kaggle}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 hover:text-[var(--accent-peach)] transition-colors"
+                >
+                  <ColoredKaggleIcon size={18} />
+                  <span>Kaggle (@assiaben)</span>
+                  <ArrowUpRight className="w-3 h-3 text-[var(--text-muted)]" />
+                </a>
+                <a
                   href={PERSONAL_INFO.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 hover:text-[var(--accent-peach)] transition-colors"
                 >
-                  <LinkedinIcon className="w-3.5 h-3.5" />
+                  <ColoredLinkedinIcon size={18} />
                   <span>LinkedIn Profile</span>
                   <ArrowUpRight className="w-3 h-3 text-[var(--text-muted)]" />
                 </a>
@@ -76,7 +88,7 @@ export default function ContactSection() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 hover:text-[var(--accent-peach)] transition-colors"
                 >
-                  <GithubIcon className="w-3.5 h-3.5" />
+                  <ColoredGithubIcon size={18} />
                   <span>GitHub (@{PERSONAL_INFO.githubUsername})</span>
                   <ArrowUpRight className="w-3 h-3 text-[var(--text-muted)]" />
                 </a>
@@ -88,7 +100,7 @@ export default function ContactSection() {
           <div className="lg:col-span-5">
             <div className="editorial-card p-5 sm:p-6 space-y-4 sm:space-y-5">
               <h3 className="text-sm font-semibold text-[var(--text-primary)] border-b border-[var(--border-subtle)] pb-2.5">
-                Direct Contact Details
+                {t.contact.detailsTitle}
               </h3>
 
               <div className="space-y-3 text-xs">
@@ -97,7 +109,7 @@ export default function ContactSection() {
                     <Mail className="w-3.5 h-3.5" />
                   </div>
                   <div className="min-w-0">
-                    <div className="text-[10px] sm:text-[11px] text-[var(--text-muted)]">Email</div>
+                    <div className="text-[10px] sm:text-[11px] text-[var(--text-muted)]">{t.contact.emailLabel}</div>
                     <div className="font-medium text-[var(--text-primary)] break-all">
                       {PERSONAL_INFO.email}
                     </div>
@@ -109,7 +121,7 @@ export default function ContactSection() {
                     <Phone className="w-3.5 h-3.5" />
                   </div>
                   <div>
-                    <div className="text-[10px] sm:text-[11px] text-[var(--text-muted)]">Phone / WhatsApp</div>
+                    <div className="text-[10px] sm:text-[11px] text-[var(--text-muted)]">{t.contact.phoneLabel}</div>
                     <div className="font-medium text-[var(--text-primary)]">
                       {PERSONAL_INFO.phone}
                     </div>
@@ -121,7 +133,7 @@ export default function ContactSection() {
                     <MapPin className="w-3.5 h-3.5" />
                   </div>
                   <div>
-                    <div className="text-[10px] sm:text-[11px] text-[var(--text-muted)]">Location & Work Mode</div>
+                    <div className="text-[10px] sm:text-[11px] text-[var(--text-muted)]">{t.contact.locationLabel}</div>
                     <div className="font-medium text-[var(--text-primary)]">
                       {PERSONAL_INFO.location}
                     </div>
@@ -131,7 +143,7 @@ export default function ContactSection() {
 
               <div className="p-3 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-page)] text-[11px] text-[var(--text-secondary)] leading-relaxed flex items-center gap-2">
                 <Clock className="w-3.5 h-3.5 text-[var(--accent-peach)] shrink-0" />
-                <span>Response time: Usually within 24 hours. Fluent in English, French, and Arabic.</span>
+                <span>{t.contact.responseTime}</span>
               </div>
             </div>
           </div>

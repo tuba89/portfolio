@@ -1,3 +1,6 @@
+"use client";
+
+import { LanguageProvider } from "@/context/LanguageContext";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import FeaturedProjects from "@/components/FeaturedProjects";
@@ -12,20 +15,22 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen">
-      <Navbar />
-      <main className="flex-grow">
-        <HeroSection />
-        <FeaturedProjects />
-        <KaggleAndHonors />
-        <ExperienceTimeline />
-        <EducationSection />
-        <CertificationsGrid />
-        <SkillsSection />
-        <OtherProjects />
-        <ContactSection />
-      </main>
-      <Footer />
-    </div>
+    <LanguageProvider>
+      <div className="flex flex-col min-h-screen">
+        <Navbar />
+        <main className="flex-grow">
+          <HeroSection />
+          <FeaturedProjects />
+          <KaggleAndHonors />
+          <ExperienceTimeline />
+          <EducationSection />
+          <CertificationsGrid />
+          <SkillsSection />
+          <OtherProjects />
+          <ContactSection />
+        </main>
+        <Footer />
+      </div>
+    </LanguageProvider>
   );
 }

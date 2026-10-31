@@ -2,21 +2,24 @@
 
 import { EXPERIENCES } from "@/data/portfolioData";
 import { Briefcase, Calendar, MapPin, CheckCircle2 } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function ExperienceTimeline() {
+  const { t } = useLanguage();
+
   return (
     <section id="experience" className="py-20 border-b border-[var(--border-subtle)]">
       <div className="max-w-5xl mx-auto px-6 sm:px-8">
         <div className="text-center max-w-xl mx-auto mb-14">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium editorial-badge mb-3">
             <Briefcase className="w-3.5 h-3.5 text-[var(--accent-peach)]" />
-            <span>Career Record</span>
+            <span>{t.experience.badge}</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-[var(--text-primary)]">
-            Engineering & Domain Experience
+            {t.experience.title}
           </h2>
           <p className="mt-2 text-sm text-[var(--text-secondary)]">
-            Combining modern full-stack development with 12+ years of legal and operational rigor.
+            {t.experience.subtitle}
           </p>
         </div>
 
