@@ -149,6 +149,7 @@ export const FEATURED_PROJECTS: Project[] = [
     tags: ["React", "AI Agents", "FastMCP", "Multi-Agent Systems", "Voice AI", "LLM Memory", "TypeScript"],
     githubUrl: "https://github.com/tuba89/livora",
     writeupUrl: "https://www.kaggle.com/competitions/vibecoding-agents-capstone-project/writeups/new-writeup-1783122930771",
+    blogUrl: "https://blog.google/innovation-and-ai/technology/developers-tools/ai-agents-intensive-recap/",
     badge: "Open Source AI Agent System",
     featured: true,
     metrics: [
@@ -409,6 +410,25 @@ export const CERTIFICATIONS: Certification[] = [
     date: "April 2025",
     credentialId: "Honourable Mention · Top Capstone among 280,000+ Participants",
     verifyUrl: "https://www.kaggle.com/competitions/gen-ai-intensive-course-capstone-2025q1/discussion/575927",
+    assetPath: "/assets/kaggle certificates/Completed 5-Day Gen AI Intensive.png",
+    category: "AI & ML",
+  },
+  {
+    name: "5-Day AI Agents: Intensive Vibe Coding Course with Google",
+    issuer: "Google DeepMind x Kaggle",
+    date: "October 2025",
+    credentialId: "Vibe Coding Capstone Project (LIVORA)",
+    verifyUrl: "https://blog.google/innovation-and-ai/technology/developers-tools/ai-agents-intensive-recap/",
+    assetPath: "/assets/kaggle certificates/5-Day AI Agents_ Intensive Vibe Coding Course.png",
+    category: "AI & ML",
+  },
+  {
+    name: "5-Day AI Agents Intensive Course with Google",
+    issuer: "Google DeepMind x Kaggle",
+    date: "September 2025",
+    credentialId: "AI Agents Capstone Project (ResearchForge-AI)",
+    verifyUrl: "https://www.kaggle.com/competitions/agents-intensive-capstone-project",
+    assetPath: "/assets/kaggle certificates/5-Day AI Agents Intensive Course with Google.png",
     category: "AI & ML",
   },
   {

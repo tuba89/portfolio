@@ -105,16 +105,18 @@ export interface CertificateAssetInfo {
 
 export const CERTIFICATE_ASSETS: Record<number, CertificateAssetInfo> = {
   0: { thumbnail: "/images/certificates/deep-past-challenge.webp", issuerLogo: "kaggle" },
-  1: { thumbnail: "/assets/oncoAssist.png", issuerLogo: "google" },
-  2: { thumbnail: "/images/certificates/dizzitup-internship.webp", issuerLogo: "dizzitup" },
-  3: { thumbnail: "/images/certificates/deloitte-data-analytics.webp", issuerLogo: "deloitte" },
-  4: { thumbnail: "/images/certificates/ccna-connecting-networks.webp", issuerLogo: "cisco" },
-  5: { thumbnail: "/images/certificates/ccna-scaling-networks.webp", issuerLogo: "cisco" },
-  6: { thumbnail: "/images/certificates/ccna-routing-switching.webp", issuerLogo: "cisco" },
-  7: { thumbnail: "/images/certificates/ccna-intro-networks.webp", issuerLogo: "cisco" },
-  8: { thumbnail: "/images/certificates/codecademy-javascript.webp", issuerLogo: "codecademy" },
-  9: { thumbnail: "/images/certificates/codecademy-css.webp", issuerLogo: "codecademy" },
-  10: { thumbnail: "/images/certificates/codecademy-html.webp", issuerLogo: "codecademy" },
+  1: { thumbnail: "/images/certificates/google-gen-ai-intensive.webp", issuerLogo: "google" },
+  2: { thumbnail: "/images/certificates/google-ai-agents-vibe-coding.webp", issuerLogo: "google" },
+  3: { thumbnail: "/images/certificates/google-ai-agents-intensive.webp", issuerLogo: "google" },
+  4: { thumbnail: "/images/certificates/dizzitup-internship.webp", issuerLogo: "dizzitup" },
+  5: { thumbnail: "/images/certificates/deloitte-data-analytics.webp", issuerLogo: "deloitte" },
+  6: { thumbnail: "/images/certificates/ccna-connecting-networks.webp", issuerLogo: "cisco" },
+  7: { thumbnail: "/images/certificates/ccna-scaling-networks.webp", issuerLogo: "cisco" },
+  8: { thumbnail: "/images/certificates/ccna-routing-switching.webp", issuerLogo: "cisco" },
+  9: { thumbnail: "/images/certificates/ccna-intro-networks.webp", issuerLogo: "cisco" },
+  10: { thumbnail: "/images/certificates/codecademy-javascript.webp", issuerLogo: "codecademy" },
+  11: { thumbnail: "/images/certificates/codecademy-css.webp", issuerLogo: "codecademy" },
+  12: { thumbnail: "/images/certificates/codecademy-html.webp", issuerLogo: "codecademy" },
 };
 
 export const EDUCATION_ASSETS: Record<number, { thumbnail?: string; logo: "uopeople" | "oran" }> = {

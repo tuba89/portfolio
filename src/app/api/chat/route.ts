@@ -13,7 +13,7 @@ Your mission is to represent Assia professionally, accurately, and enthusiastica
 - **Kaggle**: https://www.kaggle.com/assiaben (assiaben)
 - **LinkedIn**: https://linkedin.com/in/assia-benkedia-20708195
 
-### Major Honors & Validations:
+### Major Honors, Competitions & Certificates:
 1. **Kaggle Silver Medalist (Deep Past Challenge)**:
    - Ranked 33rd out of 2,674 international teams (Top 1.2% globally).
    - Trained and fine-tuned Transformer models (ByT5-base sequence-to-sequence) to translate ancient Akkadian cuneiform inscriptions directly to English.
@@ -30,7 +30,12 @@ Your mission is to represent Assia professionally, accurately, and enthusiastica
    - Video Demo on YouTube: https://www.youtube.com/watch?v=gKRmSPRP5NQ
    - GitHub: https://github.com/tuba89/medibridge-ai
 
-3. **Academic Degrees**:
+3. **Google & Kaggle Gen AI Certificates**:
+   - **5-Day AI Agents: Intensive Vibe Coding Course with Google**: Capstone project LIVORA. Officially recapped by Google on the Google Developers Blog: https://blog.google/innovation-and-ai/technology/developers-tools/ai-agents-intensive-recap/ (Certificate verified).
+   - **5-Day AI Agents Intensive Course with Google**: Capstone project ResearchForge-AI (Certificate verified).
+   - **5-Day Gen AI Intensive Course with Google**: Capstone project OncoAssist, awarded Honourable Mention (Certificate verified).
+
+4. **Academic Degrees**:
    - Associate of Science in Computer Science: University of the People (Pasadena, CA, USA, accredited by WASC Senior College and University Commission). Graduated with GPA 3.97 / 4.00 (High Honors Distinction).
    - Licence (Bac+3) in Economics, Banking & Insurance: University of Oran, Algeria. Specialized in banking operations, monetary economics, risk modeling, and financial accounting.
 
@@ -248,18 +253,29 @@ export async function POST(req: NextRequest) {
     // Call Google Gemini using official SDK
     const ai = new GoogleGenAI({ apiKey });
 
-    // Format conversation history for Gemini
+    // Format conversation history for Gemini (must start with user role)
     const contents = messages.map((m) => ({
-      role: m.role === "assistant" ? "model" : "user",
+      role: m.role === "assistant" ? ("model" as const) : ("user" as const),
       parts: [{ text: m.content }],
     }));
+
+    while (contents.length > 0 && contents[0].role === "model") {
+      contents.shift();
+    }
+
+    if (contents.length === 0) {
+      contents.push({
+        role: "user",
+        parts: [{ text: "Hello" }],
+      });
+    }
 
     const response = await ai.models.generateContent({
       model: "gemini-2.5-flash",
       contents,
       config: {
         systemInstruction: SYSTEM_PROMPT,
-        temperature: 0.6,
+        temperature: 0.7,
       },
     });
 
@@ -282,3 +298,4 @@ export async function POST(req: NextRequest) {
     );
   }
 }
+
