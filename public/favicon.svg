@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <defs>
+    <linearGradient id="peachFav" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFB703" />
+      <stop offset="50%" stop-color="#DD6E42" />
+      <stop offset="100%" stop-color="#C2542B" />
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" rx="28" fill="#10171C" stroke="#DD6E42" stroke-opacity="0.4" stroke-width="2" />
+  <g transform="translate(18, 16)">
+    <path d="M14 74 L38 18 C40 13 44 13 46 18 L70 74" stroke="url(#peachFav)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M26 50 L64 50" stroke="url(#peachFav)" stroke-width="7" stroke-linecap="round" />
+    <path d="M44 26 C62 26 74 33 74 44 C74 52 64 54 50 54" stroke="url(#peachFav)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M46 54 C66 54 78 61 78 74 C78 86 64 88 40 88 L34 88" stroke="url(#peachFav)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+    <circle cx="42" cy="18" r="4.5" fill="#FFB703" />
+  </g>
+</svg>

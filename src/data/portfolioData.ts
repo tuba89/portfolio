@@ -52,7 +52,7 @@ export const PERSONAL_INFO = {
   title: "AI & Full-Stack Developer",
   specialization: "Mobile & Web Engineering · Autonomous AI Agents · Fintech & EVM",
   location: "Oran, Algeria (Open to Global Remote & Relocation)",
-  email: "iiiassia.beniii@gmail.com",
+  email: "assiapro.ai@gmail.com",
   phone: "+213 783 60 05 83",
   github: "https://github.com/tuba89",
   githubUsername: "tuba89",
