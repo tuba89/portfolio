@@ -31,7 +31,7 @@ export default function HeroSection() {
               <div className="relative w-full h-full rounded-[0.9rem] overflow-hidden bg-[var(--bg-surface-elevated)] flex items-center justify-center">
                 {!imgError ? (
                   <Image
-                    src="/images/profile.webp"
+                    src="/assets/assia-benkedia-logo-3d.jpg"
                     alt={t.personal.name}
                     fill
                     sizes="64px"

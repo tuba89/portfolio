@@ -29,7 +29,7 @@ export const FEATURED_PROJECT_ASSETS: Record<string, ProjectAssetData> = {
   },
   livora: {
     diagramSvg: "/images/diagrams/livora-architecture.svg",
-    coverImage: "/images/projects/livora-desktop.webp",
+    coverImage: "/assets/livora/desktop_view.png",
     alt: {
       en: "LIVORA autonomous multi-agent AI orchestration architecture diagram",
       fr: "Diagramme d'architecture de l'orchestration multi-agents autonomes LIVORA",
@@ -54,7 +54,7 @@ export const FEATURED_PROJECT_ASSETS: Record<string, ProjectAssetData> = {
     },
   },
   "researchforge-ai": {
-    coverImage: "/images/projects/researchforge-desktop.webp",
+    coverImage: "/assets/researchForge/hero_section.png",
     alt: {
       en: "ResearchForge-AI academic paper discovery and proposal drafting interface",
       fr: "Interface de la plateforme de recherche académique ResearchForge-AI",
@@ -62,7 +62,7 @@ export const FEATURED_PROJECT_ASSETS: Record<string, ProjectAssetData> = {
     },
   },
   "oncoassist-medibridge": {
-    coverImage: "/images/projects/medibridge-desktop.webp",
+    coverImage: "/assets/medibridge/MedibridgeAI_UI_b.png",
     alt: {
       en: "MediBridge-AI clinical intelligence engine interface",
       fr: "Interface du moteur d'intelligence clinique MediBridge-AI",
@@ -73,7 +73,7 @@ export const FEATURED_PROJECT_ASSETS: Record<string, ProjectAssetData> = {
 
 export const OTHER_PROJECT_ASSETS: Record<string, { coverImage?: string; alt: Record<Language, string> }> = {
   "next-weather-app": {
-    coverImage: "/images/projects/weather-desktop.webp",
+    coverImage: "/assets/Weather.png",
     alt: {
       en: "Next.js modern animated weather application interface",
       fr: "Interface de l'application météo animée Next.js",
@@ -81,7 +81,7 @@ export const OTHER_PROJECT_ASSETS: Record<string, { coverImage?: string; alt: Re
     },
   },
   "guardian-ai": {
-    coverImage: "/images/projects/guardian-ai.webp",
+    coverImage: "/assets/GardianAI.png",
     alt: {
       en: "GuardianAI computer vision security alerting interface",
       fr: "Interface de surveillance et d'alerte sécurité GuardianAI",
@@ -89,7 +89,7 @@ export const OTHER_PROJECT_ASSETS: Record<string, { coverImage?: string; alt: Re
     },
   },
   bloodlink: {
-    coverImage: "/images/projects/bloodlink.webp",
+    coverImage: "/assets/BloodLink.png",
     alt: {
       en: "BloodLink emergency blood donor platform interface",
       fr: "Interface de la plateforme de coordination des donneurs de sang BloodLink",
@@ -105,7 +105,7 @@ export interface CertificateAssetInfo {
 
 export const CERTIFICATE_ASSETS: Record<number, CertificateAssetInfo> = {
   0: { thumbnail: "/images/certificates/deep-past-challenge.webp", issuerLogo: "kaggle" },
-  1: { thumbnail: "/images/projects/oncoassist.webp", issuerLogo: "google" },
+  1: { thumbnail: "/assets/oncoAssist.png", issuerLogo: "google" },
   2: { thumbnail: "/images/certificates/dizzitup-internship.webp", issuerLogo: "dizzitup" },
   3: { thumbnail: "/images/certificates/deloitte-data-analytics.webp", issuerLogo: "deloitte" },
   4: { thumbnail: "/images/certificates/ccna-connecting-networks.webp", issuerLogo: "cisco" },

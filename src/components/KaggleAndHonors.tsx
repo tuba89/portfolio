@@ -142,7 +142,7 @@ export default function KaggleAndHonors() {
               {/* Real OncoAssist Interface Thumbnail */}
               <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden border border-[var(--border-subtle)] bg-[var(--bg-page)] mb-5 group-hover:border-[var(--accent-peach)] transition-colors">
                 <Image
-                  src="/images/projects/oncoassist.webp"
+                  src="/assets/oncoAssist.png"
                   alt="OncoAssist: AI-Powered Cancer Recovery Advisor"
                   fill
                   sizes="(max-width: 768px) 100vw, 450px"
