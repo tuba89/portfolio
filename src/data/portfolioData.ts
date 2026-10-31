@@ -32,6 +32,7 @@ export interface Education {
   period: string;
   location: string;
   grade: string;
+  honor?: string;
   description: string;
   highlights: string[];
   credentialUrl?: string;
@@ -346,10 +347,11 @@ export const EXPERIENCES: Experience[] = [
 export const EDUCATION_LIST: Education[] = [
   {
     institution: "University of the People",
-    degree: "Associate of Science in Computer Science (High Honors)",
+    degree: "Associate of Science in Computer Science",
     period: "Sep 2022 - Conferred Jan 14, 2026",
     location: "Pasadena, CA, USA (WASC Senior College & University Commission Accredited)",
-    grade: "GPA 3.97 / 4.00 - High Honors",
+    grade: "GPA 3.97 / 4.00",
+    honor: "High Honors Distinction",
     description:
       "Comprehensive computer science curriculum accredited by the WASC Senior College and University Commission. Graduated with near-perfect GPA and High Honors distinction.",
     highlights: [

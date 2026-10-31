@@ -117,9 +117,9 @@ export const CERTIFICATE_ASSETS: Record<number, CertificateAssetInfo> = {
   10: { thumbnail: "/images/certificates/codecademy-html.webp", issuerLogo: "codecademy" },
 };
 
-export const EDUCATION_ASSETS: Record<number, { thumbnail: string; logo: "uopeople" | "oran" }> = {
-  0: { thumbnail: "/images/certificates/uopeople-degree.webp", logo: "uopeople" },
-  1: { thumbnail: "/images/certificates/graduation-diploma.webp", logo: "oran" },
+export const EDUCATION_ASSETS: Record<number, { thumbnail?: string; logo: "uopeople" | "oran" }> = {
+  0: { thumbnail: "/images/certificates/graduation-diploma.webp", logo: "uopeople" },
+  1: { logo: "oran" },
 };
 
 export const EXPERIENCE_LOGOS: Record<number, "dizzitup" | "virtual-internships" | "notarial"> = {

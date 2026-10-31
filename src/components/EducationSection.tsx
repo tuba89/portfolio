@@ -35,8 +35,8 @@ export default function EducationSection() {
             return (
               <div key={idx} className="editorial-card p-6 sm:p-7 flex flex-col justify-between">
                 <div>
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="flex items-center gap-2.5">
+                  <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+                    <div className="flex items-center gap-2.5 min-w-0">
                       {/* University Logo: Grayscale to color on hover */}
                       <div className="w-8 h-8 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-page)] flex items-center justify-center shrink-0 grayscale hover:grayscale-0 transition-all duration-200">
                         {asset?.logo === "uopeople" ? (
@@ -45,26 +45,34 @@ export default function EducationSection() {
                           <GraduationCap className="w-4 h-4 text-emerald-600" />
                         )}
                       </div>
-                      <span className="px-2.5 py-0.5 rounded-full text-[11px] font-semibold editorial-badge">
+                      <span className="px-2.5 py-0.5 rounded-full text-[11px] font-semibold editorial-badge shrink-0">
                         {edu.grade}
                       </span>
                     </div>
 
-                    <div className="flex items-center gap-1.5 text-xs text-[var(--text-muted)] font-normal">
+                    <div className="flex items-center gap-1.5 text-xs text-[var(--text-muted)] font-normal shrink-0">
                       <Calendar className="w-3.5 h-3.5 text-[var(--accent-peach)] shrink-0" />
                       <span>{edu.period}</span>
                     </div>
                   </div>
 
-                  <h3 className="text-lg sm:text-xl font-semibold text-[var(--text-primary)] mb-1">
-                    {edu.degree}
-                  </h3>
-                  <p className="text-xs font-medium text-[var(--accent-peach)] mb-1">
-                    <bdi>{edu.institution}</bdi>
-                  </p>
-                  <div className="flex items-center gap-1 text-[11px] text-[var(--text-muted)] mb-3">
-                    <MapPin className="w-3 h-3 shrink-0" />
-                    <span>{edu.location}</span>
+                  <div className="mb-3">
+                    <h3 className="text-lg sm:text-xl font-semibold text-[var(--text-primary)] mb-1.5">
+                      {edu.degree}
+                    </h3>
+                    {edu.honor && (
+                      <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/25 mb-1.5">
+                        <Award className="w-3.5 h-3.5 text-amber-500 shrink-0" />
+                        <span>{edu.honor}</span>
+                      </div>
+                    )}
+                    <p className="text-xs font-medium text-[var(--accent-peach)] mb-1">
+                      <bdi>{edu.institution}</bdi>
+                    </p>
+                    <div className="flex items-center gap-1 text-[11px] text-[var(--text-muted)]">
+                      <MapPin className="w-3 h-3 shrink-0" />
+                      <span>{edu.location}</span>
+                    </div>
                   </div>
 
                   {/* Thumbnail slot */}
@@ -75,10 +83,7 @@ export default function EducationSection() {
                           name: edu.degree,
                           issuer: edu.institution,
                           date: edu.period,
-                          assetPath:
-                            idx === 0
-                              ? "/certificates/Assia_Benkedia_Graduation_Document.pdf"
-                              : "/certificates/graduation_diploma.png",
+                          assetPath: "/certificates/graduation_diploma.png",
                           thumbnail: asset.thumbnail,
                         })
                       }
@@ -115,9 +120,9 @@ export default function EducationSection() {
                     <button
                       onClick={() =>
                         setActiveDoc({
-                          name: "Graduation Diploma (Bac+3)",
-                          issuer: "University of Oran",
-                          date: "2011",
+                          name: "Associate of Science Degree Diploma",
+                          issuer: "University of the People",
+                          date: "January 14, 2026",
                           assetPath: "/certificates/graduation_diploma.png",
                           thumbnail: "/images/certificates/graduation-diploma.webp",
                         })
@@ -130,7 +135,7 @@ export default function EducationSection() {
                     <button
                       onClick={() =>
                         setActiveDoc({
-                          name: "Associate of Science Degree & Official Transcript",
+                          name: "Associate of Science Official Transcript",
                           issuer: "University of the People",
                           date: "January 14, 2026",
                           assetPath: "/certificates/Assia_Benkedia_Graduation_Document.pdf",

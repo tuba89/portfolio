@@ -41,6 +41,7 @@ export interface LocalizedEducation {
   period: string;
   location: string;
   grade: string;
+  honor?: string;
   description: string;
   highlights: string[];
   credentialUrl?: string;
@@ -572,15 +573,16 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       badge: "Academic Background",
       title: "Accredited Education & Honors",
       subtitle: "Rigorous foundation in computer science, software engineering, and financial economics.",
-      diplomaBtn: "Diploma Document",
+      diplomaBtn: "Conferred Diploma",
       transcriptBtn: "Official Transcript",
       items: [
         {
           institution: "University of the People",
-          degree: "Associate of Science in Computer Science (High Honors)",
+          degree: "Associate of Science in Computer Science",
           period: "Sep 2022 - Conferred Jan 14, 2026",
           location: "Pasadena, CA, USA (WASC Accredited)",
-          grade: "GPA 3.97 / 4.00 - High Honors",
+          grade: "GPA 3.97 / 4.00",
+          honor: "High Honors Distinction",
           description:
             "Comprehensive computer science curriculum accredited by the WASC Senior College and University Commission. Graduated with near-perfect GPA and High Honors distinction.",
           highlights: [
@@ -1172,15 +1174,16 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       badge: "Formation Académique",
       title: "Diplômes & Titres Universitaires",
       subtitle: "Fondations rigoureuses en informatique, génie logiciel et sciences économiques.",
-      diplomaBtn: "Consulter le Diplôme",
+      diplomaBtn: "Diplôme Officiel",
       transcriptBtn: "Relevé de Notes Officiel",
       items: [
         {
           institution: "University of the People",
-          degree: "Associate of Science en Informatique (Haute Mention)",
+          degree: "Associate of Science en Informatique",
           period: "Septembre 2022 - Diplômée le 14 janvier 2026",
           location: "Pasadena, Californie, USA (Accréditation WASC)",
-          grade: "Moyenne 3.97 / 4.00 - Haute Mention",
+          grade: "Moyenne 3.97 / 4.00",
+          honor: "Haute Mention d'Excellence",
           description:
             "Cursus académique rigoureux en informatique accrédité aux États-Unis par la commission WASC. Diplômée avec mention d'excellence.",
           highlights: [
@@ -1772,15 +1775,16 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       badge: "المؤهلات الأكاديمية",
       title: "التعليم الجامعي المعتمد",
       subtitle: "أساس علمي رصين في علوم الحاسوب وهندسة البرمجيات والعلوم الاقتصادية والمالية.",
-      diplomaBtn: "عرض وثيقة الدبلوم",
+      diplomaBtn: "وثيقة التخرج والدبلوم",
       transcriptBtn: "كشف النقاط الرسمي",
       items: [
         {
           institution: "جامعة الناس (University of the People)",
-          degree: "دبلوم مشارك في علوم الحاسوب (مرتبة الشرف العالية)",
+          degree: "دبلوم مشارك في علوم الحاسوب",
           period: "سبتمبر 2022 - منح التخرج 14 يناير 2026",
           location: "باسادينا، كاليفورنيا، الولايات المتحدة (معتمدة من هيئة WASC العليا)",
-          grade: "معدل 3.97 / 4.00 - مرتبة الشرف العالية",
+          grade: "المعدل 3.97 / 4.00",
+          honor: "مرتبة الشرف العالية",
           description:
             "برنامج أكاديمي معتمد في علوم الحاسوب وهندسة البرمجيات من هيئة WASC الأمريكية. تخرج بمعدل شبه كامل ومرتبة الشرف العالية.",
           highlights: [
