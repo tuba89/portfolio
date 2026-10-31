@@ -6,6 +6,7 @@ import { Trophy, Award, ExternalLink, CheckCircle2, Eye } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { KaggleLogo, GoogleLogo } from "./BrandLogos";
 import CertificateLightbox, { LightboxDoc } from "./CertificateLightbox";
+import { IssuerChip } from "./TechBadge";
 
 export default function KaggleAndHonors() {
   const { t } = useLanguage();
@@ -42,9 +43,7 @@ export default function KaggleAndHonors() {
                   <span className="text-xs font-mono text-[var(--text-muted)]">
                     {t.honors.kaggleCard.date}
                   </span>
-                  <div className="grayscale group-hover:grayscale-0 transition-all duration-200">
-                    <KaggleLogo size={18} />
-                  </div>
+                  <IssuerChip issuerKey="kaggle" displayName="Kaggle" />
                 </div>
               </div>
 
@@ -123,9 +122,7 @@ export default function KaggleAndHonors() {
                   <span className="text-xs font-mono text-[var(--text-muted)]">
                     {t.honors.googleCard.date}
                   </span>
-                  <div className="grayscale group-hover:grayscale-0 transition-all duration-200">
-                    <GoogleLogo size={18} />
-                  </div>
+                  <IssuerChip issuerKey="google" displayName="Google" />
                 </div>
               </div>
 

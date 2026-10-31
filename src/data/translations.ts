@@ -103,6 +103,8 @@ export interface Translations {
     exploreBtn: string;
     downloadCvBtn: string;
     contactBtn: string;
+    techStripBadge: string;
+    techStripTitle: string;
   };
   projects: {
     badge: string;
@@ -248,6 +250,8 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       exploreBtn: "Explore Flagship Work",
       downloadCvBtn: "Download Verified CV",
       contactBtn: "Get in Touch",
+      techStripBadge: "Core Technologies",
+      techStripTitle: "Technologies I build with daily:",
     },
     projects: {
       badge: "Flagship Work",
@@ -849,6 +853,8 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       exploreBtn: "Découvrir les Projets",
       downloadCvBtn: "Télécharger le CV Vérifié",
       contactBtn: "Me Contacter",
+      techStripBadge: "Technologies Clés",
+      techStripTitle: "Technologies utilisées au quotidien :",
     },
     projects: {
       badge: "Réalisations Majeures",
@@ -1450,6 +1456,8 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       exploreBtn: "استكشاف المشاريع البارزة",
       downloadCvBtn: "تحميل السيرة الذاتية المعتمدة",
       contactBtn: "تواصل معي",
+      techStripBadge: "التقنيات الأساسية",
+      techStripTitle: "التقنيات والأدوات المستخدمة يومياً :",
     },
     projects: {
       badge: "الأعمال البارزة",

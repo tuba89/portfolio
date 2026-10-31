@@ -36,14 +36,19 @@ export default function EducationSection() {
               <div key={idx} className="editorial-card p-6 sm:p-7 flex flex-col justify-between">
                 <div>
                   <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
-                    <div className="flex items-center gap-2.5 min-w-0">
-                      {/* University Logo: Grayscale to color on hover */}
-                      <div className="w-8 h-8 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-page)] flex items-center justify-center shrink-0 grayscale hover:grayscale-0 transition-all duration-200">
-                        {asset?.logo === "uopeople" ? (
-                          <UoPeopleLogo size={22} />
-                        ) : (
-                          <GraduationCap className="w-4 h-4 text-emerald-600" />
-                        )}
+                    <div className="flex items-center gap-2 min-w-0 flex-wrap">
+                      {/* University Logo & Name: Monochrome to color on hover */}
+                      <div className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md border border-[var(--border-subtle)] bg-[var(--bg-page)] text-xs font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-all group/uni">
+                        <div className="grayscale group-hover/uni:grayscale-0 transition-all shrink-0">
+                          {asset?.logo === "uopeople" ? (
+                            <UoPeopleLogo size={16} />
+                          ) : (
+                            <GraduationCap className="w-3.5 h-3.5 text-emerald-600" />
+                          )}
+                        </div>
+                        <span className="text-[11px] font-medium truncate">
+                          {asset?.logo === "uopeople" ? "University of the People" : "Université d'Oran"}
+                        </span>
                       </div>
                       <span className="px-2.5 py-0.5 rounded-full text-[11px] font-semibold editorial-badge shrink-0">
                         {edu.grade}

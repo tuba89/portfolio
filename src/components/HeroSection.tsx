@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { ArrowRight, Download, Mail, Trophy, GraduationCap, Globe, Smartphone, User } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import TechBadge from "./TechBadge";
 
 export default function HeroSection() {
   const { t, isRtl } = useLanguage();
@@ -166,6 +167,40 @@ export default function HeroSection() {
             <span className="text-[10px] sm:text-xs text-[var(--text-muted)] mt-0.5 truncate">
               {t.personal.stats.genai.note}
             </span>
+          </div>
+        </div>
+
+        {/* Slim "Technologies I use" strip under hero stats */}
+        <div className="mt-8 pt-6 border-t border-[var(--border-subtle)]">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[var(--accent-peach)] animate-pulse shrink-0" />
+              <span className="text-xs font-semibold uppercase tracking-wider text-[var(--text-primary)]">
+                {t.hero.techStripBadge}
+              </span>
+            </div>
+            <span className="text-[11px] sm:text-xs text-[var(--text-muted)] font-normal">
+              {t.hero.techStripTitle}
+            </span>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-2">
+            {[
+              "Next.js",
+              "React Native",
+              "Expo",
+              "TypeScript",
+              "Node.js",
+              "Python",
+              "Supabase",
+              "PostgreSQL",
+              "Prisma",
+              "Tailwind CSS",
+              "PyTorch",
+              "Docker",
+            ].map((tech) => (
+              <TechBadge key={tech} tag={tech} variant="hero-strip" />
+            ))}
           </div>
         </div>
       </div>

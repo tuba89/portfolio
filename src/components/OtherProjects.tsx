@@ -5,6 +5,7 @@ import { FolderGit2, Shield, HeartHandshake, CloudSun } from "lucide-react";
 import { ColoredGithubIcon } from "./Icons";
 import { useLanguage } from "@/context/LanguageContext";
 import { OTHER_PROJECT_ASSETS } from "@/data/portfolioAssets";
+import TechBadge from "./TechBadge";
 
 export default function OtherProjects() {
   const { t, lang } = useLanguage();
@@ -101,12 +102,7 @@ export default function OtherProjects() {
 
                 <div className="flex flex-wrap gap-1.5 pt-3 border-t border-[var(--border-subtle)]">
                   {proj.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2 py-0.5 rounded text-[10px] font-normal border border-[var(--border-strong)] text-[var(--text-secondary)] bg-[var(--bg-page)]"
-                    >
-                      <bdi>{tag}</bdi>
-                    </span>
+                    <TechBadge key={tag} tag={tag} variant="chip" />
                   ))}
                 </div>
               </div>

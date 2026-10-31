@@ -4,6 +4,7 @@ import { Briefcase, Calendar, MapPin, CheckCircle2, Building2 } from "lucide-rea
 import { useLanguage } from "@/context/LanguageContext";
 import { DizzitUpLogo } from "./BrandLogos";
 import { EXPERIENCE_LOGOS } from "@/data/portfolioAssets";
+import TechBadge from "./TechBadge";
 
 export default function ExperienceTimeline() {
   const { t, isRtl } = useLanguage();
@@ -98,12 +99,7 @@ export default function ExperienceTimeline() {
                   {/* Skills tags */}
                   <div className="flex flex-wrap gap-1.5 pt-3 border-t border-[var(--border-subtle)]">
                     {exp.skills.map((skill) => (
-                      <span
-                        key={skill}
-                        className="px-2 py-0.5 rounded text-[11px] font-normal border border-[var(--border-strong)] text-[var(--text-secondary)] bg-[var(--bg-page)]"
-                      >
-                        <bdi>{skill}</bdi>
-                      </span>
+                      <TechBadge key={skill} tag={skill} variant="chip" />
                     ))}
                   </div>
                 </div>

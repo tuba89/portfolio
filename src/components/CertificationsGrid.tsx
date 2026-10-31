@@ -14,6 +14,7 @@ import {
   DizzitUpLogo,
 } from "./BrandLogos";
 import CertificateLightbox, { LightboxDoc } from "./CertificateLightbox";
+import { IssuerChip } from "./TechBadge";
 
 export default function CertificationsGrid() {
   const { t } = useLanguage();
@@ -137,9 +138,24 @@ export default function CertificationsGrid() {
                         {cert.date}
                       </span>
                       {asset?.issuerLogo && (
-                        <div className="grayscale group-hover:grayscale-0 transition-all duration-200">
-                          {renderIssuerLogo(asset.issuerLogo)}
-                        </div>
+                        <IssuerChip
+                          issuerKey={asset.issuerLogo}
+                          displayName={
+                            asset.issuerLogo === "kaggle"
+                              ? "Kaggle"
+                              : asset.issuerLogo === "google"
+                              ? "Google"
+                              : asset.issuerLogo === "cisco"
+                              ? "Cisco"
+                              : asset.issuerLogo === "deloitte"
+                              ? "Deloitte"
+                              : asset.issuerLogo === "codecademy"
+                              ? "Codecademy"
+                              : asset.issuerLogo === "dizzitup"
+                              ? "DizzitUp"
+                              : asset.issuerLogo
+                          }
+                        />
                       )}
                     </div>
                   </div>

@@ -1,7 +1,8 @@
 "use client";
 
-import { Wrench, CheckCircle2 } from "lucide-react";
+import { Wrench } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import TechBadge from "./TechBadge";
 
 export default function SkillsSection() {
   const { t } = useLanguage();
@@ -35,11 +36,8 @@ export default function SkillsSection() {
 
                 <ul className="space-y-2">
                   {category.skills.map((skill, sIdx) => (
-                    <li key={sIdx} className="flex items-start gap-2 text-xs text-[var(--text-secondary)] font-normal leading-relaxed">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[var(--accent-peach)] shrink-0 mt-0.5" />
-                      <span>
-                        <bdi>{skill}</bdi>
-                      </span>
+                    <li key={sIdx} className="min-w-0">
+                      <TechBadge tag={skill} variant="list" />
                     </li>
                   ))}
                 </ul>

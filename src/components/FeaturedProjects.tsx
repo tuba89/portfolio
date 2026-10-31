@@ -6,6 +6,7 @@ import { ColoredGithubIcon } from "./Icons";
 import { useLanguage } from "@/context/LanguageContext";
 import { FEATURED_PROJECT_ASSETS } from "@/data/portfolioAssets";
 import PhoneMockup from "./PhoneMockup";
+import TechBadge from "./TechBadge";
 
 export default function FeaturedProjects() {
   const { t, isRtl, lang } = useLanguage();
@@ -220,12 +221,7 @@ export default function FeaturedProjects() {
                       </div>
                       <div className="flex flex-wrap gap-1.5">
                         {project.tags.map((tag) => (
-                          <span
-                            key={tag}
-                            className="px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-normal border border-[var(--border-strong)] text-[var(--text-secondary)] bg-[var(--bg-surface)]"
-                          >
-                            <bdi>{tag}</bdi>
-                          </span>
+                          <TechBadge key={tag} tag={tag} variant="chip" />
                         ))}
                       </div>
                     </div>
