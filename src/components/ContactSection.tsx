@@ -2,12 +2,12 @@
 
 import { useState } from "react";
 import { PERSONAL_INFO } from "@/data/portfolioData";
-import { Mail, Phone, MapPin, Copy, Check, ArrowUpRight, MessageSquare, Clock } from "lucide-react";
+import { Mail, Phone, MapPin, Copy, Check, ArrowUpRight, MessageSquare } from "lucide-react";
 import { ColoredGithubIcon, ColoredLinkedinIcon, ColoredKaggleIcon } from "./Icons";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function ContactSection() {
-  const { t } = useLanguage();
+  const { t, isRtl } = useLanguage();
   const [copied, setCopied] = useState(false);
 
   const copyEmail = () => {
@@ -46,8 +46,8 @@ export default function ContactSection() {
                 <button
                   onClick={copyEmail}
                   className="btn-secondary !p-2 rounded-lg cursor-pointer"
-                  title="Copy email to clipboard"
-                  aria-label="Copy email address"
+                  title={copied ? t.contact.copiedTooltip : t.contact.copyTooltip}
+                  aria-label={t.contact.copyTooltip}
                 >
                   {copied ? (
                     <Check className="w-3.5 h-3.5 text-emerald-500" />
@@ -56,7 +56,7 @@ export default function ContactSection() {
                   )}
                 </button>
                 <span className="text-xs font-mono text-[var(--text-secondary)] break-all">
-                  {PERSONAL_INFO.email}
+                  <bdi>{PERSONAL_INFO.email}</bdi>
                 </span>
               </div>
 
@@ -69,8 +69,8 @@ export default function ContactSection() {
                   className="inline-flex items-center gap-1.5 hover:text-[var(--accent-peach)] transition-colors"
                 >
                   <ColoredKaggleIcon size={18} />
-                  <span>Kaggle (@assiaben)</span>
-                  <ArrowUpRight className="w-3 h-3 text-[var(--text-muted)]" />
+                  <span>{t.contact.kaggleProfileLabel}</span>
+                  <ArrowUpRight className={`w-3 h-3 text-[var(--text-muted)] ${isRtl ? "rotate-[-90deg]" : ""}`} />
                 </a>
                 <a
                   href={PERSONAL_INFO.linkedin}
@@ -79,8 +79,8 @@ export default function ContactSection() {
                   className="inline-flex items-center gap-1.5 hover:text-[var(--accent-peach)] transition-colors"
                 >
                   <ColoredLinkedinIcon size={18} />
-                  <span>LinkedIn Profile</span>
-                  <ArrowUpRight className="w-3 h-3 text-[var(--text-muted)]" />
+                  <span>{t.contact.linkedinProfileLabel}</span>
+                  <ArrowUpRight className={`w-3 h-3 text-[var(--text-muted)] ${isRtl ? "rotate-[-90deg]" : ""}`} />
                 </a>
                 <a
                   href={PERSONAL_INFO.github}
@@ -89,8 +89,8 @@ export default function ContactSection() {
                   className="inline-flex items-center gap-1.5 hover:text-[var(--accent-peach)] transition-colors"
                 >
                   <ColoredGithubIcon size={18} />
-                  <span>GitHub (@{PERSONAL_INFO.githubUsername})</span>
-                  <ArrowUpRight className="w-3 h-3 text-[var(--text-muted)]" />
+                  <span>{t.contact.githubProfileLabel}</span>
+                  <ArrowUpRight className={`w-3 h-3 text-[var(--text-muted)] ${isRtl ? "rotate-[-90deg]" : ""}`} />
                 </a>
               </div>
             </div>
@@ -111,7 +111,7 @@ export default function ContactSection() {
                   <div className="min-w-0">
                     <div className="text-[10px] sm:text-[11px] text-[var(--text-muted)]">{t.contact.emailLabel}</div>
                     <div className="font-medium text-[var(--text-primary)] break-all">
-                      {PERSONAL_INFO.email}
+                      <bdi>{PERSONAL_INFO.email}</bdi>
                     </div>
                   </div>
                 </div>
@@ -123,7 +123,7 @@ export default function ContactSection() {
                   <div>
                     <div className="text-[10px] sm:text-[11px] text-[var(--text-muted)]">{t.contact.phoneLabel}</div>
                     <div className="font-medium text-[var(--text-primary)]">
-                      {PERSONAL_INFO.phone}
+                      <bdi>{PERSONAL_INFO.phone}</bdi>
                     </div>
                   </div>
                 </div>
@@ -135,15 +135,14 @@ export default function ContactSection() {
                   <div>
                     <div className="text-[10px] sm:text-[11px] text-[var(--text-muted)]">{t.contact.locationLabel}</div>
                     <div className="font-medium text-[var(--text-primary)]">
-                      {PERSONAL_INFO.location}
+                      {t.personal.location}
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="p-3 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-page)] text-[11px] text-[var(--text-secondary)] leading-relaxed flex items-center gap-2">
-                <Clock className="w-3.5 h-3.5 text-[var(--accent-peach)] shrink-0" />
-                <span>{t.contact.responseTime}</span>
+              <div className="pt-3 border-t border-[var(--border-subtle)] text-[11px] text-[var(--text-muted)] leading-relaxed">
+                {t.contact.responseTime}
               </div>
             </div>
           </div>

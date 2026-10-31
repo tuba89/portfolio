@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { CERTIFICATIONS } from "@/data/portfolioData";
 import { ExternalLink, FileText, ShieldCheck } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -18,12 +17,12 @@ export default function CertificationsGrid() {
 
   const filtered =
     selectedCategory === "All"
-      ? CERTIFICATIONS
-      : CERTIFICATIONS.filter((c) => c.category === selectedCategory);
+      ? t.credentials.items
+      : t.credentials.items.filter((c) => c.category === selectedCategory);
 
   return (
     <section id="certifications" className="py-20 border-b border-[var(--border-subtle)]">
-      <div className="max-w-5xl mx-auto px-6 sm:px-8">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8">
         <div className="text-center max-w-xl mx-auto mb-10">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium editorial-badge mb-3">
             <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />
@@ -64,7 +63,7 @@ export default function CertificationsGrid() {
               <div>
                 <div className="flex items-center justify-between mb-2.5">
                   <span className="px-2 py-0.5 rounded-full text-[10px] font-medium editorial-badge">
-                    {cert.category}
+                    {cert.categoryLabel}
                   </span>
                   <span className="text-[11px] text-[var(--text-muted)] font-normal">
                     {cert.date}
@@ -75,12 +74,12 @@ export default function CertificationsGrid() {
                   {cert.name}
                 </h3>
                 <p className="text-xs text-[var(--accent-peach)] mb-2 font-normal">
-                  {cert.issuer}
+                  <bdi>{cert.issuer}</bdi>
                 </p>
 
                 {cert.credentialId && (
                   <p className="text-[11px] font-mono text-[var(--text-muted)] mb-3 truncate">
-                    ID: {cert.credentialId}
+                    <bdi>{cert.credentialId}</bdi>
                   </p>
                 )}
               </div>
@@ -107,7 +106,9 @@ export default function CertificationsGrid() {
                     <span>{t.credentials.verify}</span>
                   </a>
                 ) : (
-                  <span className="text-[11px] text-[var(--text-muted)]">Verified Record</span>
+                  <span className="text-[11px] text-[var(--text-muted)]">
+                    {t.credentials.verifiedFallback}
+                  </span>
                 )}
               </div>
             </div>

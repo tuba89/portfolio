@@ -1,12 +1,11 @@
 "use client";
 
-import { FEATURED_PROJECTS } from "@/data/portfolioData";
 import { ExternalLink, CheckCircle2, Layers, Compass, ArrowUpRight } from "lucide-react";
 import { ColoredGithubIcon } from "./Icons";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function FeaturedProjects() {
-  const { t } = useLanguage();
+  const { t, isRtl } = useLanguage();
 
   return (
     <section id="featured-projects" className="py-16 sm:py-20 border-b border-[var(--border-subtle)]">
@@ -32,13 +31,13 @@ export default function FeaturedProjects() {
             className="inline-flex items-center gap-1.5 text-xs font-medium text-[var(--accent-peach)] hover:underline self-start sm:self-auto"
           >
             <span>{t.projects.allRepos}</span>
-            <ArrowUpRight className="w-3.5 h-3.5" />
+            <ArrowUpRight className={`w-3.5 h-3.5 ${isRtl ? "rotate-[-90deg]" : ""}`} />
           </a>
         </div>
 
         {/* Projects List */}
         <div className="space-y-8 sm:space-y-10">
-          {FEATURED_PROJECTS.map((project, idx) => (
+          {t.featuredProjects.map((project, idx) => (
             <div
               key={project.id}
               className="editorial-card p-5 sm:p-7 md:p-8 relative overflow-hidden"
@@ -49,7 +48,7 @@ export default function FeaturedProjects() {
               <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3.5 pb-4 sm:pb-5 border-b border-[var(--border-subtle)]">
                 <div>
                   <div className="flex flex-wrap items-center gap-2 mb-1.5">
-                    <span className="text-[10px] sm:text-[11px] font-mono text-[var(--accent-peach)] uppercase tracking-wider font-medium">
+                    <span className="text-[10px] sm:text-[11px] font-mono text-[var(--accent-peach)] uppercase tracking-wider font-semibold">
                       0{idx + 1} - {project.category}
                     </span>
                     {project.badge && (
@@ -59,7 +58,7 @@ export default function FeaturedProjects() {
                     )}
                   </div>
                   <h3 className="text-lg sm:text-2xl font-semibold text-[var(--text-primary)] tracking-tight">
-                    {project.title}
+                    <bdi>{project.title}</bdi>
                   </h3>
                   <p className="text-xs sm:text-sm font-medium text-[var(--text-secondary)] mt-0.5">
                     {project.subtitle}
@@ -150,7 +149,7 @@ export default function FeaturedProjects() {
                           key={tag}
                           className="px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-normal border border-[var(--border-strong)] text-[var(--text-secondary)] bg-[var(--bg-surface)]"
                         >
-                          {tag}
+                          <bdi>{tag}</bdi>
                         </span>
                       ))}
                     </div>

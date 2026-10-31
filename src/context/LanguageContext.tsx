@@ -33,12 +33,38 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const applyLanguage = (newLang: Language) => {
+    const metaDescription = document.querySelector('meta[name="description"]');
+    
     if (newLang === "ar") {
       document.documentElement.setAttribute("dir", "rtl");
       document.documentElement.setAttribute("lang", "ar");
+      document.title = "بن كدية اسيا | مطورة أنظمة متكاملة وتطبيقات هواتف وذكاء اصطناعي";
+      if (metaDescription) {
+        metaDescription.setAttribute(
+          "content",
+          "الموقع التعريفي الرسمي لبن كدية اسيا - مطورة أنظمة متكاملة وتطبيقات هواتف ذكية وذكاء اصطناعي، حاصلة على ميدالية فضية في Kaggle وتخرج بمرتبة الشرف العالية في علوم الحاسوب."
+        );
+      }
+    } else if (newLang === "fr") {
+      document.documentElement.setAttribute("dir", "ltr");
+      document.documentElement.setAttribute("lang", "fr");
+      document.title = "Assia Benkedia | Développeuse Full-Stack & Mobile · IA & Fintech";
+      if (metaDescription) {
+        metaDescription.setAttribute(
+          "content",
+          "Portfolio officiel d'Assia Benkedia - Développeuse Full-Stack & Mobile, médaillée d'argent Kaggle et diplômée avec Haute Mention en informatique."
+        );
+      }
     } else {
       document.documentElement.setAttribute("dir", "ltr");
-      document.documentElement.setAttribute("lang", newLang);
+      document.documentElement.setAttribute("lang", "en");
+      document.title = "Assia Benkedia | Full-Stack & Mobile Developer · AI & Fintech";
+      if (metaDescription) {
+        metaDescription.setAttribute(
+          "content",
+          "Official Portfolio of Assia Benkedia - Full-Stack & Mobile Developer, Kaggle Silver Medalist, and UoPeople High Honors CS Graduate."
+        );
+      }
     }
   };
 
@@ -61,4 +87,3 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 export function useLanguage() {
   return useContext(LanguageContext);
 }
-

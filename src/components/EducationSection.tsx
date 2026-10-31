@@ -1,6 +1,5 @@
 "use client";
 
-import { EDUCATION_LIST } from "@/data/portfolioData";
 import { GraduationCap, Award, Calendar, MapPin, FileText, CheckCircle2 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -9,7 +8,7 @@ export default function EducationSection() {
 
   return (
     <section id="education" className="py-20 border-b border-[var(--border-subtle)] bg-[var(--bg-surface)]/30">
-      <div className="max-w-5xl mx-auto px-6 sm:px-8">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8">
         <div className="text-center max-w-xl mx-auto mb-14">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium editorial-badge mb-3">
             <GraduationCap className="w-3.5 h-3.5 text-[var(--accent-peach)]" />
@@ -24,7 +23,7 @@ export default function EducationSection() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {EDUCATION_LIST.map((edu, idx) => (
+          {t.education.items.map((edu, idx) => (
             <div key={idx} className="editorial-card p-6 sm:p-7 flex flex-col justify-between">
               <div>
                 <div className="flex items-center justify-between mb-3">
@@ -32,7 +31,7 @@ export default function EducationSection() {
                     {edu.grade}
                   </span>
                   <div className="flex items-center gap-1.5 text-xs text-[var(--text-muted)] font-normal">
-                    <Calendar className="w-3.5 h-3.5 text-[var(--accent-peach)]" />
+                    <Calendar className="w-3.5 h-3.5 text-[var(--accent-peach)] shrink-0" />
                     <span>{edu.period}</span>
                   </div>
                 </div>
@@ -41,10 +40,10 @@ export default function EducationSection() {
                   {edu.degree}
                 </h3>
                 <p className="text-xs font-medium text-[var(--accent-peach)] mb-1">
-                  {edu.institution}
+                  <bdi>{edu.institution}</bdi>
                 </p>
                 <div className="flex items-center gap-1 text-[11px] text-[var(--text-muted)] mb-3">
-                  <MapPin className="w-3 h-3" />
+                  <MapPin className="w-3 h-3 shrink-0" />
                   <span>{edu.location}</span>
                 </div>
 

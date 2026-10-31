@@ -2,8 +2,10 @@
 
 import { useEffect, useState } from "react";
 import { Sun, Moon } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function ThemeToggle() {
+  const { t } = useLanguage();
   const [isDark, setIsDark] = useState<boolean>(false);
   const [mounted, setMounted] = useState<boolean>(false);
 
@@ -36,7 +38,7 @@ export default function ThemeToggle() {
 
   if (!mounted) {
     return (
-      <div className="w-10 h-10 rounded-full border border-[var(--border-subtle)] bg-[var(--bg-surface)] flex items-center justify-center opacity-0" />
+      <div className="w-9 h-9 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] flex items-center justify-center opacity-0" />
     );
   }
 
@@ -44,21 +46,20 @@ export default function ThemeToggle() {
     <button
       onClick={toggleTheme}
       aria-label="Toggle theme"
-      className="p-2.5 rounded-xl border border-[var(--border-strong)] bg-[var(--bg-surface)] text-[var(--text-primary)] hover:border-[var(--accent-peach)] hover:text-[var(--accent-peach)] transition-all duration-200 shadow-sm flex items-center gap-2 group cursor-pointer"
-      title={isDark ? "Switch to Editorial Light Mode" : "Switch to Deep Dark Mode"}
+      className="p-2 sm:px-2.5 sm:py-1.5 rounded-lg border border-[var(--border-strong)] bg-[var(--bg-surface)] text-[var(--text-primary)] hover:border-[var(--accent-peach)] hover:text-[var(--accent-peach)] transition-all duration-200 shadow-sm flex items-center gap-1.5 group cursor-pointer"
+      title={isDark ? t.theme.toggleTitleLight : t.theme.toggleTitleDark}
     >
       {isDark ? (
         <>
-          <Sun className="w-4 h-4 text-amber-400 group-hover:rotate-45 transition-transform" />
-          <span className="text-xs font-semibold hidden sm:inline">Light</span>
+          <Sun className="w-3.5 h-3.5 text-amber-400 group-hover:rotate-45 transition-transform" />
+          <span className="text-xs font-semibold hidden sm:inline">{t.theme.light}</span>
         </>
       ) : (
         <>
-          <Moon className="w-4 h-4 text-[var(--text-secondary)] group-hover:-rotate-12 transition-transform" />
-          <span className="text-xs font-semibold hidden sm:inline">Dark</span>
+          <Moon className="w-3.5 h-3.5 text-[var(--text-secondary)] group-hover:-rotate-12 transition-transform" />
+          <span className="text-xs font-semibold hidden sm:inline">{t.theme.dark}</span>
         </>
       )}
     </button>
   );
 }
-

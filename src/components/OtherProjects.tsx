@@ -1,6 +1,5 @@
 "use client";
 
-import { OTHER_PROJECTS } from "@/data/portfolioData";
 import { FolderGit2 } from "lucide-react";
 import { ColoredGithubIcon } from "./Icons";
 import { useLanguage } from "@/context/LanguageContext";
@@ -10,7 +9,7 @@ export default function OtherProjects() {
 
   return (
     <section className="py-16 border-b border-[var(--border-subtle)]">
-      <div className="max-w-5xl mx-auto px-6 sm:px-8">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8">
         <div className="mb-10">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium editorial-badge mb-2">
             <FolderGit2 className="w-3.5 h-3.5 text-[var(--accent-peach)]" />
@@ -22,7 +21,7 @@ export default function OtherProjects() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {OTHER_PROJECTS.map((proj) => (
+          {t.otherProjects.items.map((proj) => (
             <div
               key={proj.id}
               className="editorial-card p-5 flex flex-col justify-between"
@@ -46,7 +45,7 @@ export default function OtherProjects() {
                 </div>
 
                 <h3 className="text-base font-semibold text-[var(--text-primary)] mb-1">
-                  {proj.title}
+                  <bdi>{proj.title}</bdi>
                 </h3>
                 <p className="text-xs font-medium text-[var(--text-secondary)] mb-2">
                   {proj.subtitle}
@@ -62,7 +61,7 @@ export default function OtherProjects() {
                     key={tag}
                     className="px-2 py-0.5 rounded text-[10px] font-normal border border-[var(--border-strong)] text-[var(--text-secondary)] bg-[var(--bg-page)]"
                   >
-                    {tag}
+                    <bdi>{tag}</bdi>
                   </span>
                 ))}
               </div>

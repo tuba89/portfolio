@@ -1,8 +1,8 @@
 "use client";
 
-import { PERSONAL_INFO } from "@/data/portfolioData";
 import { ArrowUp, Mail } from "lucide-react";
 import { ColoredGithubIcon, ColoredLinkedinIcon, ColoredKaggleIcon } from "./Icons";
+import { PERSONAL_INFO } from "@/data/portfolioData";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function Footer() {
@@ -20,7 +20,7 @@ export default function Footer() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 py-10 flex flex-col sm:flex-row items-center justify-between gap-5">
         <div>
           <div className="font-semibold text-xs text-[var(--text-primary)]">
-            {PERSONAL_INFO.name}
+            {t.personal.name}
           </div>
           <div className="mt-0.5 text-[11px] text-[var(--text-muted)]">
             {t.footer.rights}
@@ -77,8 +77,8 @@ export default function Footer() {
           <button
             onClick={scrollToTop}
             className="p-1.5 rounded-lg border border-[var(--border-strong)] text-[var(--text-secondary)] hover:text-[var(--accent-peach)] hover:border-[var(--accent-peach)] transition-all cursor-pointer ml-1"
-            title="Back to top"
-            aria-label="Back to top"
+            title={t.footer.backToTop}
+            aria-label={t.footer.backToTop}
           >
             <ArrowUp className="w-3.5 h-3.5" />
           </button>

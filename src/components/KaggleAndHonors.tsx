@@ -8,7 +8,7 @@ export default function KaggleAndHonors() {
 
   return (
     <section id="achievements" className="py-20 border-b border-[var(--border-subtle)] bg-[var(--bg-surface)]/40">
-      <div className="max-w-5xl mx-auto px-6 sm:px-8">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8">
         <div className="text-center max-w-xl mx-auto mb-14">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium editorial-badge mb-3">
             <Trophy className="w-3.5 h-3.5 text-amber-500" />
@@ -33,7 +33,9 @@ export default function KaggleAndHonors() {
                   <Trophy className="w-3 h-3" />
                   <span>{t.honors.kaggleCard.tag}</span>
                 </span>
-                <span className="text-xs font-mono text-[var(--text-muted)]">March 2026</span>
+                <span className="text-xs font-mono text-[var(--text-muted)]">
+                  {t.honors.kaggleCard.date}
+                </span>
               </div>
 
               <h3 className="text-lg sm:text-xl font-semibold text-[var(--text-primary)] mb-1">
@@ -58,7 +60,7 @@ export default function KaggleAndHonors() {
 
             <div className="pt-3 border-t border-[var(--border-subtle)] flex items-center justify-between">
               <span className="text-[11px] text-[var(--text-muted)]">
-                Verified on Kaggle Platform
+                {t.honors.kaggleCard.verifiedText}
               </span>
               <a
                 href="/certificates/Assia_Benkedia_Deep_Past_Challenge.png"
@@ -82,7 +84,9 @@ export default function KaggleAndHonors() {
                   <Award className="w-3 h-3" />
                   <span>{t.honors.googleCard.tag}</span>
                 </span>
-                <span className="text-xs font-mono text-[var(--text-muted)]">April 2025</span>
+                <span className="text-xs font-mono text-[var(--text-muted)]">
+                  {t.honors.googleCard.date}
+                </span>
               </div>
 
               <h3 className="text-lg sm:text-xl font-semibold text-[var(--text-primary)] mb-1">
@@ -97,24 +101,18 @@ export default function KaggleAndHonors() {
 
               {/* Key Highlights list */}
               <div className="p-3.5 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-page)]/60 mb-5 space-y-2">
-                <div className="flex items-center gap-2 text-xs text-[var(--text-secondary)]">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
-                  <span>280,000+ Global Participants in Kaggle x Google Cohort</span>
-                </div>
-                <div className="flex items-center gap-2 text-xs text-[var(--text-secondary)]">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
-                  <span>Source-cited, medically-grounded RAG architecture</span>
-                </div>
-                <div className="flex items-center gap-2 text-xs text-[var(--text-secondary)]">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
-                  <span>Multilingual evaluation with French & Arabic RTL</span>
-                </div>
+                {t.honors.googleCard.highlights.map((h, hIdx) => (
+                  <div key={hIdx} className="flex items-center gap-2 text-xs text-[var(--text-secondary)]">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
+                    <span>{h}</span>
+                  </div>
+                ))}
               </div>
             </div>
 
             <div className="pt-3 border-t border-[var(--border-subtle)] flex items-center justify-between">
               <span className="text-[11px] text-[var(--text-muted)]">
-                Kaggle x Google AI Initiative
+                {t.honors.googleCard.initiativeText}
               </span>
               <a
                 href="https://github.com/tuba89/medibridge-ai"

@@ -6,7 +6,7 @@ import { Globe, ChevronDown, Check } from "lucide-react";
 import { Language } from "@/data/translations";
 
 export default function LanguageSwitcher() {
-  const { lang, setLang } = useLanguage();
+  const { lang, setLang, isRtl } = useLanguage();
   const [open, setOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -42,7 +42,11 @@ export default function LanguageSwitcher() {
       </button>
 
       {open && (
-        <div className="absolute right-0 sm:right-auto sm:left-0 mt-1.5 w-32 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface-elevated)] p-1.5 shadow-xl z-50 animate-in fade-in slide-in-from-top-1 duration-150">
+        <div
+          className={`absolute ${
+            isRtl ? "left-0" : "right-0"
+          } mt-1.5 w-32 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface-elevated)] p-1.5 shadow-xl z-50 animate-in fade-in slide-in-from-top-1 duration-150`}
+        >
           {languages.map((item) => (
             <button
               key={item.code}
@@ -65,4 +69,3 @@ export default function LanguageSwitcher() {
     </div>
   );
 }
-

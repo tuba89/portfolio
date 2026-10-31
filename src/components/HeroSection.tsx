@@ -1,6 +1,5 @@
 "use client";
 
-import { PERSONAL_INFO } from "@/data/portfolioData";
 import { ArrowRight, Download, Mail, Trophy, GraduationCap, Globe, Smartphone } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -20,7 +19,7 @@ export default function HeroSection() {
         </div>
 
         {/* Headline with breathing room and refined weight */}
-        <h1 className="text-2xl sm:text-4xl md:text-5xl font-semibold tracking-[-0.02em] text-[var(--text-primary)] leading-[1.25] max-w-3xl">
+        <h1 className="text-2xl sm:text-4xl md:text-5xl font-semibold tracking-[-0.02em] text-[var(--text-primary)] leading-[1.3] max-w-3xl">
           {t.hero.headlineStart}
           <span className="text-[var(--accent-peach)] font-bold">{t.hero.headlineAccent}</span>
           {t.hero.headlineEnd}
@@ -79,49 +78,49 @@ export default function HeroSection() {
         <div className="mt-12 sm:mt-16 pt-8 sm:pt-10 border-t border-[var(--border-subtle)] grid grid-cols-2 md:grid-cols-4 gap-5 sm:gap-8">
           <div className="flex flex-col">
             <span className="text-xl sm:text-2xl font-bold text-[var(--accent-peach)] tracking-tight">
-              33rd / 2,674
+              {t.personal.stats.kaggle.value}
             </span>
             <span className="text-xs sm:text-sm font-medium text-[var(--text-primary)] mt-1">
-              {t.hero.stats.kaggle.label}
+              {t.personal.stats.kaggle.label}
             </span>
             <span className="text-[11px] sm:text-xs text-[var(--text-muted)] mt-0.5">
-              {t.hero.stats.kaggle.note}
+              {t.personal.stats.kaggle.note}
             </span>
           </div>
 
           <div className="flex flex-col">
             <span className="text-xl sm:text-2xl font-bold text-[var(--accent-peach)] tracking-tight">
-              GPA 3.97 / 4.00
+              {t.personal.stats.uopeople.value}
             </span>
             <span className="text-xs sm:text-sm font-medium text-[var(--text-primary)] mt-1">
-              {t.hero.stats.uopeople.label}
+              {t.personal.stats.uopeople.label}
             </span>
             <span className="text-[11px] sm:text-xs text-[var(--text-muted)] mt-0.5">
-              {t.hero.stats.uopeople.note}
+              {t.personal.stats.uopeople.note}
             </span>
           </div>
 
           <div className="flex flex-col">
             <span className="text-xl sm:text-2xl font-bold text-[var(--accent-peach)] tracking-tight">
-              54 Countries
+              {t.personal.stats.fintech.value}
             </span>
             <span className="text-xs sm:text-sm font-medium text-[var(--text-primary)] mt-1">
-              {t.hero.stats.fintech.label}
+              {t.personal.stats.fintech.label}
             </span>
             <span className="text-[11px] sm:text-xs text-[var(--text-muted)] mt-0.5">
-              {t.hero.stats.fintech.note}
+              {t.personal.stats.fintech.note}
             </span>
           </div>
 
           <div className="flex flex-col">
             <span className="text-xl sm:text-2xl font-bold text-[var(--accent-peach)] tracking-tight">
-              Honourable Mention
+              {t.personal.stats.genai.value}
             </span>
             <span className="text-xs sm:text-sm font-medium text-[var(--text-primary)] mt-1">
-              {t.hero.stats.genai.label}
+              {t.personal.stats.genai.label}
             </span>
             <span className="text-[11px] sm:text-xs text-[var(--text-muted)] mt-0.5">
-              {t.hero.stats.genai.note}
+              {t.personal.stats.genai.note}
             </span>
           </div>
         </div>
