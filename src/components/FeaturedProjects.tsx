@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { ExternalLink, CheckCircle2, Layers, Compass, ArrowUpRight, Maximize2 } from "lucide-react";
+import { ExternalLink, CheckCircle2, Layers, Compass, ArrowUpRight, Maximize2, FileText, Lock } from "lucide-react";
+import { SiKaggle, SiMedium, SiYoutube } from "react-icons/si";
 import { ColoredGithubIcon } from "./Icons";
 import { useLanguage } from "@/context/LanguageContext";
 import { FEATURED_PROJECT_ASSETS } from "@/data/portfolioAssets";
@@ -81,10 +82,58 @@ export default function FeaturedProjects() {
                         href={project.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="btn-secondary py-1.5! px-3! text-xs"
+                        className="btn-secondary py-1.5! px-3! text-xs font-medium"
                       >
                         <ColoredGithubIcon size={16} />
                         <span>{t.projects.codeBtn}</span>
+                      </a>
+                    )}
+                    {project.writeupUrl && (
+                      <a
+                        href={project.writeupUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-secondary py-1.5! px-3! text-xs font-medium"
+                        title={t.projects.writeupBtn}
+                      >
+                        <FileText className="w-3.5 h-3.5 text-amber-500" />
+                        <span>{t.projects.writeupBtn}</span>
+                      </a>
+                    )}
+                    {project.notebookUrl && (
+                      <a
+                        href={project.notebookUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-secondary py-1.5! px-3! text-xs font-medium"
+                        title={t.projects.notebookBtn}
+                      >
+                        <SiKaggle className="w-3.5 h-3.5 text-sky-500" />
+                        <span>{t.projects.notebookBtn}</span>
+                      </a>
+                    )}
+                    {project.blogUrl && (
+                      <a
+                        href={project.blogUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-secondary py-1.5! px-3! text-xs font-medium"
+                        title={t.projects.blogBtn}
+                      >
+                        <SiMedium className="w-3.5 h-3.5 text-emerald-500" />
+                        <span>{t.projects.blogBtn}</span>
+                      </a>
+                    )}
+                    {project.videoUrl && (
+                      <a
+                        href={project.videoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-secondary py-1.5! px-3! text-xs font-medium"
+                        title={t.projects.videoBtn}
+                      >
+                        <SiYoutube className="w-3.5 h-3.5 text-rose-500" />
+                        <span>{t.projects.videoBtn}</span>
                       </a>
                     )}
                     {project.liveUrl && (
@@ -92,11 +141,17 @@ export default function FeaturedProjects() {
                         href={project.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="btn-primary py-1.5! px-3! text-xs"
+                        className="btn-primary py-1.5! px-3! text-xs font-medium"
                       >
                         <span>{t.projects.liveBtn}</span>
                         <ExternalLink className="w-3 h-3" />
                       </a>
+                    )}
+                    {project.isPrivateRepo && (
+                      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium border border-(--border-subtle) bg-(--bg-surface) text-(--text-muted)">
+                        <Lock className="w-3 h-3 text-(--accent-peach)" />
+                        <span>{t.projects.privateRepoBadge}</span>
+                      </span>
                     )}
                   </div>
                 </div>

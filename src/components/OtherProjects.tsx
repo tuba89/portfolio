@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { FolderGit2, Shield, HeartHandshake, CloudSun } from "lucide-react";
+import { FolderGit2, Shield, HeartHandshake, CloudSun, FileText } from "lucide-react";
 import { ColoredGithubIcon } from "./Icons";
 import { useLanguage } from "@/context/LanguageContext";
 import { OTHER_PROJECT_ASSETS } from "@/data/portfolioAssets";
@@ -76,17 +76,32 @@ export default function OtherProjects() {
                     <span className="text-[10px] font-mono text-(--accent-peach) font-semibold uppercase">
                       {proj.category}
                     </span>
-                    {proj.githubUrl && (
-                      <a
-                        href={proj.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-1 rounded border border-(--border-subtle) text-(--text-secondary) hover:border-(--accent-peach) hover:scale-105 transition-all"
-                        aria-label="View on GitHub"
-                      >
-                        <ColoredGithubIcon size={16} />
-                      </a>
-                    )}
+                    <div className="flex items-center gap-1.5">
+                      {proj.writeupUrl && (
+                        <a
+                          href={proj.writeupUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="p-1 rounded border border-(--border-subtle) text-amber-500 hover:border-amber-500 hover:scale-105 transition-all"
+                          aria-label="Read Solution Writeup"
+                          title="Read Solution Writeup"
+                        >
+                          <FileText size={16} />
+                        </a>
+                      )}
+                      {proj.githubUrl && (
+                        <a
+                          href={proj.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="p-1 rounded border border-(--border-subtle) text-(--text-secondary) hover:border-(--accent-peach) hover:scale-105 transition-all"
+                          aria-label="View on GitHub"
+                          title="View on GitHub"
+                        >
+                          <ColoredGithubIcon size={16} />
+                        </a>
+                      )}
+                    </div>
                   </div>
 
                   <h3 className="text-base font-semibold text-(--text-primary) mb-1">

@@ -10,6 +10,11 @@ export interface Project {
   tags: string[];
   githubUrl?: string;
   liveUrl?: string;
+  writeupUrl?: string;
+  notebookUrl?: string;
+  blogUrl?: string;
+  videoUrl?: string;
+  isPrivateRepo?: boolean;
   badge?: string;
   featured: boolean;
   metrics?: { label: string; value: string }[];
@@ -88,6 +93,7 @@ export const FEATURED_PROJECTS: Project[] = [
     ],
     tags: ["Next.js", "React", "Node.js", "Express", "Supabase", "PostgreSQL", "Prisma", "Web3", "TailwindCSS"],
     liveUrl: "https://dizzitup.com",
+    isPrivateRepo: true,
     badge: "Production Platform · 54 Countries",
     featured: true,
     metrics: [
@@ -115,6 +121,7 @@ export const FEATURED_PROJECTS: Project[] = [
       "Managed production infrastructure: Linux server administration via SSH, Hostinger VPS orchestration, and Prisma ORM in production on Coolify.",
     ],
     tags: ["React Native", "Expo", "iOS & Android", "TypeScript", "Prisma", "Coolify", "Linux VPS", "Payment Links", "Social Auth"],
+    isPrivateRepo: true,
     badge: "Mobile iOS & Android + Cloud Infrastructure",
     featured: true,
     metrics: [
@@ -141,6 +148,7 @@ export const FEATURED_PROJECTS: Project[] = [
     ],
     tags: ["React", "AI Agents", "FastMCP", "Multi-Agent Systems", "Voice AI", "LLM Memory", "TypeScript"],
     githubUrl: "https://github.com/tuba89/livora",
+    writeupUrl: "https://www.kaggle.com/competitions/vibecoding-agents-capstone-project/writeups/new-writeup-1783122930771",
     badge: "Open Source AI Agent System",
     featured: true,
     metrics: [
@@ -166,6 +174,8 @@ export const FEATURED_PROJECTS: Project[] = [
       "Co-authored competitive strategy and submission validation loops.",
     ],
     tags: ["Python", "PyTorch", "Hugging Face", "T5 Transformers", "NLP", "Machine Translation", "Kaggle"],
+    writeupUrl: "https://www.kaggle.com/competitions/deep-past-initiative-machine-translation/writeups/32nd-byt5-base-fine-tuning-no-llms-no-synthet#3443570",
+    liveUrl: "https://www.kaggle.com/competitions/deep-past-initiative-machine-translation/leaderboard",
     badge: "Kaggle Silver Medal (33rd / 2,674)",
     featured: true,
     metrics: [
@@ -215,6 +225,7 @@ export const FEATURED_PROJECTS: Project[] = [
     ],
     tags: ["Python", "Flask", "Google Gemini", "Multi-Agent Systems", "Academic RAG", "Machine Learning"],
     githubUrl: "https://github.com/tuba89/ResearchForge-AI",
+    writeupUrl: "https://www.kaggle.com/competitions/agents-intensive-capstone-project/writeups/new-writeup-1764433151428",
     badge: "Google Gemini Powered",
     featured: true,
     metrics: [
@@ -225,28 +236,34 @@ export const FEATURED_PROJECTS: Project[] = [
   },
   {
     id: "oncoassist-medibridge",
-    title: "MediBridge-AI",
-    subtitle: "Clinical Decision Support & Next-Gen Care Cards",
+    title: "OncoAssist & MediBridge-AI",
+    subtitle: "Google Gen AI Intensive Capstone Honourable Mention & Clinical Decision Support",
     category: "AI & Agents",
     description:
-      "Multilingual clinical intelligence engine utilizing the TCGA dataset, vector search, semantic query pipelines, and Gemini to generate evidence-backed clinical care cards.",
+      "Award-winning clinical intelligence and cancer recovery platform powered by Google Gemini, RAG over TCGA oncology data, vector search, and multimodal patient recovery guidance.",
     longDescription:
-      "Engineered an end-to-end clinical intelligence platform featuring semantic search over cancer datasets, automated case similarity matching, real-time pipeline monitoring, and AI-generated clinical care cards with verifiable medical citations.",
-    role: "Lead Creator & AI Engineer",
+      "OncoAssist was awarded Honourable Mention in the Google Gen AI Intensive Course Capstone (among 280,000+ global participants). It pairs an AI-powered cancer recovery companion with MediBridge-AI's real-time clinical decision support engine, featuring semantic search over oncology databases, automated case similarity matching, stage-specific recovery care cards, and strict medical source citation.",
+    role: "Sole Creator & Lead AI Engineer",
     impact: [
-      "Developed vector search over TCGA dataset and medical publications via ChromaDB and Gemini.",
-      "Engineered AI-generated clinical care cards with similarity scoring and stage-specific insights.",
+      "Awarded Honourable Mention in Google Gen AI Intensive Capstone (Top Capstone of 280,000+ course participants).",
+      "Engineered vector search over the TCGA oncology dataset and medical publications via ChromaDB and Gemini.",
+      "Developed conversational recovery advisor with empathetic tone, multimodal analysis, and patient care cards.",
+      "Published full Kaggle Notebook, technical Medium architecture breakdown, and video demonstration.",
       "Implemented strict medical safety guardrails and automated source-citation rendering.",
-      "Supported multilingual queries with specialized healthcare terminology.",
     ],
-    tags: ["Python", "Google Gemini Pro", "Vector Search", "ChromaDB", "Gradio", "TCGA Dataset", "Healthcare AI"],
+    tags: ["Google Gemini", "Python", "RAG", "Vector Search", "ChromaDB", "Healthcare AI", "TCGA Dataset"],
     githubUrl: "https://github.com/tuba89/medibridge-ai",
-    badge: "Clinical Intelligence Engine",
+    liveUrl: "https://www.kaggle.com/competitions/gen-ai-intensive-course-capstone-2025q1/discussion/575927",
+    notebookUrl: "https://www.kaggle.com/code/assiaben/oncoassist-ai-powered-cancer-recovery-advisor",
+    blogUrl: "https://medium.com/@iiiassia.beniii/oncoassist-building-an-ai-companion-for-cancer-survivors-with-gemini-and-rag-f76e9bbe8438",
+    videoUrl: "https://www.youtube.com/watch?v=gKRmSPRP5NQ",
+    writeupUrl: "https://www.kaggle.com/competitions/bigquery-ai-hackathon/writeups/medibridge-ai-real-time-oncology-decision-support#3287416",
+    badge: "Gen AI Capstone Winner · Honourable Mention",
     featured: true,
     metrics: [
-      { label: "Core Feature", value: "AI Clinical Care Cards" },
-      { label: "Knowledge Base", value: "TCGA Clinical Trial Data" },
-      { label: "Pipeline", value: "Real-time Vector Search" },
+      { label: "Award", value: "Honourable Mention (Google Gen AI Capstone)" },
+      { label: "AI Engine", value: "Google Gemini 1.5 & ChromaDB RAG" },
+      { label: "Knowledge Base", value: "TCGA Clinical Trial & Oncology Data" },
     ],
   },
 ];
@@ -276,6 +293,7 @@ export const OTHER_PROJECTS: Project[] = [
     impact: ["Event-driven security monitoring", "TypeScript architecture"],
     tags: ["TypeScript", "Computer Vision", "AI Safety", "React"],
     githubUrl: "https://github.com/tuba89/GuardianAI",
+    writeupUrl: "https://www.kaggle.com/competitions/gemini-3/writeups/guardianai-global-safety-platform-for-device-prot",
     featured: false,
   },
   {
@@ -387,9 +405,10 @@ export const CERTIFICATIONS: Certification[] = [
   },
   {
     name: "Google Gen AI Intensive Capstone - Honourable Mention (OncoAssist)",
-    issuer: "Kaggle x Google Generative AI Intensive",
+    issuer: "Google DeepMind x Kaggle",
     date: "April 2025",
-    credentialId: "Top Capstone among 280,000+ Participants",
+    credentialId: "Honourable Mention · Top Capstone among 280,000+ Participants",
+    verifyUrl: "https://www.kaggle.com/competitions/gen-ai-intensive-course-capstone-2025q1/discussion/575927",
     category: "AI & ML",
   },
   {

@@ -12,6 +12,7 @@ import SkillsSection from "@/components/SkillsSection";
 import OtherProjects from "@/components/OtherProjects";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import AiAssistant from "@/components/AiAssistant";
 
 export default function Home() {
   return (
@@ -30,6 +31,7 @@ export default function Home() {
           <ContactSection />
         </main>
         <Footer />
+        <AiAssistant />
       </div>
     </LanguageProvider>
   );
