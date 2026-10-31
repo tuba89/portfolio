@@ -70,7 +70,7 @@ export default function ContactSection() {
                 >
                   <ColoredKaggleIcon size={18} />
                   <span>{t.contact.kaggleProfileLabel}</span>
-                  <ArrowUpRight className={`w-3 h-3 text-(--text-muted) ${isRtl ? "rotate-[-90deg]" : ""}`} />
+                  <ArrowUpRight className={`w-3 h-3 text-(--text-muted) ${isRtl ? "-rotate-90" : ""}`} />
                 </a>
                 <a
                   href={PERSONAL_INFO.linkedin}
@@ -80,7 +80,7 @@ export default function ContactSection() {
                 >
                   <ColoredLinkedinIcon size={18} />
                   <span>{t.contact.linkedinProfileLabel}</span>
-                  <ArrowUpRight className={`w-3 h-3 text-(--text-muted) ${isRtl ? "rotate-[-90deg]" : ""}`} />
+                  <ArrowUpRight className={`w-3 h-3 text-(--text-muted) ${isRtl ? "-rotate-90" : ""}`} />
                 </a>
                 <a
                   href={PERSONAL_INFO.github}
@@ -90,7 +90,7 @@ export default function ContactSection() {
                 >
                   <ColoredGithubIcon size={18} />
                   <span>{t.contact.githubProfileLabel}</span>
-                  <ArrowUpRight className={`w-3 h-3 text-(--text-muted) ${isRtl ? "rotate-[-90deg]" : ""}`} />
+                  <ArrowUpRight className={`w-3 h-3 text-(--text-muted) ${isRtl ? "-rotate-90" : ""}`} />
                 </a>
               </div>
             </div>

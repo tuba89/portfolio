@@ -41,7 +41,7 @@ export default function ExperienceTimeline() {
                 {/* Timeline marker with exact RTL mirroring */}
                 <div
                   className={`absolute top-1.5 w-3.5 h-3.5 rounded-full bg-(--bg-page) border-2 border-(--accent-peach) group-hover:scale-125 transition-transform ${
-                    isRtl ? "-right-[31px] md:-right-[39px]" : "-left-[31px] md:-left-[39px]"
+                    isRtl ? "-right-7.75 md:-right-9.75" : "-left-7.75 md:-left-9.75"
                   }`}
                 />
 

@@ -80,7 +80,7 @@ export default function CertificateLightbox({ doc, onClose }: CertificateLightbo
         </div>
 
         {/* Document Content Viewport */}
-        <div className="relative flex-1 overflow-auto p-4 sm:p-6 bg-(--bg-page)/60 flex items-center justify-center min-h-[350px] sm:min-h-[480px]">
+        <div className="relative flex-1 overflow-auto p-4 sm:p-6 bg-(--bg-page)/60 flex items-center justify-center min-h-87.5 sm:min-h-120">
           {isPdf ? (
             <div className="flex flex-col items-center justify-center text-center p-6 space-y-4 max-w-lg">
               {doc.thumbnail ? (

@@ -35,7 +35,7 @@ export default function FeaturedProjects() {
             className="inline-flex items-center gap-1.5 text-xs font-medium text-(--accent-peach) hover:underline self-start sm:self-auto"
           >
             <span>{t.projects.allRepos}</span>
-            <ArrowUpRight className={`w-3.5 h-3.5 ${isRtl ? "rotate-[-90deg]" : ""}`} />
+            <ArrowUpRight className={`w-3.5 h-3.5 ${isRtl ? "-rotate-90" : ""}`} />
           </a>
         </div>
 
