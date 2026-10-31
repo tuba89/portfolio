@@ -107,6 +107,44 @@ export default function FeaturedProjects() {
                     <div className="p-2 sm:p-6 md:p-8 rounded-2xl bg-[var(--bg-page)]/70 border border-[var(--border-subtle)] flex items-center justify-center max-w-full overflow-hidden">
                       <PhoneMockup />
                     </div>
+                  ) : assets?.coverImage ? (
+                    /* Real Desktop Production Screenshot */
+                    <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] rounded-2xl overflow-hidden border border-[var(--border-subtle)] shadow-md bg-[var(--bg-page)] group">
+                      {/* Browser mock top chrome bar */}
+                      <div className="h-6 sm:h-7 px-3 bg-[var(--bg-surface-elevated)] border-b border-[var(--border-subtle)] flex items-center justify-between">
+                        <div className="flex items-center gap-1.5">
+                          <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80" />
+                          <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
+                          <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
+                        </div>
+                        <span className="text-[10px] font-mono text-[var(--text-muted)] truncate max-w-[200px] sm:max-w-xs">
+                          {project.liveUrl ? project.liveUrl.replace("https://", "") : project.id}
+                        </span>
+                        {assets.diagramSvg ? (
+                          <a
+                            href={assets.diagramSvg}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-[10px] text-[var(--accent-peach)] hover:underline flex items-center gap-1 font-mono"
+                          >
+                            <span>Arch Diagram</span>
+                            <ExternalLink className="w-2.5 h-2.5" />
+                          </a>
+                        ) : (
+                          <div className="w-8" />
+                        )}
+                      </div>
+                      <div className="relative w-full h-[calc(100%-1.5rem)] sm:h-[calc(100%-1.75rem)]">
+                        <Image
+                          src={assets.coverImage}
+                          alt={altText}
+                          fill
+                          sizes="(max-width: 1024px) 100vw, 900px"
+                          className="object-cover object-top group-hover:scale-[1.01] transition-transform duration-300"
+                          loading="lazy"
+                        />
+                      </div>
+                    </div>
                   ) : assets?.diagramSvg ? (
                     /* High-Fidelity SVG Architecture Diagram */
                     <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden border border-[var(--border-subtle)] shadow-md group">
@@ -125,32 +163,6 @@ export default function FeaturedProjects() {
                         <Maximize2 className="w-3.5 h-3.5" />
                         <span>Full Diagram</span>
                       </a>
-                    </div>
-                  ) : assets?.coverImage ? (
-                    /* Real Desktop Production Screenshot */
-                    <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] rounded-2xl overflow-hidden border border-[var(--border-subtle)] shadow-md bg-[var(--bg-page)] group">
-                      {/* Browser mock top chrome bar */}
-                      <div className="h-6 sm:h-7 px-3 bg-[var(--bg-surface-elevated)] border-b border-[var(--border-subtle)] flex items-center justify-between">
-                        <div className="flex items-center gap-1.5">
-                          <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80" />
-                          <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
-                          <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
-                        </div>
-                        <span className="text-[10px] font-mono text-[var(--text-muted)] truncate max-w-[200px] sm:max-w-xs">
-                          {project.liveUrl ? project.liveUrl.replace("https://", "") : project.id}
-                        </span>
-                        <div className="w-8" />
-                      </div>
-                      <div className="relative w-full h-[calc(100%-1.5rem)] sm:h-[calc(100%-1.75rem)]">
-                        <Image
-                          src={assets.coverImage}
-                          alt={altText}
-                          fill
-                          sizes="(max-width: 1024px) 100vw, 900px"
-                          className="object-cover object-top group-hover:scale-[1.01] transition-transform duration-300"
-                          loading="lazy"
-                        />
-                      </div>
                     </div>
                   ) : null}
                 </div>

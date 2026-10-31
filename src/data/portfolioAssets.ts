@@ -64,9 +64,9 @@ export const FEATURED_PROJECT_ASSETS: Record<string, ProjectAssetData> = {
   "oncoassist-medibridge": {
     coverImage: "/images/projects/medibridge-desktop.webp",
     alt: {
-      en: "OncoAssist & MediBridge-AI clinical decision support system notebook on Kaggle",
-      fr: "Carnet de support décisionnel clinique OncoAssist sur Kaggle",
-      ar: "واجهة نظام دعم القرار السريري OncoAssist و MediBridge-AI على منصة Kaggle",
+      en: "MediBridge-AI clinical intelligence engine interface",
+      fr: "Interface du moteur d'intelligence clinique MediBridge-AI",
+      ar: "واجهة محرك الذكاء السريري وبطاقات الرعاية الطبية MediBridge-AI",
     },
   },
 };
@@ -103,7 +103,7 @@ export interface CertificateAssetInfo {
 
 export const CERTIFICATE_ASSETS: Record<number, CertificateAssetInfo> = {
   0: { thumbnail: "/images/certificates/deep-past-challenge.webp", issuerLogo: "kaggle" },
-  1: { thumbnail: "/images/projects/medibridge-desktop.webp", issuerLogo: "google" },
+  1: { thumbnail: "/images/projects/oncoassist.webp", issuerLogo: "google" },
   2: { thumbnail: "/images/certificates/dizzitup-internship.webp", issuerLogo: "dizzitup" },
   3: { thumbnail: "/images/certificates/deloitte-data-analytics.webp", issuerLogo: "deloitte" },
   4: { thumbnail: "/images/certificates/ccna-connecting-networks.webp", issuerLogo: "cisco" },
