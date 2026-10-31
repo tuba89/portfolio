@@ -1,62 +1,44 @@
 import { NextRequest, NextResponse } from "next/server";
 import { GoogleGenAI } from "@google/genai";
 
-const SYSTEM_PROMPT = `You are the official AI Portfolio Assistant for Assia Benkedia (بن كدية اسيا).
-Your mission is to represent Assia professionally, accurately, and enthusiastically to recruiters, engineering leaders, and collaborators visiting her portfolio.
+const SYSTEM_PROMPT = `You are the personal, interactive AI Portfolio Copilot for Assia Benkedia (بن كدية اسيا).
+You are intelligent, witty, warm, articulate, and deeply knowledgeable about Assia's career, technical projects, and background.
+You communicate just like an expert human engineering colleague and mentor—never like a rigid template or robotic script.
 
-### Verified Background & Credentials:
-- **Full Name**: Assia Benkedia
-- **Title**: AI & Full-Stack Developer · Mobile Engineer · Autonomous AI Agent Specialist
-- **Contact**: Email: assiapro.ai@gmail.com | Phone: +213 783 60 05 83
-- **Location**: Oran, Algeria (Available immediately for Global Remote roles & Relocation)
-- **GitHub**: https://github.com/tuba89 (tuba89)
-- **Kaggle**: https://www.kaggle.com/assiaben (assiaben)
-- **LinkedIn**: https://linkedin.com/in/assia-benkedia-20708195
+### Personality & Conversation Rules:
+1. **Be Truly Interactive & Conversational**:
+   - Talk *with* the user, not *at* them. Be natural, warm, and engaging.
+   - For greetings like "hi", "hello", "hey", "bonjour", "salut", "مرحبا", respond warmly and concisely in 2-3 sentences. Greet them like a friendly colleague, invite them to explore, and ask what they are most curious about (e.g. her Kaggle Silver medal, multi-agent AI systems, full-stack fintech, or engineering journey). DO NOT immediately dump a huge bulleted CV unless they asked for an overview.
+   - When asked "who is assia" (or typos like "who is assis"), explain who she is with enthusiasm and personality: a Full-Stack, Mobile & AI Engineer blending 12+ years of high-rigor legal/notarial experience with Computer Science High Honors (GPA 3.97) and top-tier AI wins (Kaggle Silver, Google Capstone Honourable Mention). Follow up with a helpful question to keep the conversation flowing.
+   - End with an engaging follow-up question or suggest 1-2 interesting topics to explore.
+   - NEVER repeat the exact same static bulleted resume summary over and over. Adapt naturally to what the user actually said!
+   - Understand typos gracefully (e.g. "who is assis" -> recognise they mean "Assia").
 
-### Major Honors, Competitions & Certificates:
-1. **Kaggle Silver Medalist (Deep Past Challenge)**:
-   - Ranked 33rd out of 2,674 international teams (Top 1.2% globally).
-   - Trained and fine-tuned Transformer models (ByT5-base sequence-to-sequence) to translate ancient Akkadian cuneiform inscriptions directly to English.
-   - Kaggle Solution Writeup: https://www.kaggle.com/competitions/deep-past-initiative-machine-translation/writeups/32nd-byt5-base-fine-tuning-no-llms-no-synthet#3443570
-   - Kaggle Leaderboard: https://www.kaggle.com/competitions/deep-past-initiative-machine-translation/leaderboard
+2. **Multilingual Fluency**:
+   - Respond in the language used by the visitor: English, French, or Arabic.
+   - When Arabic is used, reply in natural, eloquent Arabic with correct RTL technical phrasing.
+   - When French is used, reply in elegant, professional French.
 
-2. **Google Gen AI Intensive Capstone - Honourable Mention (OncoAssist)**:
-   - Awarded Honourable Mention in the official Google Gen AI Intensive Capstone (among 280,000+ course participants worldwide).
-   - OncoAssist is an AI-powered cancer recovery companion paired with MediBridge-AI for clinical decision support.
-   - Architecture: Google Gemini 1.5, ChromaDB vector search, BigQuery AI, RAG over the TCGA oncology dataset, and ClinicalTrials.gov evidence retrieval with strict medical safety guardrails.
-   - Official Winners Announcement: https://www.kaggle.com/competitions/gen-ai-intensive-course-capstone-2025q1/discussion/575927
-   - Kaggle Notebook: https://www.kaggle.com/code/assiaben/oncoassist-ai-powered-cancer-recovery-advisor
-   - Technical Article on Medium: https://medium.com/@iiiassia.beniii/oncoassist-building-an-ai-companion-for-cancer-survivors-with-gemini-and-rag-f76e9bbe8438
-   - Video Demo on YouTube: https://www.youtube.com/watch?v=gKRmSPRP5NQ
-   - GitHub: https://github.com/tuba89/medibridge-ai
+3. **Accurate Facts About Assia Benkedia**:
+   - **Identity**: Full-Stack, Mobile & AI Engineer based in Oran, Algeria. Available immediately for global remote roles and relocation.
+   - **Contact**: assiapro.ai@gmail.com | Phone: +213 783 60 05 83 | LinkedIn: https://linkedin.com/in/assia-benkedia-20708195 | GitHub: https://github.com/tuba89 | Kaggle: https://www.kaggle.com/assiaben
+   - **Unique Edge**: Blends 12+ years of notarial/legal background (high-stakes precision, contracts, compliance) with deep computer science and AI engineering.
+   - **Academics**: Associate of Science in Computer Science from University of the People (WASC accredited) with High Honors (GPA 3.97 / 4.00). Also holds a Licence in Economics, Banking & Insurance from University of Oran.
+   - **Kaggle Silver Medalist**: Deep Past Challenge (Ranked 33rd / 2,674 international teams, Top 1.2% globally). Fine-tuned sequence-to-sequence Transformer models (ByT5-base) to translate ancient Akkadian cuneiform inscriptions to English without synthetic data or large LLMs. Writeup: https://www.kaggle.com/competitions/deep-past-initiative-machine-translation/writeups/32nd-byt5-base-fine-tuning-no-llms-no-synthet#3443570
+   - **Google Gen AI Intensive Capstone Honourable Mention**: Awarded for **OncoAssist**, a compassionate cancer recovery companion with MediBridge-AI clinical decision support, powered by Gemini 1.5, ChromaDB vector search over TCGA oncology data, and ClinicalTrials.gov evidence retrieval. Official announcement: https://www.kaggle.com/competitions/gen-ai-intensive-course-capstone-2025q1/discussion/575927 | Medium writeup: https://medium.com/@iiiassia.beniii/oncoassist-building-an-ai-companion-for-cancer-survivors-with-gemini-and-rag-f76e9bbe8438 | YouTube: https://www.youtube.com/watch?v=gKRmSPRP5NQ
+   - **Official Google Developers Blog Feature**: Her work in the 5-Day AI Agents Intensive (capstone LIVORA) was officially highlighted on the Google Developers Blog: https://blog.google/innovation-and-ai/technology/developers-tools/ai-agents-intensive-recap/
+   - **Production Fintech at DizzitUp**: Core developer on a multi-national platform operating across 54 African countries (Next.js, Node.js/Express, Supabase PostgreSQL with RLS, DZYwallet crypto/stablecoin payments). Note: Commercial code is private IP.
+   - **Other Projects**: 
+     - LIVORA: Autonomous multi-agent OS ("JARVIS for working mothers") using FastMCP protocol. https://github.com/tuba89/livora
+     - ResearchForge-AI: Academic proposal accelerator with Gemini. https://github.com/tuba89/ResearchForge-AI
+     - EVM Smart Contracts: Solidity protocols for token management & escrow.
+     - GuardianAI: Computer vision real-time safety alerting. https://github.com/tuba89/GuardianAI
+     - Next Weather App: Modern weather app in Next.js 15 & Framer Motion. https://github.com/tuba89/next-weather-app
+     - BloodLink: Community blood donation network. https://github.com/tuba89/BloodLink
 
-3. **Google & Kaggle Gen AI Certificates**:
-   - **5-Day AI Agents: Intensive Vibe Coding Course with Google**: Capstone project LIVORA. Officially recapped by Google on the Google Developers Blog: https://blog.google/innovation-and-ai/technology/developers-tools/ai-agents-intensive-recap/ (Certificate verified).
-   - **5-Day AI Agents Intensive Course with Google**: Capstone project ResearchForge-AI (Certificate verified).
-   - **5-Day Gen AI Intensive Course with Google**: Capstone project OncoAssist, awarded Honourable Mention (Certificate verified).
-
-4. **Academic Degrees**:
-   - Associate of Science in Computer Science: University of the People (Pasadena, CA, USA, accredited by WASC Senior College and University Commission). Graduated with GPA 3.97 / 4.00 (High Honors Distinction).
-   - Licence (Bac+3) in Economics, Banking & Insurance: University of Oran, Algeria. Specialized in banking operations, monetary economics, risk modeling, and financial accounting.
-
-4. **Production Engineering Experience**:
-   - **DizzitUp** (Jan 2026 - Present): Core Full-Stack Developer on a production fintech & marketplace operating across 54 African countries. Developed Next.js frontends, Node.js/Express APIs, Supabase PostgreSQL schemas with Row-Level Security, universal search indexing, and crypto/stablecoin payments (DZYwallet). Note: DizzitUp's repository is private enterprise commercial IP.
-   - **Cross-Platform Mobile & Web Marketplace Suite**: Architected native iOS and Android apps using React Native & Expo. Self-hosted on Coolify PaaS and Hostinger Linux VPS via SSH with Prisma ORM. Integrated payment links, dynamic PDF invoices, card processing, mobile money, and social authentication. Note: Private enterprise commercial IP.
-   - **Office Public Notarial** (12+ years): Managed legal deed drafting, financial compliance, and IT network administration.
-
-5. **Flagship Open Source & AI Projects**:
-   - **LIVORA**: Autonomous Multi-Agent AI system ("JARVIS for Working Mothers"). FastMCP protocol, persistent memory, voice synthesis. GitHub: https://github.com/tuba89/livora | Hackathon Writeup: https://www.kaggle.com/competitions/vibecoding-agents-capstone-project/writeups/new-writeup-1783122930771
-   - **ResearchForge-AI**: Academic research accelerator & proposal drafting engine powered by Google Gemini. GitHub: https://github.com/tuba89/ResearchForge-AI | Hackathon Writeup: https://www.kaggle.com/competitions/agents-intensive-capstone-project/writeups/new-writeup-1764433151428
-   - **EVM Smart Contracts**: Gas-optimized Solidity protocols for token management, multi-chain escrow vaults, and decentralized settlement.
-   - **GuardianAI**: Real-time automated safety alerting platform using computer vision heuristics. GitHub: https://github.com/tuba89/GuardianAI | Hackathon Writeup: https://www.kaggle.com/competitions/gemini-3/writeups/guardianai-global-safety-platform-for-device-prot
-   - **Next.js Modern Weather App**: Animated weather intelligence with Next.js 15, Framer Motion, Tailwind, and Zod. GitHub: https://github.com/tuba89/next-weather-app
-   - **BloodLink**: Emergency community blood donor coordination web app in Algeria. GitHub: https://github.com/tuba89/BloodLink
-
-### Tone & Style Guidelines:
-- Respond in the language requested or used by the user (English, French, or Arabic).
-- Be crisp, polite, articulate, and technically precise.
-- Format responses cleanly with markdown: bullet points, bold highlights, and relevant links when discussing projects.
-- Whenever appropriate, invite the user to get in touch with Assia directly via email (assiapro.ai@gmail.com) or explore the live links in the portfolio.
+4. **Markdown Links & Formatting**:
+   - Use Markdown links [Link Title](url) when referencing specific projects or writeups so the visitor can click directly.
+   - Keep answers readable, structured, and pleasant on mobile devices.
 `;
 
 interface ChatMessage {
@@ -64,12 +46,87 @@ interface ChatMessage {
   content: string;
 }
 
-// Fallback intelligent responder when GEMINI_API_KEY is not configured
+// Fallback intelligent responder when GEMINI_API_KEY is not configured or network fails
 function getLocalFallbackResponse(query: string, lang: string): string {
   const q = query.toLowerCase();
 
   const isFr = lang === "fr" || /bonjour|salut|qui|projet|médaille|honneur|compétence|contact/i.test(query);
   const isAr = lang === "ar" || /مرحبا|السلام|من|مشروع|ميدالية|شرف|كاجل|تعليم|تواصل/i.test(query);
+
+  // Conversational greetings
+  if (/^(hi|hello|hey|greetings|howdy|salut|bonjour|coucou|مرحبا|سلام|أهلا|اهلا)/i.test(q.trim()) || q === "hi" || q === "hello") {
+    if (isAr) {
+      return `مرحباً بك! يسعدني التحدث معك. أنا المساعد الذكي لمعرض أعمال اسيا بن كدية.
+
+اسيا مهندسة برمجيات وتطبيقات ذكاء اصطناعي تجمع بين التميز الأكاديمي والخبرة الإنتاجية العالية.
+
+ما الذي تود استكشافه اليوم؟
+- 🥈 **ميدالية Kaggle الفضية** في ترجمة النقوش الأكادية.
+- 🏆 مشروع **OncoAssist** المكرم من Google.
+- 🤖 نظام **LIVORA** للوكلاء الأذكياء.
+- 💼 خبرة العمل التقني والمالي في **DizzitUp**.
+- 📬 معلومات التواصل والتوظيف المباشر.`;
+    }
+    if (isFr) {
+      return `Bonjour et bienvenue ! Je suis le copilote IA du portfolio d'Assia Benkedia.
+
+Assia est Ingénieure Full-Stack, Mobile et IA avec un parcours d'excellence unique (Haute Distinction universitaire, Médaille d'Argent Kaggle, Mention d'Honneur Google).
+
+Que souhaitez-vous découvrir ensemble ?
+- 🥈 Sa **Médaille d'Argent Kaggle** en traduction de tablettes cunéiformes.
+- 🏆 Le projet **OncoAssist** primé par Google.
+- 🤖 Le système multi-agents autonome **LIVORA**.
+- 💼 Son expérience en fintech de production chez **DizzitUp**.
+- 📬 Comment la recruter ou la contacter directement.`;
+    }
+    return `Hey there! Great to meet you. I'm Assia Benkedia's interactive AI Copilot.
+
+Assia is a Full-Stack, Mobile & AI Engineer with a unique, high-achieving profile—bringing 12+ years of legal rigor into software engineering, academic High Honors (GPA 3.97), and top international AI recognition.
+
+What are you curious about today?
+- 🥈 Her **Kaggle Silver Medal** in translating ancient Akkadian cuneiform.
+- 🏆 The **Google Capstone award** for OncoAssist.
+- 🤖 The autonomous multi-agent OS **LIVORA**.
+- 💼 Her production fintech engineering at **DizzitUp**.
+- 📬 How to get in touch or discuss a role.`;
+  }
+
+  // Identity queries ("who is assia", "who is assis", "tell me about her")
+  if (/who is|who's|qui est|c'est qui|من هي|من هو|tell me about assia|about assia|who is assis/i.test(q)) {
+    if (isAr) {
+      return `**اسيا بن كدية (Assia Benkedia)** هي مهندسة برمجيات وتطبيقات ذكاء اصطناعي متكاملة (Full-Stack, Mobile & AI Engineer) تتميز بمسار فريد واستثنائي:
+
+- **التميز الأكاديمي**: تخرجت بمرتبة الشرف العالية في علوم الحاسوب من جامعة الناس (University of the People - كاليفورنيا) بمعدل شبه كامل **3.97 / 4.00**.
+- **منافسات الذكاء الاصطناعي العالمية**:
+  - 🥈 **ميدالية فضية في مسابقة Kaggle Deep Past Challenge** (المركز 33 من أصل 2,674 فريقاً دولياً).
+  - 🏆 **التنويه الشرفي (Honourable Mention)** في برنامج *Google Gen AI Intensive Capstone* عن مشروع **OncoAssist**.
+- **الخبرة الإنتاجية**: مطورة أساسية في منصة **DizzitUp** للتجارة والتقنية المالية الممتدة عبر 54 دولة في أفريقيا.
+- **نقطة القوة الاستثنائية**: 12+ عاماً من الدقة والانضباط في المجال القانوني والتوثيقي قبل التفرغ لعالم البرمجة.
+
+هل تحب أن أحدثك بالتفصيل عن أحد مشاريعها المفتوحة، أو حلول الوكلاء الأذكياء (Agents)، أو كيفية التواصل معها؟`;
+    }
+    if (isFr) {
+      return `**Assia Benkedia** est une Ingénieure Full-Stack, Mobile & IA dotée d'un profil d'exception :
+
+- **Rigueur & Reconversion d'élite** : Elle a exercé pendant 12+ années dans le domaine notarial et juridique avant d'obtenir son diplôme en Informatique avec la plus haute distinction (**High Honors, GPA 3.97 / 4.00** à l'University of the People).
+- **Reconnaissance Internationale en IA** :
+  - 🥈 **Médaillée d'Argent Kaggle** (33e / 2 674 équipes mondiales au Deep Past Challenge).
+  - 🏆 **Mention d'Honneur Google** au *Gen AI Intensive Capstone* pour **OncoAssist** (parmi 280 000 participants).
+- **Impact en Production** : Développeuse Full-Stack chez **DizzitUp**, marketplace et fintech couvrant 54 pays africains.
+
+Souhaitez-vous explorer ses architectures IA (LIVORA, MediBridge), son stack technique ou ses coordonnées ?`;
+    }
+    return `**Assia Benkedia** is a Full-Stack, Mobile & AI Engineer with a standout background:
+
+- **Unique Trajectory**: She practiced for 12+ years in high-stakes notarial law before turning her passion into software engineering, graduating with High Honors (**GPA 3.97 / 4.00**) in Computer Science from the University of the People.
+- **International AI Recognition**:
+  - 🥈 **Kaggle Silver Medalist** (33rd out of 2,674 global teams in the Deep Past Challenge, Top 1.2%).
+  - 🏆 **Google Gen AI Capstone Honourable Mention** for **OncoAssist** (out of 280,000+ worldwide participants).
+  - 🚀 Officially featured on the **Google Developers Blog** for her multi-agent AI system LIVORA.
+- **Production Fintech Impact**: Core engineer at **DizzitUp**, powering an e-commerce and utility platform across 54 African countries.
+
+Would you like to dive into her AI research, explore her full-stack open source repositories, or view her contact details?`;
+  }
 
   if (q.includes("kaggle") || q.includes("silver") || q.includes("argent") || q.includes("فضية") || q.includes("deep past")) {
     if (isAr) {
@@ -232,16 +289,21 @@ Feel free to ask about any of her projects (LIVORA, OncoAssist, DizzitUp), tech 
 }
 
 export async function POST(req: NextRequest) {
+  let userQuery = "hello";
+  let userLang = "en";
+
   try {
     const body = await req.json();
     const messages: ChatMessage[] = body.messages || [];
     const lang = body.lang || "en";
+    userLang = lang;
 
     if (!messages.length) {
       return NextResponse.json({ error: "No messages provided" }, { status: 400 });
     }
 
     const lastMessage = messages[messages.length - 1];
+    userQuery = lastMessage?.content || "hello";
     const apiKey = process.env.GEMINI_API_KEY || process.env.NEXT_PUBLIC_GEMINI_API_KEY;
 
     if (!apiKey) {
@@ -270,24 +332,60 @@ export async function POST(req: NextRequest) {
       });
     }
 
-    const response = await ai.models.generateContent({
-      model: "gemini-2.5-flash",
-      contents,
-      config: {
-        systemInstruction: SYSTEM_PROMPT,
-        temperature: 0.7,
-      },
-    });
+    const candidateModels = [
+      "gemini-3.5-flash-lite",
+      "gemini-3.5-flash",
+      "gemini-3.8-flash",
+    ];
 
-    const reply = response.text || getLocalFallbackResponse(lastMessage.content, lang);
-    return NextResponse.json({ reply, model: "gemini-2.5-flash" });
+    let generatedText: string | null = null;
+    let successfulModel = "";
+
+    const callWithTimeout = async <T,>(promise: Promise<T>, ms: number): Promise<T> => {
+      let timer: NodeJS.Timeout;
+      const timeout = new Promise<never>((_, reject) => {
+        timer = setTimeout(() => reject(new Error(`Timed out after ${ms}ms`)), ms);
+      });
+      return Promise.race([promise, timeout]).finally(() => clearTimeout(timer));
+    };
+
+    for (const modelName of candidateModels) {
+      try {
+        const response = await callWithTimeout(
+          ai.models.generateContent({
+            model: modelName,
+            contents,
+            config: {
+              systemInstruction: SYSTEM_PROMPT,
+              temperature: 0.7,
+            },
+          }),
+          7000
+        );
+        if (response.text) {
+          generatedText = response.text;
+          successfulModel = modelName;
+          break;
+        }
+      } catch (modelErr) {
+        console.warn(`Gemini model ${modelName} attempt failed or timed out:`, modelErr);
+      }
+    }
+
+    if (generatedText) {
+      return NextResponse.json({ reply: generatedText, model: successfulModel });
+    }
+
+    // Fall back gracefully to local knowledge if all models fail
+    const fallbackReply = getLocalFallbackResponse(lastMessage.content, lang);
+    return NextResponse.json({
+      reply: fallbackReply,
+      model: "fallback",
+      note: "Live models temporarily unavailable; served from local knowledge base.",
+    });
   } catch (error: unknown) {
     console.error("Gemini API Error:", error);
-    // Fall back gracefully to local knowledge if API request fails (e.g. rate limit or network)
-    const fallbackReply = getLocalFallbackResponse(
-      "tell me about Assia Benkedia",
-      "en"
-    );
+    const fallbackReply = getLocalFallbackResponse(userQuery, userLang);
     return NextResponse.json(
       {
         reply: fallbackReply,

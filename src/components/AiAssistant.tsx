@@ -258,7 +258,7 @@ export default function AiAssistant() {
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
               </span>
               <span className="text-[10px] text-(--text-muted) hidden sm:inline-block">
-                Gemini 2.5
+                Gemini AI
               </span>
             </div>
           </button>
