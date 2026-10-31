@@ -10,6 +10,7 @@
   --border-subtle: #cfdde4;
   --border-strong: #9bb1bc;
   --accent-peach: #dd6e42;
+  --accent-peach-strong: #B8532A;
   --accent-peach-hover: #c55a30;
   --accent-peach-light: rgba(221, 110, 66, 0.12);
   --badge-bg: #e8dab2;
@@ -28,6 +29,7 @@
   --border-subtle: #243540;
   --border-strong: #364e5c;
   --accent-peach: #dd6e42;
+  --accent-peach-strong: #B8532A;
   --accent-peach-hover: #ea7a4e;
   --accent-peach-light: rgba(221, 110, 66, 0.2);
   --badge-bg: #273742;
