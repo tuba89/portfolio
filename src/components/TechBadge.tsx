@@ -245,15 +245,15 @@ export default function TechBadge({
   if (!meta) {
     if (variant === "list") {
       return (
-        <span className={`inline-flex items-center gap-2 text-xs text-[var(--text-secondary)] font-normal leading-relaxed ${className}`}>
-          <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent-peach)] shrink-0" />
+        <span className={`inline-flex items-center gap-2 text-xs text-(--text-secondary) font-normal leading-relaxed ${className}`}>
+          <span className="w-1.5 h-1.5 rounded-full bg-(--accent-peach) shrink-0" />
           <bdi>{tag}</bdi>
         </span>
       );
     }
     return (
       <span
-        className={`px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-normal border border-[var(--border-strong)] text-[var(--text-secondary)] bg-[var(--bg-surface)] ${className}`}
+        className={`px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-normal border border-(--border-strong) text-(--text-secondary) bg-(--bg-surface) ${className}`}
       >
         <bdi>{tag}</bdi>
       </span>
@@ -275,7 +275,7 @@ export default function TechBadge({
       <div
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-surface)]/70 hover:bg-[var(--bg-surface-elevated)] hover:border-[var(--accent-peach)]/50 text-xs font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-all cursor-default shrink-0 group ${className}`}
+        className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-(--border-subtle) bg-(--bg-surface)/70 hover:bg-(--bg-surface-elevated) hover:border-(--accent-peach)/50 text-xs font-medium text-(--text-secondary) hover:text-(--text-primary) transition-all cursor-default shrink-0 group ${className}`}
       >
         <span
           className="shrink-0 transition-colors duration-200"
@@ -295,10 +295,10 @@ export default function TechBadge({
       <div
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        className={`inline-flex items-center gap-2 text-xs text-[var(--text-secondary)] hover:text-[var(--text-primary)] font-normal leading-relaxed transition-colors group cursor-default ${className}`}
+        className={`inline-flex items-center gap-2 text-xs text-(--text-secondary) hover:text-(--text-primary) font-normal leading-relaxed transition-colors group cursor-default ${className}`}
       >
         <span
-          className="w-4 h-4 rounded border border-[var(--border-subtle)] bg-[var(--bg-page)]/80 flex items-center justify-center shrink-0 transition-colors duration-200"
+          className="w-4 h-4 rounded border border-(--border-subtle) bg-(--bg-page)/80 flex items-center justify-center shrink-0 transition-colors duration-200"
           style={{ color: getIconColor() }}
         >
           <Icon size={size} />
@@ -315,7 +315,7 @@ export default function TechBadge({
     <span
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-normal border border-[var(--border-strong)] text-[var(--text-secondary)] bg-[var(--bg-surface)] hover:border-[var(--accent-peach)]/60 hover:text-[var(--text-primary)] transition-all cursor-default ${className}`}
+      className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-normal border border-(--border-strong) text-(--text-secondary) bg-(--bg-surface) hover:border-(--accent-peach)/60 hover:text-(--text-primary) transition-all cursor-default ${className}`}
     >
       <span
         className="shrink-0 transition-colors duration-200"
@@ -371,7 +371,7 @@ export function IssuerChip({
     <div
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md border border-[var(--border-subtle)] bg-[var(--bg-page)]/70 text-[11px] font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--accent-peach)]/40 transition-all cursor-default shrink-0 ${className}`}
+      className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md border border-(--border-subtle) bg-(--bg-page)/70 text-[11px] font-medium text-(--text-secondary) hover:text-(--text-primary) hover:border-(--accent-peach)/40 transition-all cursor-default shrink-0 ${className}`}
     >
       <span className="shrink-0 transition-all duration-200">{renderLogo()}</span>
       <span className="truncate">
@@ -380,3 +380,4 @@ export function IssuerChip({
     </div>
   );
 }
+

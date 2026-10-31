@@ -11,14 +11,14 @@ export default function OtherProjects() {
   const { t, lang } = useLanguage();
 
   return (
-    <section className="py-16 border-b border-[var(--border-subtle)]">
+    <section className="py-16 border-b border-(--border-subtle)">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8">
         <div className="mb-10">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium editorial-badge mb-2">
-            <FolderGit2 className="w-3.5 h-3.5 text-[var(--accent-peach)]" />
+            <FolderGit2 className="w-3.5 h-3.5 text-(--accent-peach)" />
             <span>{t.otherProjects.badge}</span>
           </div>
-          <h2 className="text-2xl font-semibold tracking-tight text-[var(--text-primary)]">
+          <h2 className="text-2xl font-semibold tracking-tight text-(--text-primary)">
             {t.otherProjects.title}
           </h2>
         </div>
@@ -35,7 +35,7 @@ export default function OtherProjects() {
               >
                 <div>
                   {/* Visual Cover (Real Screenshot or Branded Gradient Cover) */}
-                  <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden mb-4 border border-[var(--border-subtle)] bg-[var(--bg-page)]">
+                  <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden mb-4 border border-(--border-subtle) bg-(--bg-page)">
                     {assets?.coverImage ? (
                       <Image
                         src={assets.coverImage}
@@ -47,13 +47,13 @@ export default function OtherProjects() {
                       />
                     ) : (
                       /* Branded Gradient Fallback Cover with Project Icon */
-                      <div className="w-full h-full p-4 flex flex-col justify-between bg-gradient-to-br from-[var(--bg-surface)] via-[var(--bg-surface-elevated)] to-[var(--accent-peach-light)]">
+                      <div className="w-full h-full p-4 flex flex-col justify-between bg-gradient-to-br from-(--bg-surface) via-(--bg-surface-elevated) to-(--accent-peach-light)">
                         <div className="flex items-center justify-between">
-                          <span className="text-[10px] font-mono text-[var(--text-muted)] font-semibold uppercase">
+                          <span className="text-[10px] font-mono text-(--text-muted) font-semibold uppercase">
                             {proj.category}
                           </span>
                           {proj.id === "guardian-ai" ? (
-                            <Shield className="w-5 h-5 text-[var(--accent-peach)]" />
+                            <Shield className="w-5 h-5 text-(--accent-peach)" />
                           ) : proj.id === "bloodlink" ? (
                             <HeartHandshake className="w-5 h-5 text-rose-500" />
                           ) : (
@@ -61,10 +61,10 @@ export default function OtherProjects() {
                           )}
                         </div>
                         <div>
-                          <div className="text-xs font-bold text-[var(--text-primary)]">
+                          <div className="text-xs font-bold text-(--text-primary)">
                             {proj.title}
                           </div>
-                          <div className="text-[11px] text-[var(--text-muted)] truncate">
+                          <div className="text-[11px] text-(--text-muted) truncate">
                             {proj.subtitle}
                           </div>
                         </div>
@@ -73,7 +73,7 @@ export default function OtherProjects() {
                   </div>
 
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-[10px] font-mono text-[var(--accent-peach)] font-semibold uppercase">
+                    <span className="text-[10px] font-mono text-(--accent-peach) font-semibold uppercase">
                       {proj.category}
                     </span>
                     {proj.githubUrl && (
@@ -81,7 +81,7 @@ export default function OtherProjects() {
                         href={proj.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-1 rounded border border-[var(--border-subtle)] text-[var(--text-secondary)] hover:border-[var(--accent-peach)] hover:scale-105 transition-all"
+                        className="p-1 rounded border border-(--border-subtle) text-(--text-secondary) hover:border-(--accent-peach) hover:scale-105 transition-all"
                         aria-label="View on GitHub"
                       >
                         <ColoredGithubIcon size={16} />
@@ -89,18 +89,18 @@ export default function OtherProjects() {
                     )}
                   </div>
 
-                  <h3 className="text-base font-semibold text-[var(--text-primary)] mb-1">
+                  <h3 className="text-base font-semibold text-(--text-primary) mb-1">
                     <bdi>{proj.title}</bdi>
                   </h3>
-                  <p className="text-xs font-medium text-[var(--text-secondary)] mb-2">
+                  <p className="text-xs font-medium text-(--text-secondary) mb-2">
                     {proj.subtitle}
                   </p>
-                  <p className="text-xs text-[var(--text-secondary)] leading-relaxed mb-4 font-normal">
+                  <p className="text-xs text-(--text-secondary) leading-relaxed mb-4 font-normal">
                     {proj.description}
                   </p>
                 </div>
 
-                <div className="flex flex-wrap gap-1.5 pt-3 border-t border-[var(--border-subtle)]">
+                <div className="flex flex-wrap gap-1.5 pt-3 border-t border-(--border-subtle)">
                   {proj.tags.map((tag) => (
                     <TechBadge key={tag} tag={tag} variant="chip" />
                   ))}

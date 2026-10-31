@@ -53,17 +53,17 @@ export default function CertificationsGrid() {
   };
 
   return (
-    <section id="certifications" className="py-20 border-b border-[var(--border-subtle)]">
+    <section id="certifications" className="py-20 border-b border-(--border-subtle)">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8">
         <div className="text-center max-w-xl mx-auto mb-10">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium editorial-badge mb-3">
             <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />
             <span>{t.credentials.badge}</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-[var(--text-primary)]">
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-(--text-primary)">
             {t.credentials.title}
           </h2>
-          <p className="mt-2 text-sm text-[var(--text-secondary)]">
+          <p className="mt-2 text-sm text-(--text-secondary)">
             {t.credentials.subtitle}
           </p>
         </div>
@@ -76,8 +76,8 @@ export default function CertificationsGrid() {
               onClick={() => setSelectedCategory(cat.key)}
               className={`px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all cursor-pointer ${
                 selectedCategory === cat.key
-                  ? "bg-[var(--accent-peach)] text-white shadow-sm"
-                  : "bg-[var(--bg-surface)] text-[var(--text-secondary)] border border-[var(--border-subtle)] hover:border-[var(--accent-peach)]"
+                  ? "bg-(--accent-peach) text-white shadow-sm"
+                  : "bg-(--bg-surface) text-(--text-secondary) border border-(--border-subtle) hover:border-(--accent-peach)"
               }`}
             >
               {cat.label}
@@ -111,7 +111,7 @@ export default function CertificationsGrid() {
                           credentialId: cert.credentialId,
                         })
                       }
-                      className="relative w-full aspect-[16/10] rounded-xl overflow-hidden mb-3.5 border border-[var(--border-subtle)] bg-white/5 cursor-pointer group shadow-sm"
+                      className="relative w-full aspect-16/10 rounded-xl overflow-hidden mb-3.5 border border-(--border-subtle) bg-white/5 cursor-pointer group shadow-sm"
                     >
                       <Image
                         src={asset.thumbnail}
@@ -134,7 +134,7 @@ export default function CertificationsGrid() {
                       {cert.categoryLabel}
                     </span>
                     <div className="flex items-center gap-2">
-                      <span className="text-[11px] text-[var(--text-muted)] font-normal">
+                      <span className="text-[11px] text-(--text-muted) font-normal">
                         {cert.date}
                       </span>
                       {asset?.issuerLogo && (
@@ -160,21 +160,21 @@ export default function CertificationsGrid() {
                     </div>
                   </div>
 
-                  <h3 className="text-sm font-semibold text-[var(--text-primary)] line-clamp-2 mb-1">
+                  <h3 className="text-sm font-semibold text-(--text-primary) line-clamp-2 mb-1">
                     {cert.name}
                   </h3>
-                  <p className="text-xs text-[var(--accent-peach)] mb-2 font-normal">
+                  <p className="text-xs text-(--accent-peach) mb-2 font-normal">
                     <bdi>{cert.issuer}</bdi>
                   </p>
 
                   {cert.credentialId && (
-                    <p className="text-[11px] font-mono text-[var(--text-muted)] mb-3 truncate">
+                    <p className="text-[11px] font-mono text-(--text-muted) mb-3 truncate">
                       <bdi>{cert.credentialId}</bdi>
                     </p>
                   )}
                 </div>
 
-                <div className="pt-2.5 border-t border-[var(--border-subtle)] flex items-center justify-between">
+                <div className="pt-2.5 border-t border-(--border-subtle) flex items-center justify-between">
                   {cert.assetPath ? (
                     <button
                       onClick={() =>
@@ -188,7 +188,7 @@ export default function CertificationsGrid() {
                           credentialId: cert.credentialId,
                         })
                       }
-                      className="inline-flex items-center gap-1.5 text-xs text-[var(--accent-peach)] hover:underline font-medium cursor-pointer"
+                      className="inline-flex items-center gap-1.5 text-xs text-(--accent-peach) hover:underline font-medium cursor-pointer"
                     >
                       <FileText className="w-3.5 h-3.5" />
                       <span>{t.credentials.viewDoc}</span>
@@ -198,13 +198,13 @@ export default function CertificationsGrid() {
                       href={cert.verifyUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-xs text-[var(--accent-peach)] hover:underline font-medium"
+                      className="inline-flex items-center gap-1.5 text-xs text-(--accent-peach) hover:underline font-medium"
                     >
                       <ExternalLink className="w-3.5 h-3.5" />
                       <span>{t.credentials.verify}</span>
                     </a>
                   ) : (
-                    <span className="text-[11px] text-[var(--text-muted)]">
+                    <span className="text-[11px] text-(--text-muted)">
                       {t.credentials.verifiedFallback}
                     </span>
                   )}

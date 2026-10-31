@@ -12,19 +12,19 @@ export default function FeaturedProjects() {
   const { t, isRtl, lang } = useLanguage();
 
   return (
-    <section id="featured-projects" className="py-16 sm:py-20 border-b border-[var(--border-subtle)]">
+    <section id="featured-projects" className="py-16 sm:py-20 border-b border-(--border-subtle)">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8">
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 sm:mb-12 gap-3 sm:gap-4">
           <div>
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium editorial-badge mb-2.5">
-              <Compass className="w-3.5 h-3.5 text-[var(--accent-peach)]" />
+              <Compass className="w-3.5 h-3.5 text-(--accent-peach)" />
               <span>{t.projects.badge}</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-[var(--text-primary)]">
+            <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-(--text-primary)">
               {t.projects.title}
             </h2>
-            <p className="mt-1.5 text-xs sm:text-sm text-[var(--text-secondary)] max-w-xl leading-relaxed">
+            <p className="mt-1.5 text-xs sm:text-sm text-(--text-secondary) max-w-xl leading-relaxed">
               {t.projects.subtitle}
             </p>
           </div>
@@ -32,7 +32,7 @@ export default function FeaturedProjects() {
             href="https://github.com/tuba89"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-xs font-medium text-[var(--accent-peach)] hover:underline self-start sm:self-auto"
+            className="inline-flex items-center gap-1.5 text-xs font-medium text-(--accent-peach) hover:underline self-start sm:self-auto"
           >
             <span>{t.projects.allRepos}</span>
             <ArrowUpRight className={`w-3.5 h-3.5 ${isRtl ? "rotate-[-90deg]" : ""}`} />
@@ -51,13 +51,13 @@ export default function FeaturedProjects() {
                 className="editorial-card p-3.5 sm:p-7 md:p-8 relative overflow-hidden"
               >
                 {/* Subtle top accent line */}
-                <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[var(--accent-peach)] via-amber-500/50 to-sky-500/50 opacity-70" />
+                <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-(--accent-peach) via-amber-500/50 to-sky-500/50 opacity-70" />
 
                 {/* Card Header */}
-                <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3.5 pb-4 sm:pb-5 border-b border-[var(--border-subtle)]">
+                <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3.5 pb-4 sm:pb-5 border-b border-(--border-subtle)">
                   <div>
                     <div className="flex flex-wrap items-center gap-2 mb-1.5">
-                      <span className="text-[10px] sm:text-[11px] font-mono text-[var(--accent-peach)] uppercase tracking-wider font-semibold">
+                      <span className="text-[10px] sm:text-[11px] font-mono text-(--accent-peach) uppercase tracking-wider font-semibold">
                         0{idx + 1} - {project.category}
                       </span>
                       {project.badge && (
@@ -66,10 +66,10 @@ export default function FeaturedProjects() {
                         </span>
                       )}
                     </div>
-                    <h3 className="text-lg sm:text-2xl font-semibold text-[var(--text-primary)] tracking-tight">
+                    <h3 className="text-lg sm:text-2xl font-semibold text-(--text-primary) tracking-tight">
                       <bdi>{project.title}</bdi>
                     </h3>
-                    <p className="text-xs sm:text-sm font-medium text-[var(--text-secondary)] mt-0.5">
+                    <p className="text-xs sm:text-sm font-medium text-(--text-secondary) mt-0.5">
                       {project.subtitle}
                     </p>
                   </div>
@@ -105,20 +105,20 @@ export default function FeaturedProjects() {
                 <div className="my-5 sm:my-6 max-w-full overflow-hidden">
                   {assets?.isMobileMockup ? (
                     /* React Native Expo Phone Frame */
-                    <div className="p-2 sm:p-6 md:p-8 rounded-2xl bg-[var(--bg-page)]/70 border border-[var(--border-subtle)] flex items-center justify-center max-w-full overflow-hidden">
+                    <div className="p-2 sm:p-6 md:p-8 rounded-2xl bg-(--bg-page)/70 border border-(--border-subtle) flex items-center justify-center max-w-full overflow-hidden">
                       <PhoneMockup />
                     </div>
                   ) : assets?.coverImage ? (
                     /* Real Desktop Production Screenshot */
-                    <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] rounded-2xl overflow-hidden border border-[var(--border-subtle)] shadow-md bg-[var(--bg-page)] group">
+                    <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] rounded-2xl overflow-hidden border border-(--border-subtle) shadow-md bg-(--bg-page) group">
                       {/* Browser mock top chrome bar */}
-                      <div className="h-6 sm:h-7 px-3 bg-[var(--bg-surface-elevated)] border-b border-[var(--border-subtle)] flex items-center justify-between">
+                      <div className="h-6 sm:h-7 px-3 bg-(--bg-surface-elevated) border-b border-(--border-subtle) flex items-center justify-between">
                         <div className="flex items-center gap-1.5">
                           <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80" />
                           <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
                           <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
                         </div>
-                        <span className="text-[10px] font-mono text-[var(--text-muted)] truncate max-w-[200px] sm:max-w-xs">
+                        <span className="text-[10px] font-mono text-(--text-muted) truncate max-w-[200px] sm:max-w-xs">
                           {project.liveUrl ? project.liveUrl.replace("https://", "") : project.id}
                         </span>
                         {assets.diagramSvg ? (
@@ -126,7 +126,7 @@ export default function FeaturedProjects() {
                             href={assets.diagramSvg}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-[10px] text-[var(--accent-peach)] hover:underline flex items-center gap-1 font-mono"
+                            className="text-[10px] text-(--accent-peach) hover:underline flex items-center gap-1 font-mono"
                           >
                             <span>Arch Diagram</span>
                             <ExternalLink className="w-2.5 h-2.5" />
@@ -148,7 +148,7 @@ export default function FeaturedProjects() {
                     </div>
                   ) : assets?.diagramSvg ? (
                     /* High-Fidelity SVG Architecture Diagram */
-                    <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden border border-[var(--border-subtle)] shadow-md group">
+                    <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden border border-(--border-subtle) shadow-md group">
                       <img
                         src={assets.diagramSvg}
                         alt={altText}
@@ -172,20 +172,20 @@ export default function FeaturedProjects() {
                 <div className="mt-5 sm:mt-6 grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8">
                   {/* Left Column: Descriptions & Deliverables */}
                   <div className="lg:col-span-8 space-y-3.5">
-                    <p className="text-xs sm:text-sm text-[var(--text-primary)] leading-relaxed font-normal">
+                    <p className="text-xs sm:text-sm text-(--text-primary) leading-relaxed font-normal">
                       {project.description}
                     </p>
-                    <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed font-normal">
+                    <p className="text-xs sm:text-sm text-(--text-secondary) leading-relaxed font-normal">
                       {project.longDescription}
                     </p>
 
                     <div className="pt-2">
-                      <h4 className="text-[11px] sm:text-xs font-semibold text-[var(--accent-peach)] uppercase tracking-wider mb-2">
+                      <h4 className="text-[11px] sm:text-xs font-semibold text-(--accent-peach) uppercase tracking-wider mb-2">
                         {t.projects.deliverablesTitle}
                       </h4>
                       <ul className="space-y-1.5 sm:space-y-2">
                         {project.impact.map((point, pIdx) => (
-                          <li key={pIdx} className="flex items-start gap-2 text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">
+                          <li key={pIdx} className="flex items-start gap-2 text-xs sm:text-sm text-(--text-secondary) leading-relaxed">
                             <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" />
                             <span>{point}</span>
                           </li>
@@ -195,17 +195,17 @@ export default function FeaturedProjects() {
                   </div>
 
                   {/* Right Column: Spec Metrics & Stack */}
-                  <div className="lg:col-span-4 flex flex-col justify-between p-3.5 sm:p-4 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-page)]/40 text-xs min-w-0">
+                  <div className="lg:col-span-4 flex flex-col justify-between p-3.5 sm:p-4 rounded-xl border border-(--border-subtle) bg-(--bg-page)/40 text-xs min-w-0">
                     {project.metrics && project.metrics.length > 0 && (
                       <div className="space-y-2.5 mb-4 sm:mb-5 min-w-0">
-                        <div className="text-[10px] sm:text-[11px] font-semibold text-[var(--text-muted)] uppercase tracking-wider">
+                        <div className="text-[10px] sm:text-[11px] font-semibold text-(--text-muted) uppercase tracking-wider">
                           {t.projects.archProfile}
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-2.5">
                           {project.metrics.map((metric, mIdx) => (
-                            <div key={mIdx} className="border-b lg:border-b border-[var(--border-subtle)] pb-1.5 last:border-b-0 min-w-0">
-                              <div className="text-[10px] sm:text-[11px] text-[var(--text-muted)] truncate">{metric.label}</div>
-                              <div className="text-xs font-medium text-[var(--text-primary)] mt-0.5 break-words">
+                            <div key={mIdx} className="border-b lg:border-b border-(--border-subtle) pb-1.5 last:border-b-0 min-w-0">
+                              <div className="text-[10px] sm:text-[11px] text-(--text-muted) truncate">{metric.label}</div>
+                              <div className="text-xs font-medium text-(--text-primary) mt-0.5 break-words">
                                 {metric.value}
                               </div>
                             </div>
@@ -215,7 +215,7 @@ export default function FeaturedProjects() {
                     )}
 
                     <div>
-                      <div className="text-[10px] sm:text-[11px] font-semibold text-[var(--text-muted)] uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                      <div className="text-[10px] sm:text-[11px] font-semibold text-(--text-muted) uppercase tracking-wider mb-2 flex items-center gap-1.5">
                         <Layers className="w-3 h-3" />
                         <span>{t.projects.stackTitle}</span>
                       </div>

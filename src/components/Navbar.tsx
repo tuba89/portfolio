@@ -31,50 +31,50 @@ export default function Navbar() {
           <Logo size={32} className="sm:hidden shadow-sm shrink-0" />
           <Logo size={40} className="hidden sm:block shadow-sm group-hover:scale-105 transition-transform shrink-0" />
           <div className="flex flex-col justify-center min-w-0">
-            <span className="font-bold text-xs sm:text-base md:text-lg tracking-tight text-[var(--text-primary)] truncate leading-snug">
+            <span className="font-bold text-xs sm:text-base md:text-lg tracking-tight text-(--text-primary) truncate leading-snug">
               {t.personal.name}
             </span>
-            <span className="text-[9px] sm:text-[11px] md:text-xs text-[var(--text-muted)] font-normal truncate leading-none mt-0.5">
+            <span className="text-[9px] sm:text-[11px] md:text-xs text-(--text-muted) font-normal truncate leading-none mt-0.5">
               {t.personal.roleSubtitle}
             </span>
           </div>
         </Link>
 
         {/* Desktop Navigation: Centered, displays on xl screens to avoid 1024px collision */}
-        <nav className="hidden xl:flex items-center gap-4 2xl:gap-6 text-xs 2xl:text-sm font-medium text-[var(--text-secondary)]">
+        <nav className="hidden xl:flex items-center gap-4 2xl:gap-6 text-xs 2xl:text-sm font-medium text-(--text-secondary)">
           <a
             href="#featured-projects"
-            className="hover:text-[var(--accent-peach)] transition-colors py-1 whitespace-nowrap"
+            className="hover:text-(--accent-peach) transition-colors py-1 whitespace-nowrap"
           >
             {t.nav.projects}
           </a>
           <a
             href="#achievements"
-            className="hover:text-[var(--accent-peach)] transition-colors py-1 whitespace-nowrap"
+            className="hover:text-(--accent-peach) transition-colors py-1 whitespace-nowrap"
           >
             {t.nav.honors}
           </a>
           <a
             href="#experience"
-            className="hover:text-[var(--accent-peach)] transition-colors py-1 whitespace-nowrap"
+            className="hover:text-(--accent-peach) transition-colors py-1 whitespace-nowrap"
           >
             {t.nav.experience}
           </a>
           <a
             href="#education"
-            className="hover:text-[var(--accent-peach)] transition-colors py-1 whitespace-nowrap"
+            className="hover:text-(--accent-peach) transition-colors py-1 whitespace-nowrap"
           >
             {t.nav.education}
           </a>
           <a
             href="#certifications"
-            className="hover:text-[var(--accent-peach)] transition-colors py-1 whitespace-nowrap"
+            className="hover:text-(--accent-peach) transition-colors py-1 whitespace-nowrap"
           >
             {t.nav.credentials}
           </a>
           <a
             href="#contact"
-            className="hover:text-[var(--accent-peach)] transition-colors py-1 whitespace-nowrap"
+            className="hover:text-(--accent-peach) transition-colors py-1 whitespace-nowrap"
           >
             {t.nav.contact}
           </a>
@@ -87,9 +87,9 @@ export default function Navbar() {
             href="/certificates/Assia_Benkedia_Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden xl:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold border border-[var(--border-strong)] text-[var(--text-primary)] hover:border-[var(--accent-peach)] hover:text-[var(--accent-peach)] transition-all whitespace-nowrap shadow-sm"
+            className="hidden xl:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold border border-(--border-strong) text-(--text-primary) hover:border-(--accent-peach) hover:text-(--accent-peach) transition-all whitespace-nowrap shadow-sm"
           >
-            <FileText className="w-3.5 h-3.5 text-[var(--accent-peach)] shrink-0" />
+            <FileText className="w-3.5 h-3.5 text-(--accent-peach) shrink-0" />
             <span>{t.nav.resume}</span>
           </a>
 
@@ -99,7 +99,7 @@ export default function Navbar() {
               href={PERSONAL_INFO.kaggle}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-1.5 rounded-lg border border-[var(--border-subtle)] hover:border-[var(--accent-peach)] hover:scale-105 transition-all"
+              className="p-1.5 rounded-lg border border-(--border-subtle) hover:border-(--accent-peach) hover:scale-105 transition-all"
               aria-label="Kaggle Profile"
               title="Kaggle: @assiaben"
             >
@@ -110,7 +110,7 @@ export default function Navbar() {
               href={PERSONAL_INFO.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-1.5 rounded-lg border border-[var(--border-subtle)] hover:border-[var(--accent-peach)] hover:scale-105 transition-all"
+              className="p-1.5 rounded-lg border border-(--border-subtle) hover:border-(--accent-peach) hover:scale-105 transition-all"
               aria-label="GitHub Profile"
               title="GitHub: @tuba89"
             >
@@ -121,7 +121,7 @@ export default function Navbar() {
               href={PERSONAL_INFO.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-1.5 rounded-lg border border-[var(--border-subtle)] hover:border-[var(--accent-peach)] hover:scale-105 transition-all"
+              className="p-1.5 rounded-lg border border-(--border-subtle) hover:border-(--accent-peach) hover:scale-105 transition-all"
               aria-label="LinkedIn Profile"
               title="LinkedIn: Assia Benkedia"
             >
@@ -130,7 +130,7 @@ export default function Navbar() {
           </div>
 
           {/* Divider */}
-          <div className="h-5 w-[1px] bg-[var(--border-strong)] hidden md:block mx-0.5 opacity-60" />
+          <div className="h-5 w-px bg-(--border-strong) hidden md:block mx-0.5 opacity-60" />
 
           {/* Language Switcher */}
           <LanguageSwitcher />
@@ -141,7 +141,7 @@ export default function Navbar() {
           {/* Mobile Menu Hamburger Button */}
           <button
             onClick={toggleMobileMenu}
-            className="xl:hidden p-1.5 sm:p-2 rounded-lg border border-[var(--border-strong)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--accent-peach)] transition-colors cursor-pointer"
+            className="xl:hidden p-1.5 sm:p-2 rounded-lg border border-(--border-strong) text-(--text-secondary) hover:text-(--text-primary) hover:border-(--accent-peach) transition-colors cursor-pointer"
             aria-label="Toggle navigation menu"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -154,52 +154,52 @@ export default function Navbar() {
 
       {/* Mobile Dropdown Menu Drawer */}
       {mobileMenuOpen && (
-        <div className="xl:hidden border-b border-[var(--border-subtle)] bg-[var(--bg-surface-elevated)] px-4 py-5 shadow-2xl animate-in slide-in-from-top-2 duration-200">
+        <div className="xl:hidden border-b border-(--border-subtle) bg-(--bg-surface-elevated) px-4 py-5 shadow-2xl animate-in slide-in-from-top-2 duration-200">
           <nav className="flex flex-col space-y-2.5 text-sm font-medium">
             <a
               href="#featured-projects"
               onClick={closeMobileMenu}
-              className="px-3 py-2 rounded-lg hover:bg-[var(--bg-page)] text-[var(--text-primary)] transition-colors"
+              className="px-3 py-2 rounded-lg hover:bg-(--bg-page) text-(--text-primary) transition-colors"
             >
               {t.nav.projects}
             </a>
             <a
               href="#achievements"
               onClick={closeMobileMenu}
-              className="px-3 py-2 rounded-lg hover:bg-[var(--bg-page)] text-[var(--text-primary)] transition-colors"
+              className="px-3 py-2 rounded-lg hover:bg-(--bg-page) text-(--text-primary) transition-colors"
             >
               {t.nav.honors}
             </a>
             <a
               href="#experience"
               onClick={closeMobileMenu}
-              className="px-3 py-2 rounded-lg hover:bg-[var(--bg-page)] text-[var(--text-primary)] transition-colors"
+              className="px-3 py-2 rounded-lg hover:bg-(--bg-page) text-(--text-primary) transition-colors"
             >
               {t.nav.experience}
             </a>
             <a
               href="#education"
               onClick={closeMobileMenu}
-              className="px-3 py-2 rounded-lg hover:bg-[var(--bg-page)] text-[var(--text-primary)] transition-colors"
+              className="px-3 py-2 rounded-lg hover:bg-(--bg-page) text-(--text-primary) transition-colors"
             >
               {t.nav.education}
             </a>
             <a
               href="#certifications"
               onClick={closeMobileMenu}
-              className="px-3 py-2 rounded-lg hover:bg-[var(--bg-page)] text-[var(--text-primary)] transition-colors"
+              className="px-3 py-2 rounded-lg hover:bg-(--bg-page) text-(--text-primary) transition-colors"
             >
               {t.nav.credentials}
             </a>
             <a
               href="#contact"
               onClick={closeMobileMenu}
-              className="px-3 py-2 rounded-lg hover:bg-[var(--bg-page)] text-[var(--text-primary)] transition-colors"
+              className="px-3 py-2 rounded-lg hover:bg-(--bg-page) text-(--text-primary) transition-colors"
             >
               {t.nav.contact}
             </a>
 
-            <div className="pt-3 border-t border-[var(--border-subtle)] flex flex-col gap-3">
+            <div className="pt-3 border-t border-(--border-subtle) flex flex-col gap-3">
               <a
                 href="/certificates/Assia_Benkedia_Resume.pdf"
                 target="_blank"
@@ -211,12 +211,12 @@ export default function Navbar() {
               </a>
 
               {/* Social Links on Mobile */}
-              <div className="flex items-center justify-around py-1 border-t border-[var(--border-subtle)]/50 pt-3">
+              <div className="flex items-center justify-around py-1 border-t border-(--border-subtle)/50 pt-3">
                 <a
                   href={PERSONAL_INFO.kaggle}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 text-xs text-[var(--text-secondary)] hover:text-[var(--accent-peach)]"
+                  className="flex items-center gap-1.5 text-xs text-(--text-secondary) hover:text-(--accent-peach)"
                 >
                   <ColoredKaggleIcon size={16} />
                   <span>Kaggle</span>
@@ -225,7 +225,7 @@ export default function Navbar() {
                   href={PERSONAL_INFO.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 text-xs text-[var(--text-secondary)] hover:text-[var(--accent-peach)]"
+                  className="flex items-center gap-1.5 text-xs text-(--text-secondary) hover:text-(--accent-peach)"
                 >
                   <ColoredGithubIcon size={16} />
                   <span>GitHub</span>
@@ -234,7 +234,7 @@ export default function Navbar() {
                   href={PERSONAL_INFO.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 text-xs text-[var(--text-secondary)] hover:text-[var(--accent-peach)]"
+                  className="flex items-center gap-1.5 text-xs text-(--text-secondary) hover:text-(--accent-peach)"
                 >
                   <ColoredLinkedinIcon size={16} />
                   <span>LinkedIn</span>

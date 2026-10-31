@@ -13,17 +13,17 @@ export default function EducationSection() {
   const [activeDoc, setActiveDoc] = useState<LightboxDoc | null>(null);
 
   return (
-    <section id="education" className="py-20 border-b border-[var(--border-subtle)] bg-[var(--bg-surface)]/30">
+    <section id="education" className="py-20 border-b border-(--border-subtle) bg-(--bg-surface)/30">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8">
         <div className="text-center max-w-xl mx-auto mb-14">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium editorial-badge mb-3">
-            <GraduationCap className="w-3.5 h-3.5 text-[var(--accent-peach)]" />
+            <GraduationCap className="w-3.5 h-3.5 text-(--accent-peach)" />
             <span>{t.education.badge}</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-[var(--text-primary)]">
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-(--text-primary)">
             {t.education.title}
           </h2>
-          <p className="mt-2 text-sm text-[var(--text-secondary)]">
+          <p className="mt-2 text-sm text-(--text-secondary)">
             {t.education.subtitle}
           </p>
         </div>
@@ -38,7 +38,7 @@ export default function EducationSection() {
                   <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
                     <div className="flex items-center gap-2 min-w-0 flex-wrap">
                       {/* University Logo & Name: Monochrome to color on hover */}
-                      <div className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md border border-[var(--border-subtle)] bg-[var(--bg-page)] text-xs font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-all group/uni">
+                      <div className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md border border-(--border-subtle) bg-(--bg-page) text-xs font-medium text-(--text-secondary) hover:text-(--text-primary) transition-all group/uni">
                         <div className="grayscale group-hover/uni:grayscale-0 transition-all shrink-0">
                           {asset?.logo === "uopeople" ? (
                             <UoPeopleLogo size={16} />
@@ -46,7 +46,7 @@ export default function EducationSection() {
                             <GraduationCap className="w-3.5 h-3.5 text-emerald-600" />
                           )}
                         </div>
-                        <span className="text-[11px] font-medium truncate">
+                        <span className="text-[11px] font-medium truncate text-(--text-primary)">
                           {asset?.logo === "uopeople" ? "University of the People" : "Université d'Oran"}
                         </span>
                       </div>
@@ -55,14 +55,14 @@ export default function EducationSection() {
                       </span>
                     </div>
 
-                    <div className="flex items-center gap-1.5 text-xs text-[var(--text-muted)] font-normal shrink-0">
-                      <Calendar className="w-3.5 h-3.5 text-[var(--accent-peach)] shrink-0" />
+                    <div className="flex items-center gap-1.5 text-xs text-(--text-muted) font-normal shrink-0">
+                      <Calendar className="w-3.5 h-3.5 text-(--accent-peach) shrink-0" />
                       <span>{edu.period}</span>
                     </div>
                   </div>
 
                   <div className="mb-3">
-                    <h3 className="text-lg sm:text-xl font-semibold text-[var(--text-primary)] mb-1.5">
+                    <h3 className="text-lg sm:text-xl font-semibold text-(--text-primary) mb-1.5">
                       {edu.degree}
                     </h3>
                     {edu.honor && (
@@ -71,10 +71,10 @@ export default function EducationSection() {
                         <span>{edu.honor}</span>
                       </div>
                     )}
-                    <p className="text-xs font-medium text-[var(--accent-peach)] mb-1">
+                    <p className="text-xs font-medium text-(--accent-peach) mb-1">
                       <bdi>{edu.institution}</bdi>
                     </p>
-                    <div className="flex items-center gap-1 text-[11px] text-[var(--text-muted)]">
+                    <div className="flex items-center gap-1 text-[11px] text-(--text-muted)">
                       <MapPin className="w-3 h-3 shrink-0" />
                       <span>{edu.location}</span>
                     </div>
@@ -92,7 +92,7 @@ export default function EducationSection() {
                           thumbnail: asset.thumbnail,
                         })
                       }
-                      className="relative w-full aspect-[16/9] rounded-xl overflow-hidden mb-4 border border-[var(--border-subtle)] bg-white/5 cursor-pointer group shadow-sm"
+                      className="relative w-full aspect-[16/9] rounded-xl overflow-hidden mb-4 border border-(--border-subtle) bg-white/5 cursor-pointer group shadow-sm"
                     >
                       <Image
                         src={asset.thumbnail}
@@ -106,13 +106,13 @@ export default function EducationSection() {
                     </div>
                   )}
 
-                  <p className="text-xs sm:text-sm text-[var(--text-primary)] leading-relaxed mb-4 font-normal">
+                  <p className="text-xs sm:text-sm text-(--text-primary) leading-relaxed mb-4 font-normal">
                     {edu.description}
                   </p>
 
                   <div className="space-y-2 mb-5">
                     {edu.highlights.map((h, hIdx) => (
-                      <div key={hIdx} className="flex items-start gap-2 text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed font-normal">
+                      <div key={hIdx} className="flex items-start gap-2 text-xs sm:text-sm text-(--text-secondary) leading-relaxed font-normal">
                         <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" />
                         <span>{h}</span>
                       </div>
@@ -121,7 +121,7 @@ export default function EducationSection() {
                 </div>
 
                 {edu.credentialUrl && (
-                  <div className="pt-3 border-t border-[var(--border-subtle)] flex flex-wrap gap-2">
+                  <div className="pt-3 border-t border-(--border-subtle) flex flex-wrap gap-2">
                     <button
                       onClick={() =>
                         setActiveDoc({
@@ -149,7 +149,7 @@ export default function EducationSection() {
                       }
                       className="btn-secondary !py-1 !px-2.5 text-xs font-medium cursor-pointer"
                     >
-                      <FileText className="w-3 h-3 text-[var(--accent-peach)]" />
+                      <FileText className="w-3 h-3 text-(--accent-peach)" />
                       <span>{t.education.transcriptBtn}</span>
                     </button>
                   </div>

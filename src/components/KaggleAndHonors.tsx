@@ -13,17 +13,17 @@ export default function KaggleAndHonors() {
   const [activeDoc, setActiveDoc] = useState<LightboxDoc | null>(null);
 
   return (
-    <section id="achievements" className="py-20 border-b border-[var(--border-subtle)] bg-[var(--bg-surface)]/40">
+    <section id="achievements" className="py-20 border-b border-(--border-subtle) bg-(--bg-surface)/40">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8">
         <div className="text-center max-w-xl mx-auto mb-14">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium editorial-badge mb-3">
             <Trophy className="w-3.5 h-3.5 text-amber-500" />
             <span>{t.honors.badge}</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-[var(--text-primary)]">
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-(--text-primary)">
             {t.honors.title}
           </h2>
-          <p className="mt-2 text-sm text-[var(--text-secondary)]">
+          <p className="mt-2 text-sm text-(--text-secondary)">
             {t.honors.subtitle}
           </p>
         </div>
@@ -40,20 +40,20 @@ export default function KaggleAndHonors() {
                   <span>{t.honors.kaggleCard.tag}</span>
                 </span>
                 <div className="flex items-center gap-2">
-                  <span className="text-xs font-mono text-[var(--text-muted)]">
+                  <span className="text-xs font-mono text-(--text-muted)">
                     {t.honors.kaggleCard.date}
                   </span>
                   <IssuerChip issuerKey="kaggle" displayName="Kaggle" />
                 </div>
               </div>
 
-              <h3 className="text-lg sm:text-xl font-semibold text-[var(--text-primary)] mb-1">
+              <h3 className="text-lg sm:text-xl font-semibold text-(--text-primary) mb-1">
                 {t.honors.kaggleCard.title}
               </h3>
-              <p className="text-xs font-medium text-[var(--accent-peach)] mb-3">
+              <p className="text-xs font-medium text-(--accent-peach) mb-3">
                 {t.honors.kaggleCard.sub}
               </p>
-              <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed mb-5 font-normal">
+              <p className="text-xs sm:text-sm text-(--text-secondary) leading-relaxed mb-5 font-normal">
                 {t.honors.kaggleCard.desc}
               </p>
 
@@ -69,7 +69,7 @@ export default function KaggleAndHonors() {
                     credentialId: "Rank 33 / 2,674 Teams (Top 1.2%)",
                   })
                 }
-                className="relative w-full aspect-[16/10] rounded-xl overflow-hidden border border-[var(--border-subtle)] bg-[var(--bg-page)] p-1.5 mb-5 group-hover:border-[var(--accent-peach)] transition-colors cursor-pointer group/thumb"
+                className="relative w-full aspect-[16/10] rounded-xl overflow-hidden border border-(--border-subtle) bg-(--bg-page) p-1.5 mb-5 group-hover:border-(--accent-peach) transition-colors cursor-pointer group/thumb"
               >
                 <Image
                   src="/images/certificates/deep-past-challenge.webp"
@@ -85,8 +85,8 @@ export default function KaggleAndHonors() {
               </div>
             </div>
 
-            <div className="pt-3 border-t border-[var(--border-subtle)] flex items-center justify-between">
-              <span className="text-[11px] text-[var(--text-muted)]">
+            <div className="pt-3 border-t border-(--border-subtle) flex items-center justify-between">
+              <span className="text-[11px] text-(--text-muted)">
                 {t.honors.kaggleCard.verifiedText}
               </span>
               <button
@@ -119,25 +119,25 @@ export default function KaggleAndHonors() {
                   <span>{t.honors.googleCard.tag}</span>
                 </span>
                 <div className="flex items-center gap-2">
-                  <span className="text-xs font-mono text-[var(--text-muted)]">
+                  <span className="text-xs font-mono text-(--text-muted)">
                     {t.honors.googleCard.date}
                   </span>
                   <IssuerChip issuerKey="google" displayName="Google" />
                 </div>
               </div>
 
-              <h3 className="text-lg sm:text-xl font-semibold text-[var(--text-primary)] mb-1">
+              <h3 className="text-lg sm:text-xl font-semibold text-(--text-primary) mb-1">
                 {t.honors.googleCard.title}
               </h3>
-              <p className="text-xs font-medium text-[var(--accent-peach)] mb-3">
+              <p className="text-xs font-medium text-(--accent-peach) mb-3">
                 {t.honors.googleCard.sub}
               </p>
-              <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed mb-5 font-normal">
+              <p className="text-xs sm:text-sm text-(--text-secondary) leading-relaxed mb-5 font-normal">
                 {t.honors.googleCard.desc}
               </p>
 
               {/* Real OncoAssist Interface Thumbnail */}
-              <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden border border-[var(--border-subtle)] bg-[var(--bg-page)] mb-5 group-hover:border-[var(--accent-peach)] transition-colors">
+              <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden border border-(--border-subtle) bg-(--bg-page) mb-5 group-hover:border-(--accent-peach) transition-colors">
                 <Image
                   src="/assets/oncoAssist.png"
                   alt="OncoAssist: AI-Powered Cancer Recovery Advisor"
@@ -148,9 +148,9 @@ export default function KaggleAndHonors() {
               </div>
 
               {/* Key Highlights list */}
-              <div className="p-3.5 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-page)]/60 mb-5 space-y-2">
+              <div className="p-3.5 rounded-lg border border-(--border-subtle) bg-(--bg-page)/60 mb-5 space-y-2">
                 {t.honors.googleCard.highlights.map((h, hIdx) => (
-                  <div key={hIdx} className="flex items-center gap-2 text-xs text-[var(--text-secondary)]">
+                  <div key={hIdx} className="flex items-center gap-2 text-xs text-(--text-secondary)">
                     <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
                     <span>{h}</span>
                   </div>
@@ -158,8 +158,8 @@ export default function KaggleAndHonors() {
               </div>
             </div>
 
-            <div className="pt-3 border-t border-[var(--border-subtle)] flex items-center justify-between">
-              <span className="text-[11px] text-[var(--text-muted)]">
+            <div className="pt-3 border-t border-(--border-subtle) flex items-center justify-between">
+              <span className="text-[11px] text-(--text-muted)">
                 {t.honors.googleCard.initiativeText}
               </span>
               <a

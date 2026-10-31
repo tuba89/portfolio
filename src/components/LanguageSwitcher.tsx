@@ -32,11 +32,11 @@ export default function LanguageSwitcher() {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setOpen(!open)}
-        className="flex items-center gap-1 sm:gap-1.5 px-2 sm:px-2.5 py-1 sm:py-1.5 rounded-lg border border-[var(--border-strong)] bg-[var(--bg-surface)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--accent-peach)] transition-all text-xs font-semibold cursor-pointer"
+        className="flex items-center gap-1 sm:gap-1.5 px-2 sm:px-2.5 py-1 sm:py-1.5 rounded-lg border border-(--border-strong) bg-(--bg-surface) text-(--text-secondary) hover:text-(--text-primary) hover:border-(--accent-peach) transition-all text-xs font-semibold cursor-pointer"
         aria-label="Select language"
         title="Switch Language (EN / FR / العربية)"
       >
-        <Globe className="w-3.5 h-3.5 text-[var(--accent-peach)]" />
+        <Globe className="w-3.5 h-3.5 text-(--accent-peach)" />
         <span>{current.short}</span>
         <ChevronDown className={`w-3 h-3 transition-transform ${open ? "rotate-180" : ""}`} />
       </button>
@@ -45,7 +45,7 @@ export default function LanguageSwitcher() {
         <div
           className={`absolute ${
             isRtl ? "left-0" : "right-0"
-          } mt-1.5 w-32 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface-elevated)] p-1.5 shadow-xl z-50 animate-in fade-in slide-in-from-top-1 duration-150`}
+          } mt-1.5 w-32 rounded-xl border border-(--border-subtle) bg-(--bg-surface-elevated) p-1.5 shadow-xl z-50 animate-in fade-in slide-in-from-top-1 duration-150`}
         >
           {languages.map((item) => (
             <button
@@ -56,12 +56,12 @@ export default function LanguageSwitcher() {
               }}
               className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-lg text-xs font-medium transition-colors cursor-pointer ${
                 lang === item.code
-                  ? "bg-[var(--accent-peach-light)] text-[var(--accent-peach)] font-semibold"
-                  : "text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-page)]"
+                  ? "bg-(--accent-peach-light) text-(--accent-peach) font-semibold"
+                  : "text-(--text-secondary) hover:text-(--text-primary) hover:bg-(--bg-page)"
               }`}
             >
               <span>{item.label}</span>
-              {lang === item.code && <Check className="w-3.5 h-3.5 text-[var(--accent-peach)]" />}
+              {lang === item.code && <Check className="w-3.5 h-3.5 text-(--accent-peach)" />}
             </button>
           ))}
         </div>

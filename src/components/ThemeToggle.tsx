@@ -38,7 +38,7 @@ export default function ThemeToggle() {
 
   if (!mounted) {
     return (
-      <div className="w-9 h-9 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] flex items-center justify-center opacity-0" />
+      <div className="w-9 h-9 rounded-xl border border-(--border-subtle) bg-(--bg-surface) flex items-center justify-center opacity-0" />
     );
   }
 
@@ -46,7 +46,7 @@ export default function ThemeToggle() {
     <button
       onClick={toggleTheme}
       aria-label="Toggle theme"
-      className="p-1.5 sm:px-2.5 sm:py-1.5 rounded-lg border border-[var(--border-strong)] bg-[var(--bg-surface)] text-[var(--text-primary)] hover:border-[var(--accent-peach)] hover:text-[var(--accent-peach)] transition-all duration-200 shadow-sm flex items-center gap-1.5 group cursor-pointer"
+      className="p-1.5 sm:px-2.5 sm:py-1.5 rounded-lg border border-(--border-strong) bg-(--bg-surface) text-(--text-primary) hover:border-(--accent-peach) hover:text-(--accent-peach) transition-all duration-200 shadow-sm flex items-center gap-1.5 group cursor-pointer"
       title={isDark ? t.theme.toggleTitleLight : t.theme.toggleTitleDark}
     >
       {isDark ? (
@@ -56,7 +56,7 @@ export default function ThemeToggle() {
         </>
       ) : (
         <>
-          <Moon className="w-3.5 h-3.5 text-[var(--text-secondary)] group-hover:-rotate-12 transition-transform" />
+          <Moon className="w-3.5 h-3.5 text-(--text-secondary) group-hover:-rotate-12 transition-transform" />
           <span className="text-xs font-semibold hidden sm:inline">{t.theme.dark}</span>
         </>
       )}

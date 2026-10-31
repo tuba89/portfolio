@@ -46,7 +46,7 @@ export default function PhoneMockup({ className = "" }: { className?: string }) 
   return (
     <div className={`flex flex-col items-center gap-4 ${className}`}>
       {/* Screen Selector Tabs */}
-      <div className="flex flex-wrap items-center justify-center gap-1.5 p-1 rounded-xl bg-[var(--bg-page)]/80 border border-[var(--border-subtle)] max-w-full">
+      <div className="flex flex-wrap items-center justify-center gap-1.5 p-1 rounded-xl bg-(--bg-page)/80 border border-(--border-subtle) max-w-full">
         {SCREENS.map((s) => {
           const Icon = s.icon;
           const isActive = s.id === activeScreen;
@@ -56,8 +56,8 @@ export default function PhoneMockup({ className = "" }: { className?: string }) 
               onClick={() => setActiveScreen(s.id)}
               className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-medium transition-all cursor-pointer ${
                 isActive
-                  ? "bg-[var(--accent-peach)] text-white shadow-sm"
-                  : "text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface)]"
+                  ? "bg-(--accent-peach) text-white shadow-sm"
+                  : "text-(--text-secondary) hover:text-(--text-primary) hover:bg-(--bg-surface)"
               }`}
             >
               <Icon className="w-3 h-3" />
@@ -87,7 +87,7 @@ export default function PhoneMockup({ className = "" }: { className?: string }) 
           />
         </div>
       </div>
-      <span className="text-[10px] text-[var(--text-muted)] font-mono">
+      <span className="text-[10px] text-(--text-muted) font-mono">
         Authentic Android Emulator &amp; Expo Native Build
       </span>
     </div>
