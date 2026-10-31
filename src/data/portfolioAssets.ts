@@ -125,3 +125,4 @@ export const EXPERIENCE_LOGOS: Record<number, "dizzitup" | "virtual-internships"
   1: "virtual-internships",
   2: "notarial",
 };
+

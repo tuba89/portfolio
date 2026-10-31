@@ -68,20 +68,20 @@ export default function PhoneMockup({ className = "" }: { className?: string }) 
       </div>
 
       {/* Phone Hardware Bezel Frame */}
-      <div className="relative mx-auto w-[260px] sm:w-[280px] aspect-[9/19] rounded-[2.8rem] p-2.5 bg-gradient-to-b from-[#243540] via-[#141E25] to-[#0D1418] shadow-[0_20px_50px_rgba(0,0,0,0.5),0_0_0_1px_rgba(255,255,255,0.08)]">
+      <div className="relative mx-auto w-[220px] xs:w-[250px] sm:w-[280px] max-w-[85vw] aspect-[9/19] rounded-[2.5rem] sm:rounded-[2.8rem] p-2 sm:p-2.5 bg-gradient-to-b from-[#243540] via-[#141E25] to-[#0D1418] shadow-[0_20px_50px_rgba(0,0,0,0.5),0_0_0_1px_rgba(255,255,255,0.08)]">
         {/* Dynamic Island / Speaker Slit */}
-        <div className="absolute top-4 left-1/2 -translate-x-1/2 z-20 w-20 h-4 bg-black rounded-full flex items-center justify-end px-2">
-          <div className="w-2 h-2 rounded-full bg-[#1A262F] border border-[#364E5C]" />
+        <div className="absolute top-3 sm:top-4 left-1/2 -translate-x-1/2 z-20 w-16 sm:w-20 h-3.5 sm:h-4 bg-black rounded-full flex items-center justify-end px-2">
+          <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#1A262F] border border-[#364E5C]" />
         </div>
 
         {/* Screen Display Glass */}
-        <div className="relative w-full h-full rounded-[2.3rem] overflow-hidden bg-black border border-white/5">
+        <div className="relative w-full h-full rounded-[2rem] sm:rounded-[2.3rem] overflow-hidden bg-black border border-white/5">
           <Image
             key={current.id}
             src={current.src}
             alt={`Real mobile app screenshot: ${current.label}`}
             fill
-            sizes="(max-width: 640px) 260px, 280px"
+            sizes="(max-width: 640px) 250px, 280px"
             className="object-cover object-top transition-opacity duration-300"
             priority={activeScreen === "wallet"}
           />
@@ -93,3 +93,4 @@ export default function PhoneMockup({ className = "" }: { className?: string }) 
     </div>
   );
 }
+

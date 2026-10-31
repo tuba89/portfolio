@@ -196,3 +196,4 @@ certMatches.forEach(item => {
 
 fs.writeFileSync(tsPath, code, 'utf8');
 console.log('Successfully injected image properties into translations.ts');
+

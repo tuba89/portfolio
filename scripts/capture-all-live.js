@@ -81,3 +81,4 @@ async function captureAll() {
 }
 
 captureAll().catch(console.error);
+

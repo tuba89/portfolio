@@ -186,3 +186,4 @@ export default function CertificateLightbox({ doc, onClose }: CertificateLightbo
     </div>
   );
 }
+

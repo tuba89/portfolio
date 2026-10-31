@@ -20,6 +20,8 @@ export interface LocalizedProject {
   badge?: string;
   featured: boolean;
   metrics?: ProjectMetric[];
+  coverImage?: string;
+  imageAlt?: string;
 }
 
 export interface LocalizedExperience {

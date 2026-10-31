@@ -19,28 +19,29 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 glass-header">
-      {/* Spacious, structured container with increased height (h-20) and wide container (max-w-7xl) */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 h-20 flex items-center justify-between gap-4 md:gap-6">
+      {/* Spacious, structured container with responsive padding and height */}
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-2 sm:gap-4 md:gap-6">
         
-        {/* Brand: Fixed, never wraps, spacious padding */}
+        {/* Brand: Flexible, never overflows, shrinkable on small mobile */}
         <Link
           href="/"
           onClick={closeMobileMenu}
-          className="group flex items-center gap-2.5 sm:gap-3 shrink-0 py-1"
+          className="group flex items-center gap-2 sm:gap-2.5 min-w-0 shrink py-1"
         >
-          <Logo size={40} className="shadow-sm group-hover:scale-105 transition-transform shrink-0" />
+          <Logo size={32} className="sm:hidden shadow-sm shrink-0" />
+          <Logo size={40} className="hidden sm:block shadow-sm group-hover:scale-105 transition-transform shrink-0" />
           <div className="flex flex-col justify-center min-w-0">
-            <span className="font-bold text-sm sm:text-base md:text-lg tracking-tight text-[var(--text-primary)] whitespace-nowrap leading-snug">
+            <span className="font-bold text-xs sm:text-base md:text-lg tracking-tight text-[var(--text-primary)] truncate leading-snug">
               {t.personal.name}
             </span>
-            <span className="text-[10px] sm:text-[11px] md:text-xs text-[var(--text-muted)] font-normal whitespace-nowrap leading-none mt-0.5">
+            <span className="text-[9px] sm:text-[11px] md:text-xs text-[var(--text-muted)] font-normal truncate leading-none mt-0.5">
               {t.personal.roleSubtitle}
             </span>
           </div>
         </Link>
 
-        {/* Desktop Navigation: Centered with generous horizontal spacing */}
-        <nav className="hidden lg:flex items-center gap-5 xl:gap-7 text-xs xl:text-sm font-medium text-[var(--text-secondary)]">
+        {/* Desktop Navigation: Centered, displays on xl screens to avoid 1024px collision */}
+        <nav className="hidden xl:flex items-center gap-4 2xl:gap-6 text-xs 2xl:text-sm font-medium text-[var(--text-secondary)]">
           <a
             href="#featured-projects"
             className="hover:text-[var(--accent-peach)] transition-colors py-1 whitespace-nowrap"
@@ -79,21 +80,21 @@ export default function Navbar() {
           </a>
         </nav>
 
-        {/* Actions Cluster: Structured, spaced, non-collapsible */}
-        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+        {/* Actions Cluster: Responsive, compact on mobile, non-collapsible */}
+        <div className="flex items-center gap-1.5 sm:gap-2 md:gap-3 shrink-0">
           {/* Resume CTA */}
           <a
             href="/certificates/Assia_Benkedia_Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold border border-[var(--border-strong)] text-[var(--text-primary)] hover:border-[var(--accent-peach)] hover:text-[var(--accent-peach)] transition-all whitespace-nowrap shadow-sm"
+            className="hidden xl:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold border border-[var(--border-strong)] text-[var(--text-primary)] hover:border-[var(--accent-peach)] hover:text-[var(--accent-peach)] transition-all whitespace-nowrap shadow-sm"
           >
             <FileText className="w-3.5 h-3.5 text-[var(--accent-peach)] shrink-0" />
             <span>{t.nav.resume}</span>
           </a>
 
-          {/* Social Icons Group with subtle separation */}
-          <div className="flex items-center gap-1 sm:gap-1.5">
+          {/* Social Icons Group with subtle separation - show on md+ */}
+          <div className="hidden md:flex items-center gap-1 sm:gap-1.5">
             <a
               href={PERSONAL_INFO.kaggle}
               target="_blank"
@@ -129,7 +130,7 @@ export default function Navbar() {
           </div>
 
           {/* Divider */}
-          <div className="h-5 w-[1px] bg-[var(--border-strong)] hidden sm:block mx-0.5 opacity-60" />
+          <div className="h-5 w-[1px] bg-[var(--border-strong)] hidden md:block mx-0.5 opacity-60" />
 
           {/* Language Switcher */}
           <LanguageSwitcher />
@@ -140,7 +141,7 @@ export default function Navbar() {
           {/* Mobile Menu Hamburger Button */}
           <button
             onClick={toggleMobileMenu}
-            className="lg:hidden p-2 rounded-lg border border-[var(--border-strong)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--accent-peach)] transition-colors cursor-pointer"
+            className="xl:hidden p-1.5 sm:p-2 rounded-lg border border-[var(--border-strong)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--accent-peach)] transition-colors cursor-pointer"
             aria-label="Toggle navigation menu"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -153,8 +154,8 @@ export default function Navbar() {
 
       {/* Mobile Dropdown Menu Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-b border-[var(--border-subtle)] bg-[var(--bg-surface-elevated)] px-4 py-5 shadow-2xl animate-in slide-in-from-top-2 duration-200">
-          <nav className="flex flex-col space-y-3 text-sm font-medium">
+        <div className="xl:hidden border-b border-[var(--border-subtle)] bg-[var(--bg-surface-elevated)] px-4 py-5 shadow-2xl animate-in slide-in-from-top-2 duration-200">
+          <nav className="flex flex-col space-y-2.5 text-sm font-medium">
             <a
               href="#featured-projects"
               onClick={closeMobileMenu}
@@ -198,7 +199,7 @@ export default function Navbar() {
               {t.nav.contact}
             </a>
 
-            <div className="pt-3 border-t border-[var(--border-subtle)] flex flex-col gap-2">
+            <div className="pt-3 border-t border-[var(--border-subtle)] flex flex-col gap-3">
               <a
                 href="/certificates/Assia_Benkedia_Resume.pdf"
                 target="_blank"
@@ -208,6 +209,37 @@ export default function Navbar() {
                 <FileText className="w-4 h-4" />
                 <span>{t.nav.downloadPdf}</span>
               </a>
+
+              {/* Social Links on Mobile */}
+              <div className="flex items-center justify-around py-1 border-t border-[var(--border-subtle)]/50 pt-3">
+                <a
+                  href={PERSONAL_INFO.kaggle}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 text-xs text-[var(--text-secondary)] hover:text-[var(--accent-peach)]"
+                >
+                  <ColoredKaggleIcon size={16} />
+                  <span>Kaggle</span>
+                </a>
+                <a
+                  href={PERSONAL_INFO.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 text-xs text-[var(--text-secondary)] hover:text-[var(--accent-peach)]"
+                >
+                  <ColoredGithubIcon size={16} />
+                  <span>GitHub</span>
+                </a>
+                <a
+                  href={PERSONAL_INFO.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 text-xs text-[var(--text-secondary)] hover:text-[var(--accent-peach)]"
+                >
+                  <ColoredLinkedinIcon size={16} />
+                  <span>LinkedIn</span>
+                </a>
+              </div>
             </div>
           </nav>
         </div>

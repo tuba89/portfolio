@@ -122,3 +122,4 @@ content = content.replace(
 
 fs.writeFileSync(tsPath, content, 'utf8');
 console.log('Successfully updated translation interfaces in translations.ts');
+

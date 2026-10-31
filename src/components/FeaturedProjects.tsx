@@ -47,7 +47,7 @@ export default function FeaturedProjects() {
             return (
               <div
                 key={project.id}
-                className="editorial-card p-5 sm:p-7 md:p-8 relative overflow-hidden"
+                className="editorial-card p-3.5 sm:p-7 md:p-8 relative overflow-hidden"
               >
                 {/* Subtle top accent line */}
                 <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[var(--accent-peach)] via-amber-500/50 to-sky-500/50 opacity-70" />
@@ -101,10 +101,10 @@ export default function FeaturedProjects() {
                 </div>
 
                 {/* Visual Asset Slot (Real Screenshot / Architecture Diagram / Mobile Frame) */}
-                <div className="my-6">
+                <div className="my-5 sm:my-6 max-w-full overflow-hidden">
                   {assets?.isMobileMockup ? (
                     /* React Native Expo Phone Frame */
-                    <div className="p-4 sm:p-8 rounded-2xl bg-[var(--bg-page)]/70 border border-[var(--border-subtle)] flex items-center justify-center">
+                    <div className="p-2 sm:p-6 md:p-8 rounded-2xl bg-[var(--bg-page)]/70 border border-[var(--border-subtle)] flex items-center justify-center max-w-full overflow-hidden">
                       <PhoneMockup />
                     </div>
                   ) : assets?.diagramSvg ? (
@@ -182,17 +182,17 @@ export default function FeaturedProjects() {
                   </div>
 
                   {/* Right Column: Spec Metrics & Stack */}
-                  <div className="lg:col-span-4 flex flex-col justify-between p-4 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-page)]/40 text-xs">
+                  <div className="lg:col-span-4 flex flex-col justify-between p-3.5 sm:p-4 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-page)]/40 text-xs min-w-0">
                     {project.metrics && project.metrics.length > 0 && (
-                      <div className="space-y-2.5 mb-4 sm:mb-5">
+                      <div className="space-y-2.5 mb-4 sm:mb-5 min-w-0">
                         <div className="text-[10px] sm:text-[11px] font-semibold text-[var(--text-muted)] uppercase tracking-wider">
                           {t.projects.archProfile}
                         </div>
-                        <div className="grid grid-cols-2 lg:grid-cols-1 gap-2.5">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-2.5">
                           {project.metrics.map((metric, mIdx) => (
-                            <div key={mIdx} className="border-b lg:border-b border-[var(--border-subtle)] pb-1.5 last:border-b-0">
-                              <div className="text-[10px] sm:text-[11px] text-[var(--text-muted)]">{metric.label}</div>
-                              <div className="text-xs font-medium text-[var(--text-primary)] mt-0.5">
+                            <div key={mIdx} className="border-b lg:border-b border-[var(--border-subtle)] pb-1.5 last:border-b-0 min-w-0">
+                              <div className="text-[10px] sm:text-[11px] text-[var(--text-muted)] truncate">{metric.label}</div>
+                              <div className="text-xs font-medium text-[var(--text-primary)] mt-0.5 break-words">
                                 {metric.value}
                               </div>
                             </div>
