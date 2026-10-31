@@ -16,57 +16,57 @@ export default function ContactSection() {
 
   return (
     <section id="contact" className="py-20 border-b border-[var(--border-subtle)] bg-[var(--bg-surface)]/50">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div className="max-w-5xl mx-auto px-6 sm:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           {/* Left Column */}
           <div className="lg:col-span-7">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold editorial-badge mb-3">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium editorial-badge mb-3">
               <MessageSquare className="w-3.5 h-3.5 text-[var(--accent-peach)]" />
               <span>Let&apos;s Build Together</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[var(--text-primary)]">
-              Interested in collaborating on mobile applications, AI agents, or fintech platforms?
+            <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-[var(--text-primary)]">
+              Interested in collaborating on mobile apps, AI agents, or fintech platforms?
             </h2>
-            <p className="mt-4 text-base text-[var(--text-secondary)] leading-relaxed max-w-xl">
-              I am open to high-impact software engineering roles, mobile architecture, autonomous AI agent systems, consulting, and fintech projects.
+            <p className="mt-3 text-sm text-[var(--text-secondary)] leading-relaxed max-w-lg font-normal">
+              I am open to high-impact software engineering roles, mobile architecture, autonomous AI systems, consulting, and fintech projects.
             </p>
 
-            <div className="mt-8 space-y-4">
-              {/* Email */}
+            <div className="mt-7 space-y-4">
+              {/* Email CTA */}
               <div className="flex items-center gap-3">
                 <a
                   href={`mailto:${PERSONAL_INFO.email}`}
-                  className="btn-primary"
+                  className="btn-primary !py-2 !px-4 text-xs font-medium"
                 >
-                  <Mail className="w-4 h-4" />
+                  <Mail className="w-3.5 h-3.5" />
                   <span>Send an Email</span>
                 </a>
                 <button
                   onClick={copyEmail}
-                  className="btn-secondary !p-3"
+                  className="btn-secondary !p-2 rounded-lg"
                   title="Copy email to clipboard"
                   aria-label="Copy email address"
                 >
                   {copied ? (
-                    <Check className="w-4 h-4 text-emerald-500" />
+                    <Check className="w-3.5 h-3.5 text-emerald-500" />
                   ) : (
-                    <Copy className="w-4 h-4" />
+                    <Copy className="w-3.5 h-3.5" />
                   )}
                 </button>
-                <span className="text-sm font-mono text-[var(--text-secondary)] hidden sm:inline">
+                <span className="text-xs font-mono text-[var(--text-secondary)] hidden sm:inline">
                   {PERSONAL_INFO.email}
                 </span>
               </div>
 
               {/* Direct links */}
-              <div className="pt-4 flex flex-wrap items-center gap-4 text-sm font-medium text-[var(--text-secondary)]">
+              <div className="pt-2 flex flex-wrap items-center gap-4 text-xs font-medium text-[var(--text-secondary)]">
                 <a
                   href={PERSONAL_INFO.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 hover:text-[var(--accent-peach)] transition-colors"
                 >
-                  <LinkedinIcon className="w-4 h-4" />
+                  <LinkedinIcon className="w-3.5 h-3.5" />
                   <span>LinkedIn Profile</span>
                   <ArrowUpRight className="w-3 h-3 text-[var(--text-muted)]" />
                 </a>
@@ -76,7 +76,7 @@ export default function ContactSection() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 hover:text-[var(--accent-peach)] transition-colors"
                 >
-                  <GithubIcon className="w-4 h-4" />
+                  <GithubIcon className="w-3.5 h-3.5" />
                   <span>GitHub (@{PERSONAL_INFO.githubUsername})</span>
                   <ArrowUpRight className="w-3 h-3 text-[var(--text-muted)]" />
                 </a>
@@ -84,54 +84,54 @@ export default function ContactSection() {
             </div>
           </div>
 
-          {/* Right Column: Direct Info Card */}
+          {/* Right Column */}
           <div className="lg:col-span-5">
-            <div className="editorial-card p-6 sm:p-8 space-y-6">
-              <h3 className="text-lg font-bold text-[var(--text-primary)] border-b border-[var(--border-subtle)] pb-3">
+            <div className="editorial-card p-6 space-y-5">
+              <h3 className="text-sm font-semibold text-[var(--text-primary)] border-b border-[var(--border-subtle)] pb-2.5">
                 Direct Contact Details
               </h3>
 
-              <div className="space-y-4 text-sm">
-                <div className="flex items-start gap-3">
-                  <div className="p-2 rounded-lg bg-[var(--bg-page)] text-[var(--accent-peach)]">
-                    <Mail className="w-4 h-4" />
+              <div className="space-y-3.5 text-xs">
+                <div className="flex items-start gap-2.5">
+                  <div className="p-1.5 rounded-md bg-[var(--bg-page)] text-[var(--accent-peach)]">
+                    <Mail className="w-3.5 h-3.5" />
                   </div>
                   <div>
-                    <div className="text-xs text-[var(--text-muted)]">Email</div>
-                    <div className="font-semibold text-[var(--text-primary)]">
+                    <div className="text-[11px] text-[var(--text-muted)]">Email</div>
+                    <div className="font-medium text-[var(--text-primary)]">
                       {PERSONAL_INFO.email}
                     </div>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3">
-                  <div className="p-2 rounded-lg bg-[var(--bg-page)] text-[var(--accent-peach)]">
-                    <Phone className="w-4 h-4" />
+                <div className="flex items-start gap-2.5">
+                  <div className="p-1.5 rounded-md bg-[var(--bg-page)] text-[var(--accent-peach)]">
+                    <Phone className="w-3.5 h-3.5" />
                   </div>
                   <div>
-                    <div className="text-xs text-[var(--text-muted)]">Phone / WhatsApp</div>
-                    <div className="font-semibold text-[var(--text-primary)]">
+                    <div className="text-[11px] text-[var(--text-muted)]">Phone / WhatsApp</div>
+                    <div className="font-medium text-[var(--text-primary)]">
                       {PERSONAL_INFO.phone}
                     </div>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3">
-                  <div className="p-2 rounded-lg bg-[var(--bg-page)] text-[var(--accent-peach)]">
-                    <MapPin className="w-4 h-4" />
+                <div className="flex items-start gap-2.5">
+                  <div className="p-1.5 rounded-md bg-[var(--bg-page)] text-[var(--accent-peach)]">
+                    <MapPin className="w-3.5 h-3.5" />
                   </div>
                   <div>
-                    <div className="text-xs text-[var(--text-muted)]">Location & Work Mode</div>
-                    <div className="font-semibold text-[var(--text-primary)]">
+                    <div className="text-[11px] text-[var(--text-muted)]">Location & Work Mode</div>
+                    <div className="font-medium text-[var(--text-primary)]">
                       {PERSONAL_INFO.location}
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="p-4 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-page)] text-xs text-[var(--text-secondary)] leading-relaxed flex items-center gap-2.5">
-                <Clock className="w-4 h-4 text-[var(--accent-peach)] shrink-0" />
-                <span><strong>Response time:</strong> Usually within 24 hours. Fluent in English, French, and Arabic.</span>
+              <div className="p-3 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-page)] text-[11px] text-[var(--text-secondary)] leading-relaxed flex items-center gap-2">
+                <Clock className="w-3.5 h-3.5 text-[var(--accent-peach)] shrink-0" />
+                <span>Response time: Usually within 24 hours. Fluent in English, French, and Arabic.</span>
               </div>
             </div>
           </div>

@@ -16,17 +16,17 @@ export default function CertificationsGrid() {
 
   return (
     <section id="certifications" className="py-20 border-b border-[var(--border-subtle)]">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="text-center max-w-2xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold editorial-badge mb-3">
+      <div className="max-w-5xl mx-auto px-6 sm:px-8">
+        <div className="text-center max-w-xl mx-auto mb-10">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium editorial-badge mb-3">
             <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />
             <span>Professional Licenses & Validations</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[var(--text-primary)]">
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-[var(--text-primary)]">
             Verified Certifications
           </h2>
-          <p className="mt-2 text-base text-[var(--text-secondary)]">
-            Explore industry credentials across enterprise data analytics, Cisco network engineering, and frontend systems.
+          <p className="mt-2 text-sm text-[var(--text-secondary)]">
+            Industry credentials across enterprise data analytics, Cisco network engineering, and frontend systems.
           </p>
         </div>
 
@@ -36,9 +36,9 @@ export default function CertificationsGrid() {
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
+              className={`px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all cursor-pointer ${
                 selectedCategory === cat
-                  ? "bg-[var(--accent-peach)] text-white shadow-md"
+                  ? "bg-[var(--accent-peach)] text-white shadow-sm"
                   : "bg-[var(--bg-surface)] text-[var(--text-secondary)] border border-[var(--border-subtle)] hover:border-[var(--accent-peach)]"
               }`}
             >
@@ -48,43 +48,43 @@ export default function CertificationsGrid() {
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {filtered.map((cert, idx) => (
             <div
               key={idx}
-              className="editorial-card p-6 flex flex-col justify-between hover:scale-[1.01] transition-transform"
+              className="editorial-card p-5 flex flex-col justify-between"
             >
               <div>
-                <div className="flex items-center justify-between mb-3">
-                  <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold editorial-badge">
+                <div className="flex items-center justify-between mb-2.5">
+                  <span className="px-2 py-0.5 rounded-full text-[10px] font-medium editorial-badge">
                     {cert.category}
                   </span>
-                  <span className="text-xs text-[var(--text-muted)] font-medium">
+                  <span className="text-[11px] text-[var(--text-muted)] font-normal">
                     {cert.date}
                   </span>
                 </div>
 
-                <h3 className="text-base font-bold text-[var(--text-primary)] line-clamp-2 mb-1.5">
+                <h3 className="text-sm font-semibold text-[var(--text-primary)] line-clamp-2 mb-1">
                   {cert.name}
                 </h3>
-                <p className="text-xs font-medium text-[var(--accent-peach)] mb-3">
+                <p className="text-xs text-[var(--accent-peach)] mb-2 font-normal">
                   {cert.issuer}
                 </p>
 
                 {cert.credentialId && (
-                  <p className="text-[11px] font-mono text-[var(--text-muted)] mb-4 truncate">
+                  <p className="text-[11px] font-mono text-[var(--text-muted)] mb-3 truncate">
                     ID: {cert.credentialId}
                   </p>
                 )}
               </div>
 
-              <div className="pt-3 border-t border-[var(--border-subtle)] flex items-center justify-between">
+              <div className="pt-2.5 border-t border-[var(--border-subtle)] flex items-center justify-between">
                 {cert.assetPath ? (
                   <a
                     href={cert.assetPath}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--accent-peach)] hover:underline"
+                    className="inline-flex items-center gap-1.5 text-xs text-[var(--accent-peach)] hover:underline font-medium"
                   >
                     <FileText className="w-3.5 h-3.5" />
                     <span>View Document</span>
@@ -94,10 +94,10 @@ export default function CertificationsGrid() {
                     href={cert.verifyUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--accent-peach)] hover:underline"
+                    className="inline-flex items-center gap-1.5 text-xs text-[var(--accent-peach)] hover:underline font-medium"
                   >
                     <ExternalLink className="w-3.5 h-3.5" />
-                    <span>Verify Credential</span>
+                    <span>Verify Record</span>
                   </a>
                 ) : (
                   <span className="text-[11px] text-[var(--text-muted)]">Verified Record</span>

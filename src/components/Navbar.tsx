@@ -9,32 +9,29 @@ import { PERSONAL_INFO } from "@/data/portfolioData";
 export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 glass-header">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 h-18 flex items-center justify-between">
+      <div className="max-w-5xl mx-auto px-6 sm:px-8 h-16 flex items-center justify-between">
         {/* Brand */}
-        <Link href="/" className="group flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-[var(--accent-peach)] text-white font-bold flex items-center justify-center text-lg shadow-md group-hover:scale-105 transition-transform">
+        <Link href="/" className="group flex items-center gap-2.5">
+          <div className="w-8 h-8 rounded-lg bg-[var(--accent-peach)] text-white font-semibold flex items-center justify-center text-sm shadow-sm group-hover:opacity-90 transition-opacity">
             AB
           </div>
-          <div>
-            <span className="font-bold text-base sm:text-lg tracking-tight text-[var(--text-primary)] group-hover:text-[var(--accent-peach)] transition-colors">
+          <div className="flex flex-col">
+            <span className="font-semibold text-sm sm:text-base tracking-tight text-[var(--text-primary)]">
               {PERSONAL_INFO.name}
             </span>
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span className="text-xs font-medium text-[var(--text-secondary)] hidden sm:inline">
-                Full-Stack & AI Engineer
-              </span>
-            </div>
+            <span className="text-[11px] text-[var(--text-muted)] font-normal hidden sm:inline -mt-0.5">
+              Full-Stack & Mobile Engineer
+            </span>
           </div>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-[var(--text-secondary)]">
+        <nav className="hidden md:flex items-center gap-6 text-xs font-medium text-[var(--text-secondary)]">
           <a href="#featured-projects" className="hover:text-[var(--accent-peach)] transition-colors">
-            Featured Projects
+            Projects
           </a>
           <a href="#achievements" className="hover:text-[var(--accent-peach)] transition-colors">
-            Kaggle & Honors
+            Honors
           </a>
           <a href="#experience" className="hover:text-[var(--accent-peach)] transition-colors">
             Experience
@@ -51,14 +48,14 @@ export default function Navbar() {
         </nav>
 
         {/* Actions */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2.5">
           <a
             href="/certificates/Assia_Benkedia_Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold border border-[var(--border-strong)] text-[var(--text-primary)] hover:border-[var(--accent-peach)] hover:text-[var(--accent-peach)] transition-all"
+            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium border border-[var(--border-strong)] text-[var(--text-primary)] hover:border-[var(--accent-peach)] hover:text-[var(--accent-peach)] transition-all"
           >
-            <FileText className="w-3.5 h-3.5 text-[var(--accent-peach)]" />
+            <FileText className="w-3 h-3 text-[var(--accent-peach)]" />
             <span>Resume</span>
           </a>
 
@@ -66,20 +63,20 @@ export default function Navbar() {
             href={PERSONAL_INFO.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2.5 rounded-xl border border-[var(--border-strong)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--accent-peach)] transition-all"
+            className="p-2 rounded-lg border border-[var(--border-strong)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--accent-peach)] transition-all"
             aria-label="GitHub Profile"
           >
-            <GithubIcon className="w-4 h-4" />
+            <GithubIcon className="w-3.5 h-3.5" />
           </a>
 
           <a
             href={PERSONAL_INFO.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2.5 rounded-xl border border-[var(--border-strong)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--accent-peach)] transition-all"
+            className="p-2 rounded-lg border border-[var(--border-strong)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--accent-peach)] transition-all"
             aria-label="LinkedIn Profile"
           >
-            <LinkedinIcon className="w-4 h-4" />
+            <LinkedinIcon className="w-3.5 h-3.5" />
           </a>
 
           <ThemeToggle />
