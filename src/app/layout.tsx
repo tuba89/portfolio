@@ -10,9 +10,10 @@ const plusJakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://assiabenkedia.com"),
   title: "Assia Benkedia | AI & Full-Stack Developer",
   description:
-    "Official Portfolio of Assia Benkedia - AI & Full-Stack Developer, Kaggle Silver Medalist, and UoPeople High Honors CS Graduate.",
+    "Official Portfolio of Assia Benkedia - AI & Full-Stack Developer, Kaggle Silver Medalist (Deep Past Challenge, 33rd/2,674), and UoPeople High Honors CS Graduate. Building cross-platform mobile apps and production systems across Fintech, AI Agents, and Web3.",
   keywords: [
     "Assia Benkedia",
     "Full-Stack Developer",
@@ -27,8 +28,31 @@ export const metadata: Metadata = {
     "Next.js",
     "TypeScript",
     "Fintech",
+    "EVM Smart Contracts",
+    "Prisma",
+    "Coolify",
   ],
   authors: [{ name: "Assia Benkedia" }],
+  openGraph: {
+    title: "Assia Benkedia | AI & Full-Stack Developer",
+    description:
+      "Kaggle Silver Medalist (33rd / 2,674), High Honors CS Graduate (GPA 3.97), and Full-Stack Developer at DizzitUp.",
+    type: "website",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1024,
+        height: 1024,
+        alt: "Assia Benkedia - AI & Full-Stack Developer Monogram",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Assia Benkedia | AI & Full-Stack Developer",
+    description: "Kaggle Silver Medalist, CS High Honors, Full-Stack & Mobile Developer.",
+    images: ["/og-image.jpg"],
+  },
 };
 
 export default function RootLayout({
@@ -40,6 +64,7 @@ export default function RootLayout({
     <html lang="en" className={plusJakarta.variable} suppressHydrationWarning>
       <head>
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="apple-touch-icon" href="/avatar.jpg" />
       </head>
       <body className="min-h-screen flex flex-col antialiased selection:bg-[#dd6e42]/20 selection:text-[#dd6e42] font-sans">
         {children}

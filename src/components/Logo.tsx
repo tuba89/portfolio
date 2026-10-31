@@ -60,3 +60,4 @@ export default function Logo({ size = 32, className = "" }: { size?: number; cla
     </svg>
   );
 }
+
