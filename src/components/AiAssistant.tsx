@@ -6,7 +6,7 @@ import {
   Send,
   Bot,
   RotateCcw,
-  ChevronDown,
+  X,
   Square,
   Mail,
   Download,
@@ -71,12 +71,58 @@ export default function AiAssistant() {
   const { lang, isRtl } = useLanguage();
   const idPrefix = useId();
   const [isOpen, setIsOpen] = useState(false);
+  const [isMinimized, setIsMinimized] = useState(false);
+  const [isScrolledDown, setIsScrolledDown] = useState(false);
   const [input, setInput] = useState("");
   const [isStreaming, setIsStreaming] = useState(false);
   const [hasError, setHasError] = useState(false);
   const [history, setHistory] = useState<ChatItem[]>([]);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const abortControllerRef = useRef<AbortController | null>(null);
+
+  // Auto-collapse to compact floating icon when user scrolls down
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > 200 && currentScrollY > lastScrollY + 8) {
+        setIsScrolledDown(true);
+      } else if (currentScrollY < lastScrollY - 8 || currentScrollY < 120) {
+        setIsScrolledDown(false);
+      }
+      lastScrollY = currentScrollY;
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Global event triggers and Escape key support
+  useEffect(() => {
+    const handleOpen = () => {
+      setIsOpen(true);
+      setIsMinimized(false);
+    };
+    const handleClose = () => setIsOpen(false);
+    const handleToggle = () => setIsOpen((prev) => !prev);
+
+    window.addEventListener("open-ai-assistant", handleOpen);
+    window.addEventListener("close-ai-assistant", handleClose);
+    window.addEventListener("toggle-ai-assistant", handleToggle);
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && isOpen) {
+        setIsOpen(false);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("open-ai-assistant", handleOpen);
+      window.removeEventListener("close-ai-assistant", handleClose);
+      window.removeEventListener("toggle-ai-assistant", handleToggle);
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isOpen]);
 
   const messageCounter = useRef(0);
   const getNextId = (prefix: string): string => {
@@ -429,34 +475,88 @@ export default function AiAssistant() {
 
   return (
     <>
-      {/* Floating Action Button (FAB) */}
+      {/* Backdrop for mobile when chat dialog is open */}
+      {isOpen && (
+        <div
+          onClick={() => setIsOpen(false)}
+          className="fixed inset-0 z-48 bg-black/40 backdrop-blur-xs sm:hidden animate-in fade-in duration-200"
+          aria-hidden="true"
+        />
+      )}
+
+      {/* Floating Action Button (FAB) with smooth minimize/toggle */}
       <div
         className={`fixed z-40 bottom-5 sm:bottom-6 ${
-          isRtl ? "left-5 sm:left-6" : "right-5 sm:right-6"
+          isRtl ? "left-4 sm:left-6" : "right-4 sm:right-6"
         } print:hidden transition-all duration-300`}
       >
         {!isOpen && (
-          <button
-            onClick={() => setIsOpen(true)}
-            className="group relative flex items-center gap-2.5 px-4 py-3 rounded-full bg-(--bg-surface) border border-(--accent-peach)/40 text-(--text-primary) shadow-xl hover:shadow-2xl hover:border-(--accent-peach) hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer overflow-hidden backdrop-blur-md"
-            aria-label={labels.fabTitle}
-          >
-            <span className="absolute inset-0 bg-linear-to-r from-amber-500/10 via-(--accent-peach)/15 to-sky-500/10 opacity-70 group-hover:opacity-100 transition-opacity" />
-
-            <div className="relative flex items-center justify-center w-7 h-7 rounded-full bg-linear-to-tr from-(--accent-peach) to-amber-500 text-white shadow-sm shrink-0">
-              <Sparkles className="w-4 h-4 animate-pulse" />
+          isMinimized || isScrolledDown ? (
+            /* Minimized sleek circular floating orb */
+            <div className="relative group">
+              <button
+                onClick={() => {
+                  setIsMinimized(false);
+                  setIsOpen(true);
+                }}
+                className="relative flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-(--bg-surface) border border-(--accent-peach)/50 text-(--text-primary) shadow-xl hover:shadow-2xl hover:border-(--accent-peach) hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer backdrop-blur-md group"
+                aria-label={labels.fabTitle}
+                title={labels.fabTitle}
+              >
+                <div className="relative flex items-center justify-center w-8 h-8 rounded-full bg-linear-to-tr from-(--accent-peach) to-amber-500 text-white shadow-sm shrink-0 group-hover:scale-105 transition-transform">
+                  <Sparkles className="w-4 h-4 animate-pulse" />
+                </div>
+                <span className="absolute top-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-500 border-2 border-(--bg-surface)" />
+              </button>
             </div>
+          ) : (
+            /* Full pill with subtle minimize button */
+            <div className="relative flex items-center group">
+              <div
+                onClick={() => setIsOpen(true)}
+                className="relative flex items-center gap-2.5 pl-3.5 pr-2 sm:pl-4 sm:pr-2.5 py-2.5 sm:py-3 rounded-full bg-(--bg-surface) border border-(--accent-peach)/40 text-(--text-primary) shadow-xl hover:shadow-2xl hover:border-(--accent-peach) hover:scale-102 active:scale-98 transition-all duration-200 cursor-pointer overflow-hidden backdrop-blur-md"
+                role="button"
+                tabIndex={0}
+                aria-label={labels.fabTitle}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    setIsOpen(true);
+                  }
+                }}
+              >
+                <span className="absolute inset-0 bg-linear-to-r from-amber-500/10 via-(--accent-peach)/15 to-sky-500/10 opacity-70 group-hover:opacity-100 transition-opacity pointer-events-none" />
 
-            <div className="relative flex flex-col items-start text-start">
-              <span className="text-xs font-semibold text-(--text-primary) flex items-center gap-1.5">
-                <span>{labels.fabShort}</span>
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              </span>
-              <span className="text-[10px] text-(--text-muted) hidden sm:inline-block">
-                Gemini AI
-              </span>
+                <div className="relative flex items-center justify-center w-7 h-7 rounded-full bg-linear-to-tr from-(--accent-peach) to-amber-500 text-white shadow-sm shrink-0">
+                  <Sparkles className="w-4 h-4 animate-pulse" />
+                </div>
+
+                <div className="relative flex flex-col items-start text-start mr-1">
+                  <span className="text-xs font-semibold text-(--text-primary) flex items-center gap-1.5 leading-tight">
+                    <span>{labels.fabShort}</span>
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                  </span>
+                  <span className="text-[10px] text-(--text-muted) hidden sm:inline-block leading-tight">
+                    Gemini AI
+                  </span>
+                </div>
+
+                {/* Subtle minimize button */}
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setIsMinimized(true);
+                  }}
+                  className="relative p-1 rounded-full text-(--text-muted) hover:text-(--text-primary) hover:bg-(--bg-page) transition-colors cursor-pointer"
+                  title="Minimize Ask AI"
+                  aria-label="Minimize Ask AI"
+                >
+                  <X className="w-3 h-3" />
+                </button>
+              </div>
             </div>
-          </button>
+          )
         )}
       </div>
 
@@ -500,8 +600,9 @@ export default function AiAssistant() {
                 onClick={() => setIsOpen(false)}
                 className="p-1.5 rounded-lg text-(--text-secondary) hover:text-(--text-primary) hover:bg-(--bg-surface-elevated) transition-colors cursor-pointer"
                 aria-label="Close Assistant"
+                title="Close Assistant"
               >
-                <ChevronDown className="w-4 h-4" />
+                <X className="w-4 h-4" />
               </button>
             </div>
           </div>

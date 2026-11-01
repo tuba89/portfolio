@@ -18,7 +18,7 @@ export default function Footer() {
       {/* 3D Modern Subtle Gradient Divider across Top of Footer */}
       <div className="gradient-divider-top" />
 
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 py-10 flex flex-col sm:flex-row items-center justify-between gap-5">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 pt-10 pb-28 sm:py-10 flex flex-col sm:flex-row items-center justify-between gap-6 sm:gap-5 text-center sm:text-start">
         <div>
           <div className="font-semibold text-xs text-(--text-primary)">
             {t.personal.name}
@@ -26,7 +26,7 @@ export default function Footer() {
           <div className="mt-0.5 text-[11px] text-(--text-muted)">
             {t.footer.rights}
           </div>
-          <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] text-(--text-muted)">
+          <div className="mt-2.5 flex flex-wrap items-center justify-center sm:justify-start gap-x-3 gap-y-1 text-[11px] text-(--text-muted)">
             <Link
               href="/privacy"
               className="hover:text-(--accent-peach) transition-colors underline-offset-2 hover:underline"
@@ -52,7 +52,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex flex-wrap items-center justify-center sm:justify-end gap-2.5 sm:gap-3 w-full sm:w-auto">
           {/* Kaggle Colored */}
           <a
             href={PERSONAL_INFO.kaggle}

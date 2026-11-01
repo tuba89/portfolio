@@ -5,7 +5,7 @@ import Link from "next/link";
 import ThemeToggle from "./ThemeToggle";
 import LanguageSwitcher from "./LanguageSwitcher";
 import Logo from "./Logo";
-import { FileText, Menu, X } from "lucide-react";
+import { FileText, Menu, X, Sparkles } from "lucide-react";
 import { ColoredGithubIcon, ColoredLinkedinIcon, ColoredKaggleIcon } from "./Icons";
 import { PERSONAL_INFO } from "@/data/portfolioData";
 import { useLanguage } from "@/context/LanguageContext";
@@ -132,6 +132,16 @@ export default function Navbar() {
           {/* Divider */}
           <div className="h-5 w-px bg-(--border-strong) hidden md:block mx-0.5 opacity-60" />
 
+          {/* Ask AI Trigger Button */}
+          <button
+            onClick={() => window.dispatchEvent(new CustomEvent("open-ai-assistant"))}
+            className="hidden lg:inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-(--accent-peach)/40 bg-(--accent-peach-light) text-(--accent-peach) hover:bg-(--accent-peach) hover:text-white transition-all text-xs font-semibold cursor-pointer shadow-xs"
+            title="Ask Assia's AI Copilot"
+          >
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>Ask AI</span>
+          </button>
+
           {/* Language Switcher */}
           <LanguageSwitcher />
 
@@ -199,7 +209,19 @@ export default function Navbar() {
               {t.nav.contact}
             </a>
 
-            <div className="pt-3 border-t border-(--border-subtle) flex flex-col gap-3">
+            <div className="pt-3 border-t border-(--border-subtle) flex flex-col gap-2.5">
+              {/* Mobile Ask AI Trigger */}
+              <button
+                onClick={() => {
+                  closeMobileMenu();
+                  window.dispatchEvent(new CustomEvent("open-ai-assistant"));
+                }}
+                className="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl border border-(--accent-peach)/40 bg-(--accent-peach-light) text-(--accent-peach) font-semibold text-xs transition-all cursor-pointer shadow-xs"
+              >
+                <Sparkles className="w-4 h-4 text-(--accent-peach)" />
+                <span>Ask Assia&apos;s AI Copilot (Gemini)</span>
+              </button>
+
               <a
                 href="/certificates/Assia_Benkedia_Resume.pdf"
                 target="_blank"

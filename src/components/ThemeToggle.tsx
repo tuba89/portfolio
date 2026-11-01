@@ -12,12 +12,13 @@ const subscribeTheme = (callback: () => void) => {
 };
 
 const getThemeSnapshot = () => {
+  if (typeof window === "undefined") return true;
   const savedTheme = localStorage.getItem("theme");
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  return savedTheme === "dark" || (!savedTheme && prefersDark);
+  if (savedTheme === "light") return false;
+  return true; // Default dark
 };
 
-const getServerSnapshot = () => false;
+const getServerSnapshot = () => true; // Default dark on server
 
 export default function ThemeToggle() {
   const { t } = useLanguage();
@@ -26,13 +27,21 @@ export default function ThemeToggle() {
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", isDark);
+    document.documentElement.style.colorScheme = isDark ? "dark" : "light";
   }, [isDark]);
 
   const toggleTheme = () => {
+    // Enable smooth transition only upon user-initiated toggle
+    document.documentElement.classList.add("theme-transitioning");
     const nextDark = !isDark;
     localStorage.setItem("theme", nextDark ? "dark" : "light");
     document.documentElement.classList.toggle("dark", nextDark);
+    document.documentElement.style.colorScheme = nextDark ? "dark" : "light";
     window.dispatchEvent(new Event("storage"));
+
+    setTimeout(() => {
+      document.documentElement.classList.remove("theme-transitioning");
+    }, 300);
   };
 
   if (!mounted) {
@@ -45,7 +54,7 @@ export default function ThemeToggle() {
     <button
       onClick={toggleTheme}
       aria-label="Toggle theme"
-      className="p-1.5 sm:px-2.5 sm:py-1.5 rounded-lg border border-(--border-strong) bg-(--bg-surface) text-(--text-primary) hover:border-(--accent-peach) hover:text-(--accent-peach) transition-all duration-200 shadow-sm flex items-center gap-1.5 group cursor-pointer"
+      className="p-1.5 sm:px-2.5 sm:py-1.5 rounded-lg border border-(--border-strong) bg-(--bg-surface) text-(--text-primary) hover:border-(--accent-peach) hover:text-(--accent-peach) transition-colors duration-200 shadow-sm flex items-center gap-1.5 group cursor-pointer"
       title={isDark ? t.theme.toggleTitleLight : t.theme.toggleTitleDark}
     >
       {isDark ? (

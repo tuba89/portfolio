@@ -78,3 +78,4 @@ export default async function LocalizedPage({ params }: Props) {
 
   return <PortfolioHome initialLang={lang as Language} />;
 }
+

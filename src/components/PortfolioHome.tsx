@@ -37,3 +37,4 @@ export default function PortfolioHome({ initialLang }: { initialLang?: Language 
     </LanguageProvider>
   );
 }
+
