@@ -220,6 +220,9 @@ export interface Translations {
   footer: {
     rights: string;
     backToTop: string;
+    privacy: string;
+    terms: string;
+    sitemap: string;
   };
 }
 
@@ -870,6 +873,9 @@ export const TRANSLATIONS: Record<Language, Translations> = {
     footer: {
       rights: "Full-Stack & Mobile Developer - Oran, Algeria - © 2026 All rights reserved.",
       backToTop: "Back to top",
+      privacy: "Privacy Policy",
+      terms: "Terms of Use",
+      sitemap: "Sitemap",
     },
   },
 
@@ -1519,6 +1525,9 @@ export const TRANSLATIONS: Record<Language, Translations> = {
     footer: {
       rights: "Développeuse Full-Stack & Mobile - Oran, Algérie - © 2026 Tous droits réservés.",
       backToTop: "Haut de page",
+      privacy: "Politique de confidentialité",
+      terms: "Conditions d'utilisation",
+      sitemap: "Plan du site",
     },
   },
 
@@ -2168,6 +2177,9 @@ export const TRANSLATIONS: Record<Language, Translations> = {
     footer: {
       rights: "مطورة أنظمة متكاملة وتطبيقات هواتف - وهران، الجزائر - © 2026 جميع الحقوق محفوظة.",
       backToTop: "العودة للأعلى",
+      privacy: "سياسة الخصوصية",
+      terms: "شروط الاستخدام",
+      sitemap: "خريطة الموقع",
     },
   },
 };

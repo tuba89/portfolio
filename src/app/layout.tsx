@@ -22,8 +22,11 @@ const ibmArabic = IBM_Plex_Sans_Arabic({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://assiabenkedia.com"),
-  title: "Assia Benkedia | AI & Full-Stack Developer",
+  metadataBase: new URL("https://assiabenkedia.dev"),
+  title: {
+    default: "Assia Benkedia | AI & Full-Stack Developer",
+    template: "%s | Assia Benkedia",
+  },
   description:
     "Official Portfolio of Assia Benkedia - AI & Full-Stack Developer, Kaggle Silver Medalist (Deep Past Challenge, 33rd/2,674), and UoPeople High Honors CS Graduate. Building cross-platform mobile apps and production systems across Fintech, AI Agents, and Web3.",
   keywords: [
@@ -37,6 +40,7 @@ export const metadata: Metadata = {
     "Kaggle Silver Medalist",
     "DizzitUp",
     "LIVORA",
+    "OncoAssist",
     "Next.js",
     "TypeScript",
     "Fintech",
@@ -44,12 +48,38 @@ export const metadata: Metadata = {
     "Prisma",
     "Coolify",
   ],
-  authors: [{ name: "Assia Benkedia" }],
+  authors: [{ name: "Assia Benkedia", url: "https://assiabenkedia.dev" }],
+  creator: "Assia Benkedia",
+  publisher: "Assia Benkedia",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: "https://assiabenkedia.dev",
+    languages: {
+      en: "https://assiabenkedia.dev",
+      fr: "https://assiabenkedia.dev/fr",
+      ar: "https://assiabenkedia.dev/ar",
+      "x-default": "https://assiabenkedia.dev",
+    },
+  },
   openGraph: {
     title: "Assia Benkedia | AI & Full-Stack Developer",
     description:
       "Kaggle Silver Medalist (33rd / 2,674), High Honors CS Graduate (GPA 3.97), and Full-Stack Developer at DizzitUp.",
+    url: "https://assiabenkedia.dev",
+    siteName: "Assia Benkedia Portfolio",
     type: "website",
+    locale: "en_US",
+    alternateLocale: ["fr_FR", "ar_AR"],
     images: [
       {
         url: "/og-image.webp",
@@ -65,6 +95,9 @@ export const metadata: Metadata = {
     description: "Kaggle Silver Medalist, CS High Honors, Full-Stack & Mobile Developer.",
     images: ["/og-image.webp"],
   },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
+  },
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },
@@ -76,6 +109,46 @@ export const metadata: Metadata = {
   },
 };
 
+const personStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Assia Benkedia",
+  alternateName: ["بن كدية اسيا", "Assia Ben Kedia"],
+  url: "https://assiabenkedia.dev",
+  image: "https://assiabenkedia.dev/avatar.jpg",
+  jobTitle: "Full-Stack, Mobile & AI Engineer",
+  worksFor: {
+    "@type": "Organization",
+    name: "DizzitUp",
+  },
+  alumniOf: {
+    "@type": "CollegeOrUniversity",
+    name: "University of the People",
+  },
+  award: [
+    "Kaggle Silver Medalist - Deep Past Challenge (33rd / 2,674 international teams)",
+    "Google Gen AI Intensive Capstone Honourable Mention - OncoAssist",
+  ],
+  sameAs: [
+    "https://www.linkedin.com/in/assia-benkedia",
+    "https://github.com/tuba89",
+    "https://www.kaggle.com/assiaben",
+    "https://medium.com/@iiiassia.beniii",
+  ],
+  knowsAbout: [
+    "React Native",
+    "Expo",
+    "Full-Stack Development",
+    "Next.js",
+    "Agentic AI",
+    "Gemini API",
+    "TypeScript",
+    "Fintech",
+    "EVM Smart Contracts",
+    "Machine Learning",
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -84,8 +157,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${plusJakarta.variable} ${ibmArabic.variable}`} suppressHydrationWarning>
       <head>
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="apple-touch-icon" href="/avatar.jpg" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personStructuredData) }}
+        />
       </head>
       <body className="min-h-screen flex flex-col antialiased selection:bg-[#dd6e42]/20 selection:text-[#dd6e42] font-sans">
         {children}

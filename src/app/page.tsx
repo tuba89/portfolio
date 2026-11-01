@@ -1,38 +1,31 @@
-"use client";
+import type { Metadata } from "next";
+import PortfolioHome from "@/components/PortfolioHome";
 
-import { LanguageProvider } from "@/context/LanguageContext";
-import Navbar from "@/components/Navbar";
-import HeroSection from "@/components/HeroSection";
-import FeaturedProjects from "@/components/FeaturedProjects";
-import KaggleAndHonors from "@/components/KaggleAndHonors";
-import ExperienceTimeline from "@/components/ExperienceTimeline";
-import EducationSection from "@/components/EducationSection";
-import CertificationsGrid from "@/components/CertificationsGrid";
-import SkillsSection from "@/components/SkillsSection";
-import OtherProjects from "@/components/OtherProjects";
-import ContactSection from "@/components/ContactSection";
-import Footer from "@/components/Footer";
-import AiAssistant from "@/components/AiAssistant";
+export const metadata: Metadata = {
+  title: "Assia Benkedia | AI & Full-Stack Developer",
+  description:
+    "Official Portfolio of Assia Benkedia - AI & Full-Stack Developer, Kaggle Silver Medalist (Deep Past Challenge, 33rd/2,674), and UoPeople High Honors CS Graduate. Building cross-platform mobile apps and production systems across Fintech, AI Agents, and Web3.",
+  alternates: {
+    canonical: "https://assiabenkedia.dev",
+    languages: {
+      en: "https://assiabenkedia.dev",
+      fr: "https://assiabenkedia.dev/fr",
+      ar: "https://assiabenkedia.dev/ar",
+      "x-default": "https://assiabenkedia.dev",
+    },
+  },
+  openGraph: {
+    title: "Assia Benkedia | AI & Full-Stack Developer",
+    description:
+      "Kaggle Silver Medalist (33rd / 2,674), High Honors CS Graduate (GPA 3.97), and Full-Stack Developer at DizzitUp.",
+    url: "https://assiabenkedia.dev",
+    siteName: "Assia Benkedia Portfolio",
+    locale: "en_US",
+    alternateLocale: ["fr_FR", "ar_AR"],
+    type: "website",
+  },
+};
 
 export default function Home() {
-  return (
-    <LanguageProvider>
-      <div className="flex flex-col min-h-screen">
-        <Navbar />
-        <main className="grow">
-          <HeroSection />
-          <FeaturedProjects />
-          <KaggleAndHonors />
-          <ExperienceTimeline />
-          <EducationSection />
-          <CertificationsGrid />
-          <SkillsSection />
-          <OtherProjects />
-          <ContactSection />
-        </main>
-        <Footer />
-        <AiAssistant />
-      </div>
-    </LanguageProvider>
-  );
+  return <PortfolioHome initialLang="en" />;
 }

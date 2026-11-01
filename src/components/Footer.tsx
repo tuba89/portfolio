@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { ArrowUp, Mail } from "lucide-react";
 import { ColoredGithubIcon, ColoredLinkedinIcon, ColoredKaggleIcon } from "./Icons";
 import { PERSONAL_INFO } from "@/data/portfolioData";
@@ -24,6 +25,30 @@ export default function Footer() {
           </div>
           <div className="mt-0.5 text-[11px] text-(--text-muted)">
             {t.footer.rights}
+          </div>
+          <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] text-(--text-muted)">
+            <Link
+              href="/privacy"
+              className="hover:text-(--accent-peach) transition-colors underline-offset-2 hover:underline"
+            >
+              {t.footer.privacy}
+            </Link>
+            <span aria-hidden="true">•</span>
+            <Link
+              href="/terms"
+              className="hover:text-(--accent-peach) transition-colors underline-offset-2 hover:underline"
+            >
+              {t.footer.terms}
+            </Link>
+            <span aria-hidden="true">•</span>
+            <a
+              href="/sitemap.xml"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-(--accent-peach) transition-colors underline-offset-2 hover:underline"
+            >
+              {t.footer.sitemap}
+            </a>
           </div>
         </div>
 
