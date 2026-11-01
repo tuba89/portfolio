@@ -65,6 +65,15 @@ export const metadata: Metadata = {
     description: "Kaggle Silver Medalist, CS High Honors, Full-Stack & Mobile Developer.",
     images: ["/og-image.webp"],
   },
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
 };
 
 export default function RootLayout({
