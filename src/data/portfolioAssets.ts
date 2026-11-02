@@ -20,7 +20,7 @@ export const FEATURED_PROJECT_ASSETS: Record<string, ProjectAssetData> = {
   },
   "cross-platform-mobile-marketplace": {
     isMobileMockup: true,
-    coverImage: "/images/mobile-screens/mobile-home-wallet.webp",
+    coverImage: "/assets/mobileApp/1-HomeScreen.webp",
     alt: {
       en: "Cross-platform React Native Expo mobile marketplace running in native device frame",
       fr: "Application mobile marketplace React Native Expo dans un cadre mobile",
